@@ -1,0 +1,296 @@
+/* ── HERO ─────────────────────────── */
+
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  background: var(--teal);
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  overflow: hidden;
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  max-width: 1100px;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-left {
+  flex: 1;
+  text-align: left;
+}
+
+.hero-right {
+  flex-shrink: 0;
+  width: 420px;
+}
+
+.hero-eyebrow {
+  font-size: 24px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 16px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 55% 65% at 85% 15%, rgba(200, 240, 96, 0.28) 0%, transparent 70%),
+              radial-gradient(ellipse 50% 60% at 10% 85%, rgba(255, 107, 71, 0.22) 0%, transparent 70%);
+}
+
+.hero-desc {
+  font-size: 20px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.8);
+  margin: 0 0 48px;
+}
+
+/* ── BADGE ─────────────────────────── */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(200,240,96,0.15);
+  border: 1px solid rgba(200,240,96,0.4);
+  color: var(--lime);
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 32px;
+  animation: fadeUp 0.8s ease both;
+}
+.badge::before { content: '●'; font-size: 8px; animation: pulse 2s infinite; }
+
+/* ── ANIMATIONEN ─────────────────────────── */
+
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── TYPOGRAFIE HERO ─────────────────────────── */
+
+h1 {
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 1.05;
+  color: #fff;
+  margin-bottom: 24px;
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+
+/* ── DATUM-ZEILE ─────────────────────────── */
+
+.date-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 32px;
+  animation: fadeUp 0.8s ease 0.4s both;
+}
+
+.date-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.date-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(200,240,96,0.6);
+}
+
+.date-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.divider-v {
+  width: 1px;
+  background: rgba(255,255,255,0.15);
+  align-self: stretch;
+}
+
+/* ── ANMELDEFORMULAR ─────────────────────────── */
+
+.form-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 24px;
+  padding: 40px 36px;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.25);
+  animation: fadeUp 0.8s ease 0.3s both;
+}
+
+.form-card-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 8px;
+}
+
+.form-card-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 28px;
+}
+
+.form-card-note {
+  font-size: 12px;
+  color: #aaa;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.form-card a {
+  text-decoration: none;
+}
+
+/* Felder */
+
+.webinar-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.webinar-form label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dark);
+  letter-spacing: 0.02em;
+}
+
+.webinar-form input[type="text"],
+.webinar-form input[type="email"] {
+  padding: 13px 16px;
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: var(--dark);
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.webinar-form input[type="text"]:focus,
+.webinar-form input[type="email"]:focus {
+  border-color: var(--teal);
+}
+
+.webinar-form input.invalid {
+  border-color: #e74c3c;
+}
+
+.field-error {
+  font-size: 12px;
+  color: #e74c3c;
+  min-height: 16px;
+}
+
+/* Honeypot */
+
+.form-hp {
+  position: absolute;
+  left: -9999px;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+/* Datenschutz-Checkbox */
+
+.form-group--checkbox {
+  margin-top: 4px;
+}
+
+.checkbox-label {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  cursor: pointer;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-top: 2px;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--teal);
+  cursor: pointer;
+}
+
+.form-link {
+  color: var(--teal);
+  text-decoration: underline;
+}
+
+/* Submit-Button */
+
+.btn-submit {
+  width: 100%;
+  padding: 16px;
+  margin-top: 8px;
+  background: var(--lime);
+  color: var(--dark);
+  border: none;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background: #c8e87a;
+  transform: translateY(-2px);
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Status-Meldung */
+
+.form-status {
+  font-size: 14px;
+  text-align: center;
+  min-height: 20px;
+  margin-top: 10px;
+}
+
+.form-status.success { color: #27ae60; }
+.form-status.error   { color: #e74c3c; }

@@ -1,0 +1,112 @@
+/* ── RESPONSIVE ─────────────────────────── */
+
+@media (max-width: 900px) {
+  /* Hero: einspaltig stapeln */
+  .hero {
+    padding-top: 100px;
+    padding-bottom: 64px;
+    min-height: auto;
+  }
+
+  .hero-inner {
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    padding: 0 24px;
+  }
+
+  .hero-left {
+    text-align: center;
+  }
+
+  .badge {
+    margin: 0 auto 32px;
+  }
+
+  .date-row {
+    justify-content: center;
+  }
+
+  .hero-right {
+    width: 100%;
+  }
+
+  .form-card {
+    padding: 32px 24px;
+  }
+  
+  .section, .agenda-section, .forwhom-section, .testimonials-section { 
+    padding: 64px 24px; 
+  }
+  
+  .benefits-grid { 
+    grid-template-columns: 1fr 1fr; 
+  }
+  
+  nav { 
+    padding: 0; 
+  }
+
+  footer { 
+    flex-direction: column; 
+    gap: 12px; text-align: center; 
+    padding: 32px; 
+  }
+  
+  .stats-row { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  .benefits-grid { 
+    grid-template-columns: 1fr; 
+  }
+
+  .stats-row { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  .date-row {
+    gap: 16px; 
+  }
+
+  .nav-items { 
+    gap: 16px; 
+  }
+
+  /* Horizontaler Scroll fuer Testimonials */
+  .testimonials-section {
+    overflow-x: auto;
+    padding-left: 0;
+    padding-right: 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--teal) rgba(0,0,0,0.08);
+  }
+
+  .testimonials-section::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .testimonials-section::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.06);
+    border-radius: 4px;
+  }
+
+  .testimonials-section::-webkit-scrollbar-thumb {
+    background: var(--teal);
+    border-radius: 4px;
+  }
+
+  .testimonials-grid {
+    flex-wrap: nowrap;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding: 0 24px 20px;
+  }
+
+  .testimonial-card {
+    min-width: 300px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+}

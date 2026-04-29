@@ -1,0 +1,181 @@
+@media (min-width: 1024px) {
+  .d-flex {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .d-flex .box {
+    flex: 1;
+  }
+
+  .about-me {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+  }
+}
+
+@media (min-width: 820px) {
+  /* Nav */
+  .hamburger {
+    display: none;
+  }
+
+  .about-me-photo {
+    align-self: center;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 40px 80px;
+  }
+}
+
+@media (min-width: 819px) and (max-width: 1023px) {
+  .hero-inner {
+    gap: 32px;
+  }
+
+  .d-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .box {
+    width: 90%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 819px) {
+  /* Nav */
+  nav .btn-primary {
+    display: none;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 32px 0;
+    background: rgba(26, 26, 46, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  /* Hero */
+  .hero {
+    padding-top: 120px;
+    padding-bottom: 48px;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .hero-inner {
+    flex-direction: column-reverse;
+    gap: 32px;
+  }
+
+  .hero-image-wrap {
+    flex: none;
+    width: 100%;
+  }
+
+  .hero-title {
+    text-align: center;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .hero-desc {
+    font-size: 20px;
+    align-self: center;
+  }
+
+  .hero-btns {
+    justify-content: center;
+  }
+
+  /* Feature cards */
+  .d-flex {
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 16px;
+  }
+
+  .box {
+    width: 100%;
+  }
+
+  .about-me-photo {
+    align-self: center;
+  }
+
+  /* Footer */
+  footer {
+    padding: 24px 16px;
+  }
+}
+
+@media(max-width: 600px){
+  .div-logo {
+    display: none;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  li {
+    word-break: break-all;
+  }
+
+  .seal {
+    text-align: center;
+  }
+}
+
+@media(max-width: 400px){
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  footer {
+    padding: 24px 4px;
+  }
+}

@@ -1,0 +1,155 @@
+/* ── GEMEINSAME SEKTIONS-STYLES ─────────────────────────── */
+
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px 24px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--dark);
+  margin-bottom: 20px;
+}
+
+.section-intro {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 64px;
+}
+
+/* ── BENEFITS ─────────────────────────── */
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: left;
+}
+
+.benefit-card {
+  background: var(--teal);
+  border-radius: 20px;
+  padding: 36px 32px;
+  border: 1.5px solid rgba(0,0,0,0.06);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--lime);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+  transform-origin: left;
+}
+
+.benefit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  border-color: rgba(13,92,99,0.15);
+}
+.benefit-card:hover::before { transform: scaleX(1); }
+
+.benefit-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.benefit-card p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: white;
+}
+
+/* ── AGENDA ─────────────────────────── */
+
+.agenda-section {
+  padding: 100px 24px;
+  background: var(--teal);
+  position: relative;
+  overflow: hidden;
+}
+
+.agenda-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 60% at 80% 50%, rgba(13,92,99,0.4) 0%, transparent 70%);
+}
+
+.agenda-section h2 {
+  color: #fff;
+  text-align: center;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.agenda-section .section-intro {
+  color: rgba(255,255,255,0.5);
+}
+
+.agenda-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.agenda-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.agenda-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 24px;
+  align-items: start;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: padding-left 0.3s;
+  cursor: default;
+}
+
+.agenda-item:hover { padding-left: 8px; }
+.agenda-item:last-child { border-bottom: none; }
+
+.agenda-time {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--lime);
+  opacity: 0.7;
+  padding-top: 4px;
+  letter-spacing: 0.04em;
+}
+
+.agenda-content h4 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.agenda-content p {
+  font-size: 17px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+}

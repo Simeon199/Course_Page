@@ -1,0 +1,337 @@
+*{
+  font-family: 'DM Sans';
+}
+
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-inline: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.about-the-course {
+  margin: 0 auto;
+  padding-bottom: 32px;
+  padding-top: 32px;
+  width: 90%;
+  max-width: 900px;
+}
+
+.about-the-course h2 {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.about-me {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.about-me h2 {
+  text-align: left;
+  border-bottom: 3px solid var(--lime);
+  padding-bottom: 16px;
+}
+
+.about-me-photo {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--lime);
+  flex-shrink: 0;
+}
+
+/* Utility */
+.background-dark {
+  background: var(--teal);
+}
+
+.background-light {
+  background: var(--cream);
+}
+
+.title-light {
+  color: white;
+}
+
+.title-dark {
+  color: black;
+}
+
+.generic-p {
+  font-size: 18px;
+}
+
+.generic-h2 {
+  text-align: center;
+  font-size: 32px;
+}
+
+.generic-h3 {
+  text-align: center;
+  font-size: 24px;
+}
+
+.button-width {
+  width: 50%;
+  max-width: 224px;
+}
+
+/* Info block */
+.info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-block p {
+  font-size: 24px;
+  border-left: 3px solid var(--lime);
+  padding-left: 20px;
+}
+
+/* Boxes */
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 28px;
+  margin: 8px auto;
+  border-radius: 16px;
+  border: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.box:hover {
+  transform: translateY(-4px);
+}
+
+.box.background-dark {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.box.background-dark:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+}
+
+.box.background-light {
+  box-shadow: 0 2px 16px rgba(13, 92, 99, 0.10);
+}
+
+.box.background-light:hover {
+  box-shadow: 0 10px 32px rgba(13, 92, 99, 0.20);
+}
+
+.d-flex .box {
+  border-top: 3px solid var(--lime);
+}
+
+/* Testimonials */
+.testimonial::before {
+  content: '\201C';
+  font-size: 72px;
+  line-height: 1;
+  color: var(--lime);
+  font-weight: 700;
+  display: block;
+  margin-bottom: -8px;
+}
+
+/* Pricing */
+#pricing .about-the-course {
+  text-align: center;
+}
+
+.pricing-grid {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+}
+
+.pricing-card {
+  flex: 1;
+  min-width: 300px;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 48px;
+}
+
+.pricing-card.featured {
+  border-top: 5px solid var(--lime);
+  box-shadow: 0 16px 56px rgba(13, 92, 99, 0.28);
+  background: linear-gradient(160deg, #ffffff 0%, #f0f7e6 100%);
+}
+
+.pricing-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.featured-label {
+  display: inline-block;
+  background: var(--lime);
+  color: var(--teal);
+  padding: 4px 12px;
+  border-radius: 100px;
+  letter-spacing: 1.5px;
+}
+
+.pricing-price {
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--teal);
+}
+
+.pricing-period {
+  font-size: 15px;
+  color: var(--mid);
+}
+
+.pricing-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  margin-bottom: 8px;
+}
+
+.pricing-features li {
+  font-size: 15px;
+  color: var(--teal);
+}
+
+.pricing-features li::before {
+  content: '✓';
+  font-weight: 700;
+  color: var(--lime);
+  margin-right: 10px;
+}
+
+/* Contact */
+.contact-section {
+  position: relative;
+  background-image: url('https://placehold.co/1920x600/0D5C63/B5D46D?text=Hintergrundbild');
+  background-size: cover;
+  background-position: center;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 92, 99, 0.78);
+}
+
+.contact-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 64px 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Footer */
+footer {
+  background: var(--dark);
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.footer-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+/* Animations */
+@keyframes slamIn {
+  0% { transform: scale(2) translateY(-100px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.animate-slam {
+  animation: slamIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+}
+
+.reveal-left.active,
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
