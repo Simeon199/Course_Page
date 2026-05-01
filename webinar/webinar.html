@@ -24,10 +24,10 @@
             <a href="#main">Rein Campus</a>
         </div>
         <div class="nav-links">
-            <a href="#kurs">Inhalte</a>
-            <a href="#pricing">Ablauf</a>
-            <a href="#faq">Warum Jetzt</a>
-            <a href="#ueber-uns">Stimmen</a>
+            <a href="#vorteile">Inhalte</a>
+            <a href="#ablauf">Ablauf</a>
+            <a href="#warum">Warum Jetzt</a>
+            <a href="#stimmen">Stimmen</a>
         </div>
         <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
             <span></span>
@@ -38,278 +38,254 @@
   </nav>
 
 <!-- HERO -->
-<section class="hero" id="start">
-  <div class="webinar-hero-inner">
+  <section class="hero" id="start">
+    <div class="webinar-hero-inner">
 
-    <div class="hero-left">
-      <!-- <div class="badge">Kostenloses Webinar</div> -->
-      <!-- <h1>Wie Kinder wirklich lernen zu lernen</h1> -->
-      <!-- <p class="webinar-hero-desc">
-        Entdecken Sie unser neues Online-Tool, das Schülerinnen und Schüler spielerisch mit den wichtigsten Lernstrategien vertraut macht – wissenschaftlich fundiert, motivierend und einfach in den Alltag integrierbar.
-      </p> -->
-      <!-- <div class="date-row">
-        <div class="date-item">
-          <span class="date-label">Datum</span>
-          <span class="date-value">15. April 2025</span>
-        </div>
-        <div class="divider-v"></div>
-        <div class="date-item">
-          <span class="date-label">Uhrzeit</span>
-          <span class="date-value">19:00 Uhr</span>
-        </div>
-        <div class="divider-v"></div>
-        <div class="date-item">
-          <span class="date-label">Dauer</span>
-          <span class="date-value">ca. 60 Min.</span>
-        </div>
-      </div>
-    </div> -->
+      <div class="hero-right">
+        <div class="form-card">
+          <h1>Wie Kinder wirklich lernen zu lernen</h1>
+          <h2 class="form-card-title">Sichern Sie sich ganz kostenlos und unverbindlich ihren Webinarplatz</h2>
+          <p class="webinar-hero-desc">
+            Entdecken Sie unser neues Online-Tool, das Schülerinnen und Schüler spielerisch mit den wichtigsten Lernstrategien vertraut macht – wissenschaftlich fundiert, motivierend und einfach in den Alltag integrierbar.
+          </p>
+          <a href="https://join.next.edudip.com/de/webinar/testwebinar/2653374" target="_blank" rel="noopener noreferrer" class="btn-submit btn-webinar-link">
+            Jetzt am Webinar teilnehmen
+          </a>
 
-    <div class="hero-right">
-      <div class="form-card">
-        <!-- <p class="form-card-eyebrow">Kostenlos & unverbindlich</p> -->
-        <h1>Wie Kinder wirklich lernen zu lernen</h1>
-        <h2 class="form-card-title">Sichern Sie sich ganz kostenlos und unverbindlich ihren Webinarplatz</h2>
-        <p class="webinar-hero-desc">
-          Entdecken Sie unser neues Online-Tool, das Schülerinnen und Schüler spielerisch mit den wichtigsten Lernstrategien vertraut macht – wissenschaftlich fundiert, motivierend und einfach in den Alltag integrierbar.
-        </p>
-        <a href="https://join.next.edudip.com/de/webinar/testwebinar/2653374" target="_blank" rel="noopener noreferrer" class="btn-submit btn-webinar-link">
-          Jetzt am Webinar teilnehmen
-        </a>
+          <!-- <form id="webinar-form" class="webinar-form" novalidate style="display: none;">
 
-        <form id="webinar-form" class="webinar-form" novalidate style="display: none;">
+            <div class="form-group">
+              <label for="firstName">Vorname</label>
+              <input type="text" id="firstName" name="firstName" required maxlength="50" autocomplete="given-name" placeholder="z. B. Anna">
+              <span class="field-error" data-for="firstName"></span>
+            </div>
 
-          <div class="form-group">
-            <label for="firstName">Vorname</label>
-            <input type="text" id="firstName" name="firstName" required maxlength="50" autocomplete="given-name" placeholder="z. B. Anna">
-            <span class="field-error" data-for="firstName"></span>
-          </div>
+            <div class="form-group">
+              <label for="lastName">Nachname</label>
+              <input type="text" id="lastName" name="lastName" required maxlength="50" autocomplete="family-name" placeholder="z. B. Müller">
+              <span class="field-error" data-for="lastName"></span>
+            </div>
 
-          <div class="form-group">
-            <label for="lastName">Nachname</label>
-            <input type="text" id="lastName" name="lastName" required maxlength="50" autocomplete="family-name" placeholder="z. B. Müller">
-            <span class="field-error" data-for="lastName"></span>
-          </div>
+            <div class="form-group">
+              <label for="email">E-Mail-Adresse</label>
+              <input type="email" id="email" name="email" required maxlength="100" autocomplete="email" placeholder="ihre@email.de">
+              <span class="field-error" data-for="email"></span>
+            </div>
 
-          <div class="form-group">
-            <label for="email">E-Mail-Adresse</label>
-            <input type="email" id="email" name="email" required maxlength="100" autocomplete="email" placeholder="ihre@email.de">
-            <span class="field-error" data-for="email"></span>
-          </div>
+            <div class="form-hp" aria-hidden="true">
+              <label for="website">Website</label>
+              <input type="text" id="website" name="website" autocomplete="off" tabindex="-1">
+            </div>
 
-          <!-- Honeypot: unsichtbar für echte Nutzer, Bots füllen es aus -->
-          <div class="form-hp" aria-hidden="true">
-            <label for="website">Website</label>
-            <input type="text" id="website" name="website" autocomplete="off" tabindex="-1">
-          </div>
+            <div class="form-group form-group--checkbox">
+              <label class="checkbox-label">
+                <input type="checkbox" id="privacy" name="privacy" required>
+                <span>Ich habe die <a href="#" class="form-link">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Webinar-Anmeldung zu.</span>
+              </label>
+              <span class="field-error" data-for="privacy"></span>
+            </div>
 
-          <div class="form-group form-group--checkbox">
-            <label class="checkbox-label">
-              <input type="checkbox" id="privacy" name="privacy" required>
-              <span>Ich habe die <a href="#" class="form-link">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Webinar-Anmeldung zu.</span>
-            </label>
-            <span class="field-error" data-for="privacy"></span>
-          </div>
+            <button type="submit" id="submit-btn" class="btn-submit">
+              Kostenlos anmelden
+            </button>
 
-          <button type="submit" id="submit-btn" class="btn-submit">
-            Kostenlos anmelden
-          </button>
+            <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
 
-          <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+          </form> -->
 
-        </form>
-
-        <div class="date-row">
-          <div class="date-item">
-            <span class="date-label">Datum</span>
-            <span class="date-value">15. April 2025</span>
-          </div>
-          <div class="divider-v"></div>
-          <div class="date-item">
-            <span class="date-label">Uhrzeit</span>
-            <span class="date-value">19:00 Uhr</span>
-          </div>
-          <div class="divider-v"></div>
-          <div class="date-item">
-            <span class="date-label">Dauer</span>
-            <span class="date-value">ca. 60 Min.</span>
+          <div class="date-row">
+            <div class="date-item">
+              <span class="date-label">Datum</span>
+              <span class="date-value">15. April 2025</span>
+            </div>
+            <div class="divider-v"></div>
+            <div class="date-item">
+              <span class="date-label">Uhrzeit</span>
+              <span class="date-value">19:00 Uhr</span>
+            </div>
+            <div class="divider-v"></div>
+            <div class="date-item">
+              <span class="date-label">Dauer</span>
+              <span class="date-value">ca. 60 Min.</span>
+            </div>
           </div>
         </div>
-      </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- BENEFITS -->
-<section class="section" id="vorteile">
-  <h2>Beim Webinar lernen Sie…</h2>
-  <p class="section-intro">In 60 Minuten erhalten Sie konkrete Einblicke, praktische Tools und wissenschaftliche Erkenntnisse – direkt anwendbar im Unterricht oder zu Hause.</p>
-
-  <div class="benefits-grid">
-    <div class="benefit-card">
-      <h3>Lernstrategien die wirklich wirken</h3>
-      <p>Warum "mehr üben" oft nicht hilft – und welche einfachen Strategien Schüler:innen wirklich weiterbringen.</p>
-    </div>
-    <div class="benefit-card">
-      <h3>Das Tool live erleben</h3>
-      <p>Eine geführte Demo des neuen Lernen-Lernen Online-Tools – sehen Sie direkt, wie Kinder damit arbeiten.</p>
-    </div>
-    <div class="benefit-card">
-      <h3>Sofort umsetzbare Tipps</h3>
-      <p>Methoden und Aufgaben, die Sie noch am selben Tag einsetzen können – inklusive kostenloser Materialien.</p>
-    </div>
-    <div class="benefit-card">
-      <h3>Live Q&A mit Expert:innen</h3>
-      <p>Stellen Sie Ihre Fragen direkt an die Lernforschungs-Expert:innen und erhalten Sie persönliche Antworten.</p>
-    </div>
-    <div class="benefit-card">
-      <h3>Individualisierung & Differenzierung</h3>
-      <p>Wie das Tool sich an unterschiedliche Lerntypen und Leistungslevels anpasst – ganz ohne Mehraufwand.</p>
-    </div>
-    <div class="benefit-card">
-      <h3>Exklusiver Frühbucher-Bonus</h3>
-      <p>Alle Teilnehmenden erhalten 3 Monate kostenlosen Zugang zur Vollversion des Tools nach dem Launch.</p>
-    </div>
-  </div>
-</section>
-
-<!-- AGENDA -->
-<section class="agenda-section" id="ablauf">
-  <div class="agenda-inner">
-    <h2>Ablauf des Abends</h2>
-    <p class="section-intro">Ein strukturierter Abend – kurzweilig, praxisnah und mit viel Raum für Ihre Fragen.</p>
-
-    <div class="agenda-list">
-      <div class="agenda-item">
-        <span class="agenda-time">19:00</span>
-        <div class="agenda-content">
-          <h4>Begrüßung & Vorstellung</h4>
-          <p>Wer wir sind, was uns antreibt – und warum Lernen-Lernen so dringend nötig ist.</p>
         </div>
       </div>
-      <div class="agenda-item">
-        <span class="agenda-time">19:10</span>
-        <div class="agenda-content">
-          <h4>Das Problem: Warum viele Schüler:innen nicht wissen, wie sie lernen sollen</h4>
-          <p>Erkenntnisse aus der Lernforschung – verständlich und überraschend.</p>
+
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+   <main>
+    <section class="section animate-slam" id="vorteile">
+      <h2>Beim Webinar lernen Sie…</h2>
+      <p class="section-intro">In 60 Minuten erhalten Sie konkrete Einblicke, praktische Tools und wissenschaftliche Erkenntnisse – direkt anwendbar im Unterricht oder zu Hause.</p>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <h3>Lernstrategien die wirklich wirken</h3>
+          <p>Warum "mehr üben" oft nicht hilft – und welche einfachen Strategien Schüler:innen wirklich weiterbringen.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Das Tool live erleben</h3>
+          <p>Eine geführte Demo des neuen Lernen-Lernen Online-Tools – sehen Sie direkt, wie Kinder damit arbeiten.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Sofort umsetzbare Tipps</h3>
+          <p>Methoden und Aufgaben, die Sie noch am selben Tag einsetzen können – inklusive kostenloser Materialien.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Live Q&A mit Expert:innen</h3>
+          <p>Stellen Sie Ihre Fragen direkt an die Lernforschungs-Expert:innen und erhalten Sie persönliche Antworten.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Individualisierung & Differenzierung</h3>
+          <p>Wie das Tool sich an unterschiedliche Lerntypen und Leistungslevels anpasst – ganz ohne Mehraufwand.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Exklusiver Frühbucher-Bonus</h3>
+          <p>Alle Teilnehmenden erhalten 3 Monate kostenlosen Zugang zur Vollversion des Tools nach dem Launch.</p>
         </div>
       </div>
-      <div class="agenda-item">
-        <span class="agenda-time">19:25</span>
-        <div class="agenda-content">
-          <h4>Live-Demo: Das Lernen-Lernen Tool</h4>
-          <p>Wir zeigen das Tool in Aktion – mit echten Schüler-Beispielen und interaktiven Modulen.</p>
+    </section>
+
+    <!-- AGENDA -->
+    <section class="agenda-section" id="ablauf">
+      <div class="agenda-inner">
+        <h2>Ablauf des Abends</h2>
+        <p class="section-intro">Ein strukturierter Abend – kurzweilig, praxisnah und mit viel Raum für Ihre Fragen.</p>
+
+        <div class="agenda-list">
+          <div class="agenda-item">
+            <span class="agenda-time">19:00</span>
+            <div class="agenda-content">
+              <h4>Begrüßung & Vorstellung</h4>
+              <p>Wer wir sind, was uns antreibt – und warum Lernen-Lernen so dringend nötig ist.</p>
+            </div>
+          </div>
+          <div class="agenda-item">
+            <span class="agenda-time">19:10</span>
+            <div class="agenda-content">
+              <h4>Das Problem: Warum viele Schüler:innen nicht wissen, wie sie lernen sollen</h4>
+              <p>Erkenntnisse aus der Lernforschung – verständlich und überraschend.</p>
+            </div>
+          </div>
+          <div class="agenda-item">
+            <span class="agenda-time">19:25</span>
+            <div class="agenda-content">
+              <h4>Live-Demo: Das Lernen-Lernen Tool</h4>
+              <p>Wir zeigen das Tool in Aktion – mit echten Schüler-Beispielen und interaktiven Modulen.</p>
+            </div>
+          </div>
+          <div class="agenda-item">
+            <span class="agenda-time">19:45</span>
+            <div class="agenda-content">
+              <h4>Praktische Methoden für den Alltag</h4>
+              <p>3 Strategien, die Sie sofort mitnehmen können – für Unterricht und Hausaufgaben.</p>
+            </div>
+          </div>
+          <div class="agenda-item">
+            <span class="agenda-time">19:55</span>
+            <div class="agenda-content">
+              <h4>Fragen & Antworten</h4>
+              <p>Alles, was Sie noch wissen wollen – im offenen Q&A mit dem gesamten Team.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="agenda-item">
-        <span class="agenda-time">19:45</span>
-        <div class="agenda-content">
-          <h4>Praktische Methoden für den Alltag</h4>
-          <p>3 Strategien, die Sie sofort mitnehmen können – für Unterricht und Hausaufgaben.</p>
+    </section>
+
+    <!-- FOR WHOM -->
+    <section class="forwhom-section" id="warum">
+        <h2>Warum jetzt der richtige Moment ist jetzt</h2>
+
+        <ul class="why-list">
+          <li class="why-item">
+            <div class="why-num">1</div>
+            <p><strong>Das Tool startet bald</strong> – Webinar-Teilnehmende erhalten exklusiven Früh­zugang und 3 Monate kostenlos.</p>
+          </li>
+          <li class="why-item">
+            <div class="why-num">2</div>
+            <p><strong>Plätze sind begrenzt</strong> – für eine persönliche Atmosphäre halten wir bewusst wenige Spots frei.</p>
+          </li>
+          <li class="why-item">
+            <div class="why-num">3</div>
+            <p><strong>Komplett kostenlos</strong> – keine versteckten Kosten, kein Verkaufsdruck. Nur echte Inhalte.</p>
+          </li>
+          <li class="why-item">
+            <div class="why-num">4</div>
+            <p><strong>Aufzeichnung inklusive</strong> – falls Sie nicht live dabei sein können, schicken wir Ihnen die Aufnahme.</p>
+          </li>
+        </ul>
+    </section>
+
+  <!-- TESTIMONIALS -->
+    <section class="testimonials-section" id="stimmen">
+      <h2>Was andere bereits sagen</h2>
+      <p class="section-intro">Diese Stimmen stammen aus unserem Beta-Programm sowie aus Erfahrungen mit vergleichbaren Lernmethoden-Projekten.</p>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <span class="stat-number">87%</span>
+          <span class="stat-label">der Schüler:innen lernten nach 4 Wochen strukturierter</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">3×</span>
+          <span class="stat-label">höhere Eigeninitiative beim Lernen ohne Aufforderung</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">94%</span>
+          <span class="stat-label">der Lehrkräfte würden das Tool weiterempfehlen</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">∅ 12</span>
+          <span class="stat-label">Minuten täglich reichen für messbare Lernfortschritte</span>
         </div>
       </div>
-      <div class="agenda-item">
-        <span class="agenda-time">19:55</span>
-        <div class="agenda-content">
-          <h4>Fragen & Antworten</h4>
-          <p>Alles, was Sie noch wissen wollen – im offenen Q&A mit dem gesamten Team.</p>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <span class="quote-mark">"</span>
+          <p class="testimonial-text">Ich war skeptisch, ob ein digitales Tool wirklich etwas an den Lerngewohnheiten meiner Klasse ändern kann. Nach den ersten zwei Wochen waren meine Schüler:innen strukturierter als je zuvor. Das hätte ich nicht erwartet.</p>
+          <div class="testimonial-footer">
+            <div class="testimonial-avatar ta1">MK</div>
+            <div class="testimonial-info">
+              <span class="testimonial-name">Maria K.</span>
+              <span class="testimonial-role">Klassenlehrerin, Klasse 6 · Berlin</span>
+            </div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card featured">
+          <span class="quote-mark">"</span>
+          <p class="testimonial-text">Mein Sohn hat endlich begriffen, dass Lernen keine Frage von Talent ist, sondern von Methode. Die Module sind so aufgebaut, dass er selbst Lust hatte, weiterzumachen – ohne dass ich ihn dazu drängen musste.</p>
+          <div class="testimonial-footer">
+            <div class="testimonial-avatar ta2">SR</div>
+            <div class="testimonial-info">
+              <span class="testimonial-name">Sandra R.</span>
+              <span class="testimonial-role">Mutter eines Siebtklässlers · München</span>
+            </div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <span class="quote-mark">"</span>
+          <p class="testimonial-text">Als Nachhilfelehrerin sehe ich täglich, wie wenig Kinder über das Lernen selbst nachdenken. Dieses Tool füllt genau diese Lücke – spielerisch, ohne erhobenen Zeigefinger und mit echten Ergebnissen.</p>
+          <div class="testimonial-footer">
+            <div class="testimonial-avatar ta3">JP</div>
+            <div class="testimonial-info">
+              <span class="testimonial-name">Jana P.</span>
+              <span class="testimonial-role">Lernbegleiterin & Nachhilfe · Hamburg</span>
+            </div>
+            <div class="stars">★★★★★</div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOR WHOM -->
-<section class="forwhom-section" id="warum">
-    <h2>Warum jetzt der richtige Moment ist jetzt</h2>
-
-    <ul class="why-list">
-      <li class="why-item">
-        <div class="why-num">1</div>
-        <p><strong>Das Tool startet bald</strong> – Webinar-Teilnehmende erhalten exklusiven Früh­zugang und 3 Monate kostenlos.</p>
-      </li>
-      <li class="why-item">
-        <div class="why-num">2</div>
-        <p><strong>Plätze sind begrenzt</strong> – für eine persönliche Atmosphäre halten wir bewusst wenige Spots frei.</p>
-      </li>
-      <li class="why-item">
-        <div class="why-num">3</div>
-        <p><strong>Komplett kostenlos</strong> – keine versteckten Kosten, kein Verkaufsdruck. Nur echte Inhalte.</p>
-      </li>
-      <li class="why-item">
-        <div class="why-num">4</div>
-        <p><strong>Aufzeichnung inklusive</strong> – falls Sie nicht live dabei sein können, schicken wir Ihnen die Aufnahme.</p>
-      </li>
-    </ul>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials-section" id="stimmen">
-  <h2>Was andere bereits sagen</h2>
-  <p class="section-intro">Diese Stimmen stammen aus unserem Beta-Programm sowie aus Erfahrungen mit vergleichbaren Lernmethoden-Projekten.</p>
-
-  <div class="stats-row">
-    <div class="stat-card">
-      <span class="stat-number">87%</span>
-      <span class="stat-label">der Schüler:innen lernten nach 4 Wochen strukturierter</span>
-    </div>
-    <div class="stat-card">
-      <span class="stat-number">3×</span>
-      <span class="stat-label">höhere Eigeninitiative beim Lernen ohne Aufforderung</span>
-    </div>
-    <div class="stat-card">
-      <span class="stat-number">94%</span>
-      <span class="stat-label">der Lehrkräfte würden das Tool weiterempfehlen</span>
-    </div>
-    <div class="stat-card">
-      <span class="stat-number">∅ 12</span>
-      <span class="stat-label">Minuten täglich reichen für messbare Lernfortschritte</span>
-    </div>
-  </div>
-
-  <div class="testimonials-grid">
-    <div class="testimonial-card">
-      <span class="quote-mark">"</span>
-      <p class="testimonial-text">Ich war skeptisch, ob ein digitales Tool wirklich etwas an den Lerngewohnheiten meiner Klasse ändern kann. Nach den ersten zwei Wochen waren meine Schüler:innen strukturierter als je zuvor. Das hätte ich nicht erwartet.</p>
-      <div class="testimonial-footer">
-        <div class="testimonial-avatar ta1">MK</div>
-        <div class="testimonial-info">
-          <span class="testimonial-name">Maria K.</span>
-          <span class="testimonial-role">Klassenlehrerin, Klasse 6 · Berlin</span>
-        </div>
-        <div class="stars">★★★★★</div>
-      </div>
-    </div>
-
-    <div class="testimonial-card featured">
-      <span class="quote-mark">"</span>
-      <p class="testimonial-text">Mein Sohn hat endlich begriffen, dass Lernen keine Frage von Talent ist, sondern von Methode. Die Module sind so aufgebaut, dass er selbst Lust hatte, weiterzumachen – ohne dass ich ihn dazu drängen musste.</p>
-      <div class="testimonial-footer">
-        <div class="testimonial-avatar ta2">SR</div>
-        <div class="testimonial-info">
-          <span class="testimonial-name">Sandra R.</span>
-          <span class="testimonial-role">Mutter eines Siebtklässlers · München</span>
-        </div>
-        <div class="stars">★★★★★</div>
-      </div>
-    </div>
-
-    <div class="testimonial-card">
-      <span class="quote-mark">"</span>
-      <p class="testimonial-text">Als Nachhilfelehrerin sehe ich täglich, wie wenig Kinder über das Lernen selbst nachdenken. Dieses Tool füllt genau diese Lücke – spielerisch, ohne erhobenen Zeigefinger und mit echten Ergebnissen.</p>
-      <div class="testimonial-footer">
-        <div class="testimonial-avatar ta3">JP</div>
-        <div class="testimonial-info">
-          <span class="testimonial-name">Jana P.</span>
-          <span class="testimonial-role">Lernbegleiterin & Nachhilfe · Hamburg</span>
-        </div>
-        <div class="stars">★★★★★</div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+</main>
 
 <!-- FOOTER -->
 
@@ -324,6 +300,7 @@
     </div>
 </footer>
 <script src="../javascript/shared.js"></script>
+<script src="../javascript/script.js"></script>
 <script src="../javascript/webinar.js"></script>
 </body>
 </html>
