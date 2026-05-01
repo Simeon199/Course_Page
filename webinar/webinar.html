@@ -6,26 +6,36 @@
 <title>Lernen-Lernen Webinar – Kostenlos anmelden</title>
 <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
 <link rel="stylesheet" href="../css/fonts.css">
-<link rel="stylesheet" href="base.css">
 <link rel="stylesheet" href="hero.css">
 <link rel="stylesheet" href="sections.css">
+<link rel="stylesheet" href="../css/components.css">
 <link rel="stylesheet" href="components.css">
+<link rel="stylesheet" href="../css/style.css">
+ <link rel="stylesheet" href="../css/media_queries.css">
 <link rel="stylesheet" href="media_queries.css">
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <div class="nav-links">
-    <a href="#" class="nav-logo">Lernen<span>·</span>Lernen</a>
-    <div class="nav-items">
-      <a href="#vorteile">Inhalte</a>
-      <a href="#ablauf">Ablauf</a>
-      <a href="#warum">Warum jetzt</a>
-      <a href="#stimmen">Stimmen</a>
+ <nav>
+    <div class="container nav-content">
+        <div class="logo" onclick="redirectToMainPage()">
+            <img class="logo-img" src="../assets/rc_icon.jpg" alt="Rein Campus Logo">
+            <a href="#main">Rein Campus</a>
+        </div>
+        <div class="nav-links">
+            <a href="#kurs">Inhalte</a>
+            <a href="#pricing">Ablauf</a>
+            <a href="#faq">Warum Jetzt</a>
+            <a href="#ueber-uns">Stimmen</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </div>
-  </div>
-</nav>
+  </nav>
 
 <!-- HERO -->
 <section class="hero" id="start">
@@ -284,19 +294,18 @@
 </section>
 
 <!-- FOOTER -->
+
 <footer>
-  
-  <div class="footer-logo">
-    <img class="logo-img" src="../assets/rc_icon.jpg" alt="logo">
-    <div class="footer-company">© 2026 Rein Campus</div>
-  </div>
-  <!-- <div class="footer-links">
-      <a href="legal/impressum.html">Impressum</a>
-      <a href="legal/datenschutz.html">Datenschutzerklärung</a>
-      <a href="legal/agb.html">AGB</a>
-  </div> -->
-  <!-- <p>© 2025 Lernen-Lernen GmbH · Datenschutz · Impressum</p> -->
+    <div class="footer-wrapper">
+        <div class="div-logo pointer" onclick="redirectToMainPage()">© 2026 Rein Campus</div>
+        <div class="footer-links">
+            <a href="legal/impressum.html">Impressum</a>
+            <a href="legal/datenschutz.html">Datenschutzerklärung</a>
+            <a href="legal/agb.html">AGB</a>
+        </div>
+    </div>
 </footer>
+<script src="../javascript/shared.js"></script>
 <script src="../javascript/webinar.js"></script>
 </body>
 </html>

@@ -339,3 +339,7 @@ a {
 a {
   color: black;
 }
+
+.pointer {
+  cursor: pointer;
+}
