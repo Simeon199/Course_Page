@@ -100,7 +100,7 @@
 h1 {
   font-size: clamp(42px, 5vw, 72px);
   line-height: 1.05;
-  color: #fff;
+  /* color: #fff; */
   margin-bottom: 24px;
   animation: fadeUp 0.8s ease 0.2s both;
 }
@@ -274,7 +274,7 @@ h1 {
   border: none;
   border-radius: 12px;
   font-family: 'DM Sans', sans-serif;
-  font-size: 17px;
+  font-size: 24px;
   font-weight: 700;
   cursor: pointer;
   transition: background 0.2s, transform 0.15s;
