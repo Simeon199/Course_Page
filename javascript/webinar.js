@@ -103,29 +103,29 @@ async function performSubmit(form, submitBtn, statusEl) {
   }
 }
 
-function registerLiveValidation(form) {
-  form.querySelectorAll('input[required]').forEach(input => {
-    input.addEventListener('blur', () => validateField(form, input));
-    input.addEventListener('input', () => {
-      if (input.classList.contains('invalid')) validateField(form, input);
-    });
-  });
-}
+// function registerLiveValidation(form) {
+//   form.querySelectorAll('input[required]').forEach(input => {
+//     input.addEventListener('blur', () => validateField(form, input));
+//     input.addEventListener('input', () => {
+//       if (input.classList.contains('invalid')) validateField(form, input);
+//     });
+//   });
+// }
 
-function registerSubmitHandler(form, submitBtn, statusEl, loadTime) {
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
-    const guard = checkBotGuards(form, loadTime);
-    if (guard) { showStatus(statusEl, guard.msg, guard.type); return; }
-    if (!validateAll(form)) return;
-    await performSubmit(form, submitBtn, statusEl);
-  });
-}
+// function registerSubmitHandler(form, submitBtn, statusEl, loadTime) {
+//   form.addEventListener('submit', async e => {
+//     e.preventDefault();
+//     const guard = checkBotGuards(form, loadTime);
+//     if (guard) { showStatus(statusEl, guard.msg, guard.type); return; }
+//     if (!validateAll(form)) return;
+//     await performSubmit(form, submitBtn, statusEl);
+//   });
+// }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const form      = document.getElementById('webinar-form');
-  const submitBtn = document.getElementById('submit-btn');
-  const statusEl  = document.getElementById('form-status');
-  registerLiveValidation(form);
-  registerSubmitHandler(form, submitBtn, statusEl, Date.now());
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//   const form      = document.getElementById('webinar-form');
+//   const submitBtn = document.getElementById('submit-btn');
+//   const statusEl  = document.getElementById('form-status');
+//   registerLiveValidation(form);
+//   registerSubmitHandler(form, submitBtn, statusEl, Date.now());
+// });

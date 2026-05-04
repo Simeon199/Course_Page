@@ -17,7 +17,8 @@
 
 .section-intro {
   font-size: 18px;
-  line-height: 1.7;
+  text-align: center;
+  /* line-height: 1.7; */
   color: #666;
   max-width: 600px;
   margin: 0 auto 64px;
@@ -40,6 +41,8 @@
   transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
   position: relative;
   overflow: hidden;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .benefit-card::before {
@@ -106,6 +109,7 @@
 .agenda-inner {
   position: relative;
   z-index: 1;
+  width: 90%;
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -119,10 +123,9 @@
 }
 
 .agenda-item {
-  display: grid;
-  grid-template-columns: 80px 1fr;
+  display: flex;
+  align-items: center;
   gap: 24px;
-  align-items: start;
   padding: 24px 0;
   border-bottom: 1px solid rgba(255,255,255,0.08);
   transition: padding-left 0.3s;
@@ -133,8 +136,9 @@
 .agenda-item:last-child { border-bottom: none; }
 
 .agenda-time {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
+  text-align: center;
   color: var(--lime);
   opacity: 0.7;
   padding-top: 4px;

@@ -188,6 +188,7 @@ a {
   min-height: 100dvh;
   background: var(--teal);
   display: flex;
+  justify-content: center;
   padding-top: 160px;
   padding-bottom: 80px;
   overflow: hidden;

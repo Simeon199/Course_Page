@@ -1,4 +1,19 @@
-/* ── RESPONSIVE ─────────────────────────── */
+@media(max-width: 2100px){
+  .form-card {
+    width: 90%;
+  }
+}
+
+@media(max-width: 1350px){
+  .testimonials-grid {
+    flex-wrap: nowrap;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding: 0 24px 20px;
+    overflow-x: auto;
+  }
+}
 
 @media (max-width: 900px) {
   /* Hero: einspaltig stapeln */
@@ -35,7 +50,7 @@
     padding: 32px 24px;
   }
   
-  .section, .agenda-section, .forwhom-section, .testimonials-section { 
+  .section, .agenda-section, .forwhom-section { 
     padding: 64px 24px; 
   }
   
@@ -54,7 +69,8 @@
   }
   
   .stats-row { 
-    grid-template-columns: repeat(2, 1fr); 
+    flex-direction: column;
+    width: 90%;
   }
 
   .benefits-grid { 
@@ -73,9 +89,7 @@
     gap: 16px; 
   }
 
-  /* Horizontaler Scroll fuer Testimonials */
   .testimonials-section {
-    overflow-x: auto;
     padding-left: 0;
     padding-right: 0;
     scrollbar-width: thin;
@@ -96,17 +110,15 @@
     border-radius: 4px;
   }
 
-  .testimonials-grid {
-    flex-wrap: nowrap;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: 16px;
-    padding: 0 24px 20px;
-  }
-
   .testimonial-card {
     min-width: 300px;
     flex-shrink: 0;
     scroll-snap-align: start;
+  }
+}
+
+@media(max-width: 400px){
+  .agenda-item {
+    gap: 16px;
   }
 }
