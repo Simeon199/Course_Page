@@ -14,6 +14,10 @@
   margin: 0 auto;
 }
 
+.centered {
+  align-self: unset;
+}
+
 .content-wrapper {
   display: flex;
   flex-direction: column;
@@ -180,14 +184,15 @@
   margin-bottom: 24px;
 }
 
-@media (max-width: 899px) {
+@media(max-width: 1350px){
   .pricing-grid {
     flex-direction: column;
     align-items: center;
   }
+
   .pricing-card {
     flex: none;
-    width: 100%;
+    width: 90%;
     margin-bottom: 24px;
   }
 }
@@ -201,6 +206,12 @@
   .pricing-card {
     flex: 0 1 calc(33% - 24px);
     max-width: none;
+  }
+}
+
+@media(max-width: 600px){
+  .centered {
+    align-self: center;
   }
 }
 
