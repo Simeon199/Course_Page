@@ -34,32 +34,39 @@
 }
 
 .benefit-card {
-  background: var(--teal);
+  background: linear-gradient(135deg, var(--teal) 0%, rgba(13, 92, 99, 0.95) 100%);
   border-radius: 20px;
   padding: 36px 32px;
-  border: 1.5px solid rgba(0,0,0,0.06);
-  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  border: 1px solid rgba(200, 240, 96, 0.15);
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
   width: 90%;
   margin: 0 auto;
+  box-shadow: 
+    0 12px 40px rgba(13, 92, 99, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .benefit-card::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 3px;
+  height: 2px;
   background: var(--lime);
   transform: scaleX(0);
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
   transform-origin: left;
 }
 
 .benefit-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-  border-color: rgba(13,92,99,0.15);
+  transform: translateY(-6px);
+  box-shadow: 
+    0 20px 60px rgba(13, 92, 99, 0.2),
+    0 8px 20px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-color: rgba(200, 240, 96, 0.3);
 }
 .benefit-card:hover::before { transform: scaleX(1); }
 
@@ -126,34 +133,42 @@
   display: flex;
   align-items: center;
   gap: 24px;
-  padding: 24px 0;
+  padding: 28px 24px;
+  margin: 0 -24px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
-  transition: padding-left 0.3s;
+  transition: all 0.3s ease;
   cursor: default;
+  border-radius: 12px;
 }
 
-.agenda-item:hover { padding-left: 8px; }
+.agenda-item:hover { 
+  background: rgba(255, 255, 255, 0.05);
+  padding-left: 32px;
+}
 .agenda-item:last-child { border-bottom: none; }
 
 .agenda-time {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   text-align: center;
   color: var(--lime);
-  opacity: 0.7;
+  opacity: 0.9;
   padding-top: 4px;
   letter-spacing: 0.04em;
+  min-width: 50px;
 }
 
 .agenda-content h4 {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   color: #fff;
   margin-bottom: 8px;
+  letter-spacing: -0.01em;
 }
 
 .agenda-content p {
-  font-size: 17px;
-  color: rgba(255,255,255,0.5);
+  font-size: 16px;
+  color: rgba(255,255,255,0.65);
   line-height: 1.6;
+  letter-spacing: 0.01em;
 }
