@@ -171,14 +171,40 @@
   padding: 0 24px 64px;
 }
 
+/* Base pricing card style */
 .pricing-card {
-  flex: 1;
-  min-width: 300px;
+  flex: 0 1 100%;
   max-width: 520px;
+  width: 100%;
+  padding: 48px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 48px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 899px) {
+  .pricing-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .pricing-card {
+    flex: none;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+}
+
+
+/* Responsive pricing layout */
+@media (min-width: 900px) {
+  .pricing-grid {
+    justify-content: space-between;
+  }
+  .pricing-card {
+    flex: 0 1 calc(33% - 24px);
+    max-width: none;
+  }
 }
 
 .pricing-card.featured {
