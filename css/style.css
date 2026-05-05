@@ -344,3 +344,175 @@ a {
 .pointer {
   cursor: pointer;
 }
+
+/* Webinar Modal Styles */
+.webinar-modal {
+  position: fixed;
+  right: -450px;
+  top: 0;
+  width: 450px;
+  height: 100vh;
+  background: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  overflow-y: auto;
+  animation: slideInRight 0.6s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes slideInRight {
+  from {
+    right: -450px;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+.webinar-modal-content {
+  padding: 40px 30px;
+  position: relative;
+}
+
+.webinar-modal-content h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #0D5C63;
+}
+
+.webinar-modal-content p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.webinar-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.3s ease;
+}
+
+.webinar-modal-close:hover {
+  color: #0D5C63;
+}
+
+#webinar-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#webinar-form input[type="text"],
+#webinar-form input[type="email"] {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+#webinar-form input[type="text"]:focus,
+#webinar-form input[type="email"]:focus {
+  outline: none;
+  border-color: #0D5C63;
+}
+
+#webinar-form label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+}
+
+#webinar-form input[type="checkbox"] {
+  margin-top: 3px;
+  cursor: pointer;
+}
+
+#webinar-form label a {
+  color: #0D5C63;
+  text-decoration: none;
+}
+
+#webinar-form label a:hover {
+  text-decoration: underline;
+}
+
+.form-status {
+  padding: 12px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 13px;
+  display: none;
+}
+
+.form-status.success {
+  display: block;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.form-status.error {
+  display: block;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Modal schließen Animation */
+.webinar-modal.closing {
+  animation: slideOutRight 0.6s ease-in forwards;
+}
+
+@keyframes slideOutRight {
+  from {
+    right: 0;
+    opacity: 1;
+  }
+  to {
+    right: -450px;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .webinar-modal {
+    width: 100%;
+    right: -100%;
+  }
+
+  @keyframes slideInRight {
+    from {
+      right: -100%;
+      opacity: 0;
+    }
+    to {
+      right: 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideOutRight {
+    from {
+      right: 0;
+      opacity: 1;
+    }
+    to {
+      right: -100%;
+      opacity: 0;
+    }
+  }
+}
