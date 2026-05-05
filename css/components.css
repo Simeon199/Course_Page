@@ -36,9 +36,8 @@
 
 .about-me {
   margin: 0 auto;
-  /* width: 90%;
-  max-width: 900px; */
   display: flex;
+  justify-content: center;
   flex-direction: column;
   gap: 16px;
   padding-top: 32px;
@@ -92,7 +91,6 @@
 }
 
 .button-width {
-  /* width: 50%; */
   max-width: 224px;
 }
 
@@ -166,7 +164,6 @@
   justify-content: center;
   gap: 24px;
   flex-wrap: wrap;
-  /* max-width: 960px; */
   margin: 0 auto;
   padding: 0 24px 64px;
 }
