@@ -1,6 +1,4 @@
-*{
-  font-family: 'DM Sans';
-}
+@import url('shared-components.css');
 
 .d-flex {
   display: flex;
@@ -78,20 +76,6 @@
 
 .title-dark {
   color: black;
-}
-
-.generic-p {
-  font-size: 18px;
-}
-
-.generic-h2 {
-  text-align: center;
-  font-size: 32px;
-}
-
-.generic-h3 {
-  text-align: center;
-  font-size: 24px;
 }
 
 .button-width {
@@ -298,41 +282,3 @@
   margin: 0 auto;
 }
 
-/* Animations */
-@keyframes slamIn {
-  0% { transform: scale(2) translateY(-100px); opacity: 0; }
-  100% { transform: scale(1) translateY(0); opacity: 1; }
-}
-
-.animate-slam {
-  animation: slamIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.reveal-left {
-  opacity: 0;
-  transform: translateX(-60px);
-  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
-}
-
-.reveal-right {
-  opacity: 0;
-  transform: translateX(60px);
-  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
-}
-
-.reveal-left.active,
-.reveal-right.active {
-  opacity: 1;
-  transform: translateX(0);
-}
