@@ -12,7 +12,7 @@
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 16px;
 }
 
 ::-webkit-scrollbar-track {
@@ -44,6 +44,10 @@ a {
   font-size: 18px;
   color: #333;
   min-height: 100px;
+}
+
+.webinar-p {
+  font-size: 18px;
 }
 
 .generic-h2 {
