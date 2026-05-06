@@ -1,0 +1,131 @@
+/* Layout & Container */
+.container {
+  width: 90%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  background: var(--teal);
+  display: flex;
+  justify-content: center;
+  padding-top: 160px;
+  padding-bottom: 80px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 55% 65% at 85% 15%, rgba(200, 240, 96, 0.28) 0%, transparent 70%),
+              radial-gradient(ellipse 50% 60% at 10% 85%, rgba(255, 107, 71, 0.22) 0%, transparent 70%);
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+}
+
+.hero-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-image-wrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 24px;
+  border: 3px solid rgba(181, 212, 109, 0.45);
+  display: block;
+}
+
+.hero-title {
+  font-size: clamp(48px, 8vw, 120px);
+  line-height: 0.85;
+  margin-bottom: 48px;
+}
+
+.hero-title span {
+  display: block;
+  color: white;
+}
+
+.hero-desc {
+  max-width: 600px;
+  font-size: 20px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 48px;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+}
+
+/* About Me Section */
+.about-me {
+  padding: 80px 0;
+  background: linear-gradient(135deg, rgba(13, 92, 99, 0.05) 0%, rgba(181, 212, 109, 0.05) 100%);
+  margin-bottom: 80px;
+  width: 100%;
+}
+
+.about-me-wrapper {
+  display: flex;
+  gap: 32px;
+}
+
+.about-me-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 40px;
+  border: 4px solid var(--lime);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.about-me-photo:hover {
+  transform: scale(1.05);
+}
+
+.about-me .generic-h2 {
+  margin-bottom: 40px;
+}
+
+.about-me .generic-p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* Contact Section */
+.contact-section {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--dark) 100%);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form .generic-h3 {
+  color: white;
+  margin-bottom: 24px;
+  font-size: 28px;
+}

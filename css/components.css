@@ -1,5 +1,334 @@
-@import url('shared-components.css');
+/* Buttons */
+.btn-primary {
+  background: var(--lime);
+  color: black;
+  padding: 10px 24px;
+  border-radius: 100px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
 
+.btn-primary:hover {
+  transform: scale(1.05);
+}
+
+.hero-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.hero-btns .btn-primary {
+  padding: 14px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.hero-btns .btn-primary:hover,
+.webinar-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.button-width {
+  width: 100%;
+  justify-content: center;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.button-width a {
+  color: black;
+  text-decoration: none;
+  width: 100%;
+}
+
+.contact-form .btn-primary {
+  margin-top: 24px;
+  padding: 14px 40px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.contact-form .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form .btn-primary a {
+  color: black;
+  text-decoration: none;
+}
+
+/* Box Styling */
+.box {
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+
+.background-dark {
+  background: var(--dark);
+}
+
+.background-light {
+  background: white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Info Block */
+.info-block {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.info-block .generic-p {
+  padding: 20px;
+  background: rgba(181, 212, 109, 0.1);
+  border-left: 4px solid var(--lime);
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+/* Testimonials */
+.testimonial {
+  border-left: 4px solid var(--lime);
+  position: relative;
+  padding-left: 40px;
+}
+
+.testimonial::before {
+  content: '"';
+  position: absolute;
+  left: -8px;
+  top: -20px;
+  font-size: 64px;
+  color: var(--lime);
+  opacity: 0.3;
+  font-weight: 700;
+}
+
+.testimonial .generic-p {
+  font-style: italic;
+  color: #555;
+}
+
+/* Webinar Section */
+.webinar-section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(13, 92, 99, 0.05) 0%, rgba(181, 212, 109, 0.05) 100%);
+  border: 4px solid #1f503fc7;
+}
+
+.webinar-button {
+  background: var(--lime);
+  color: black;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  padding: 10px 24px;
+  border-radius: 100px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+/* Pricing Grid */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 16px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--lime), var(--coral));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+
+.pricing-card:hover::before {
+  opacity: 1;
+}
+
+.pricing-card.featured {
+  border: 2px solid var(--lime);
+  transform: scale(1.02);
+}
+
+.pricing-card.featured:hover {
+  transform: scale(1.02) translateY(-8px);
+}
+
+.pricing-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--teal);
+}
+
+.pricing-price {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 8px;
+}
+
+.pricing-period {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 24px;
+}
+
+.pricing-features {
+  list-style: none;
+  margin-bottom: 32px;
+  flex-grow: 1;
+}
+
+.pricing-features li {
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+  color: #555;
+  position: relative;
+  padding-left: 24px;
+}
+
+.pricing-features li:last-child {
+  border-bottom: none;
+}
+
+.pricing-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--lime);
+  font-weight: 700;
+}
+
+/* FAQ Section */
+.FAQ-section {
+  margin-bottom: 80px;
+}
+
+.FAQ-item {
+  margin-bottom: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.FAQ-item:hover {
+  transform: translateX(8px);
+}
+
+.FAQ-item .generic-h3 {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.FAQ-item .generic-h3::before {
+  content: '+';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--lime);
+  color: black;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* About the Course */
+.about-the-course {
+  margin-bottom: 60px;
+}
+
+.about-the-course:last-child {
+  margin-bottom: 0;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+  padding: 80px 0;
+}
+
+/* Legal Pages */
+.privacy-policy-container,
+.legal-notice-container,
+.usage-right-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.privacy-policy-container h2,
+.legal-notice-container h2,
+.usage-right-container h2 {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.privacy-policy-container h3 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.privacy-policy-container li,
+.usage-right-container li {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+/* Utility Classes */
 .d-flex {
   display: flex;
   justify-content: center;
@@ -13,272 +342,10 @@
 }
 
 .centered {
-  align-self: unset;
-}
-
-.content-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.about-the-course {
-  margin: 0 auto;
-  padding-bottom: 32px;
-  padding-top: 32px;
-  width: 90%;
-  max-width: 900px;
-}
-
-.about-the-course h2 {
-  padding-top: 32px;
-  padding-bottom: 32px;
-}
-
-.about-me {
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  gap: 16px;
-  padding-top: 32px;
-  padding-bottom: 32px;
-}
-
-.about-me h2 {
-  text-align: left;
-  border-bottom: 3px solid var(--lime);
-  padding-bottom: 16px;
-}
-
-.about-me-photo {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid var(--lime);
-  flex-shrink: 0;
-}
-
-/* Utility */
-.background-dark {
-  background: var(--teal);
-}
-
-.background-light {
-  background: var(--cream);
-}
-
-.title-light {
-  color: white;
-}
-
-.title-dark {
-  color: black;
-}
-
-.button-width {
-  max-width: 224px;
-}
-
-/* Info block */
-.info-block {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.info-block p {
-  font-size: 24px;
-  border-left: 3px solid var(--lime);
-  padding-left: 20px;
-}
-
-/* Boxes */
-.box {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 28px;
-  margin: 8px auto;
-  border-radius: 16px;
-  border: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.box:hover {
-  transform: translateY(-4px);
-}
-
-.box.background-dark {
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.box.background-dark:hover {
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
-}
-
-.box.background-light {
-  box-shadow: 0 2px 16px rgba(13, 92, 99, 0.10);
-}
-
-.box.background-light:hover {
-  box-shadow: 0 10px 32px rgba(13, 92, 99, 0.20);
-}
-
-.d-flex .box {
-  border-top: 3px solid var(--lime);
-}
-
-/* Testimonials */
-.testimonial::before {
-  content: '\201C';
-  font-size: 72px;
-  line-height: 1;
-  color: var(--lime);
-  font-weight: 700;
-  display: block;
-  margin-bottom: -8px;
-}
-
-/* Pricing */
-#pricing .about-the-course {
   text-align: center;
 }
 
-.pricing-grid {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  padding: 0 24px 64px;
-}
-
-/* Base pricing card style */
-.pricing-card {
-  flex: 0 1 100%;
-  max-width: 520px;
-  width: 100%;
-  padding: 48px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-bottom: 24px;
-}
-
-@media(max-width: 1350px){
-  .pricing-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .pricing-card {
-    flex: none;
-    width: 90%;
-    margin-bottom: 24px;
-  }
-}
-
-
-/* Responsive pricing layout */
-@media (min-width: 900px) {
-  .pricing-grid {
-    justify-content: space-between;
-  }
-  .pricing-card {
-    flex: 0 1 calc(33% - 24px);
-    max-width: none;
-  }
-}
-
-@media(max-width: 600px){
-  .centered {
-    align-self: center;
-  }
-}
-
-.pricing-card.featured {
-  border-top: 5px solid var(--lime);
-  box-shadow: 0 16px 56px rgba(13, 92, 99, 0.28);
-  background: linear-gradient(160deg, #ffffff 0%, #f0f7e6 100%);
-}
-
-.pricing-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--teal);
-}
-
-.featured-label {
-  display: inline-block;
-  background: var(--lime);
-  color: var(--teal);
-  padding: 4px 12px;
-  border-radius: 100px;
-  letter-spacing: 1.5px;
-}
-
-.pricing-price {
-  font-size: 72px;
-  font-weight: 700;
-  line-height: 1;
-  color: var(--teal);
-}
-
-.pricing-period {
-  font-size: 15px;
-  color: var(--mid);
-}
-
-.pricing-features {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  flex: 1;
-  margin-bottom: 8px;
-}
-
-.pricing-features li {
-  font-size: 15px;
-  color: var(--teal);
-}
-
-.pricing-features li::before {
-  content: '✓';
-  font-weight: 700;
-  color: var(--lime);
-  margin-right: 10px;
-}
-
-/* Contact */
-.contact-section {
-  position: relative;
-  background-image: url('https://placehold.co/1920x600/0D5C63/B5D46D?text=Hintergrundbild');
-  background-size: cover;
-  background-position: center;
-}
-
-.contact-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(13, 92, 99, 0.78);
-}
-
-.contact-form {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  padding: 64px 24px;
-  max-width: 900px;
-  margin: 0 auto;
+#pricing .about-the-course {
+  text-align: center;
 }
 
