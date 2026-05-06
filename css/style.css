@@ -44,7 +44,8 @@ a {
   font-size: 16px;
   line-height: 1.7;
   color: #333;
-  letter-spacing: 0.2px;
+  /* letter-spacing: 0.2px; */
+  min-height: 100px;
 }
 
 .generic-h2 {
@@ -61,4 +62,12 @@ a {
 
 .title-light.generic-p {
   color: rgba(255, 255, 255, 0.9);
+}
+
+.add-gap-to-box-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
 }

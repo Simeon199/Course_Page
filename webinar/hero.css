@@ -278,7 +278,6 @@ h1 {
 /* Submit-Button */
 
 .btn-submit {
-  /* width: 100%; */
   padding: 18px 32px;
   margin-top: 12px;
   background: linear-gradient(135deg, var(--lime) 0%, #c8e87a 100%);
