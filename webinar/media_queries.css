@@ -6,17 +6,35 @@
 
 @media(max-width: 1350px){
   .testimonials-grid {
-    flex-wrap: nowrap;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    flex-direction: column;
     gap: 16px;
     padding: 0 24px 20px;
-    overflow-x: auto;
+  }
+}
+
+@media(max-width: 1025px){
+  .stats-row {
+    flex-direction: column;
+  }
+
+  .stat-card {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .benefits-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .benefit-card {
+    width: 70%;
   }
 }
 
 @media (max-width: 900px) {
-  /* Hero: einspaltig stapeln */
   .hero {
     padding-top: 100px;
     padding-bottom: 64px;
@@ -114,6 +132,14 @@
     min-width: 300px;
     flex-shrink: 0;
     scroll-snap-align: start;
+  }
+}
+
+@media(max-width: 600px){
+  .form-card {
+    border-radius: unset;
+    border: unset;
+    width: 100%;
   }
 }
 
