@@ -23,6 +23,19 @@
     width: 50%;
     margin: 0 auto;
   }
+
+  .hero {
+    padding-top: 120px;
+  }
+
+  .hero-title {
+    font-size: 64px;
+    text-align: center;
+  }
+
+  .hero-desc {
+    text-align: center;
+  }
 }
 
 @media(max-width: 1024px){
@@ -109,11 +122,10 @@
   .hero-content {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    gap: 40px;
   }
 
   .hero-inner {
-    flex-direction: column-reverse;
     gap: 32px;
   }
 
@@ -124,6 +136,7 @@
 
   .hero-title {
     text-align: center;
+    margin-bottom: unset;
   }
 
   .hero-image {

@@ -41,12 +41,11 @@
     min-height: auto;
   }
 
-  .hero-inner {
-    flex-direction: column;
+  /* .hero-inner {
     gap: 40px;
     width: 100%;
     padding: 0 24px;
-  }
+  } */
 
   .hero-left {
     text-align: center;
@@ -68,7 +67,9 @@
     padding: 32px 24px;
   }
   
-  .section, .agenda-section, .forwhom-section { 
+  .section, 
+  .agenda-section, 
+  .forwhom-section { 
     padding: 64px 24px; 
   }
   
