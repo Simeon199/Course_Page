@@ -127,7 +127,18 @@
   padding-bottom: 40px;
   text-align: center;
   background: linear-gradient(135deg, rgba(13, 92, 99, 0.05) 0%, rgba(181, 212, 109, 0.05) 100%);
-  border: 4px solid #1f503fc7;
+  width: 100%;
+}
+
+.section-wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.webinar-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .webinar-button {
@@ -141,12 +152,13 @@
   border: none;
   cursor: pointer;
   transition: transform 0.2s;
+  max-width: 320px;
+  align-self: center;
 }
 
 /* Pricing Grid */
 .pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
   gap: 32px;
   margin-bottom: 40px;
 }
@@ -281,11 +293,6 @@
   flex-shrink: 0;
 }
 
-/* About the Course */
-.about-the-course {
-  margin-bottom: 60px;
-}
-
 .about-the-course:last-child {
   margin-bottom: 0;
 }
@@ -350,4 +357,3 @@
 #pricing .about-the-course {
   text-align: center;
 }
-
