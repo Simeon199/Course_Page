@@ -175,8 +175,12 @@
 
 @media (max-width: 768px) {
   .hero-inner {
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 32px;
+  }
+
+  .hero-title {
+    font-size: 48px;
   }
 
   .hero-image-wrap {
