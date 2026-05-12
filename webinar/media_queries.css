@@ -41,12 +41,6 @@
     min-height: auto;
   }
 
-  /* .hero-inner {
-    gap: 40px;
-    width: 100%;
-    padding: 0 24px;
-  } */
-
   .hero-left {
     text-align: center;
   }
@@ -147,5 +141,13 @@
 @media(max-width: 400px){
   .agenda-item {
     gap: 16px;
+  }
+
+  .testimonial-text {
+    font-size: 16px;
+  }
+
+  .section-intro {
+    font-size: 16px;
   }
 }

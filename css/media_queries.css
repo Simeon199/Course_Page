@@ -293,6 +293,7 @@
   .btn-primary, 
   .hero-btns {
     font-size: 16px;
+    text-align: center;
   }
 
   .webinar-button:nth-child(2){
