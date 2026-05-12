@@ -232,9 +232,9 @@
     width: 100%;
   }
 
-  li {
+  /* li {
     word-break: break-all;
-  }
+  } */
 
   .seal {
     text-align: center;
