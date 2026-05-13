@@ -8,12 +8,20 @@ window.addEventListener('scroll', () => {
   document.querySelector('nav').classList.toggle('nav-scrolled', window.scrollY > 40);
 });
 
+/**
+ * Scrollt die Seite zu einem bestimmten Element mit Berücksichtigung der Navigationsleiste.
+ * @param {HTMLElement} target - Das Ziel-Element, zu dem gescrollt werden soll
+ */
 function scrollToTarget(target) {
   let navHeight = document.querySelector('nav').offsetHeight;
   let targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight;
   animateScroll(window.scrollY, targetTop - window.scrollY, 700);
 }
 
+/**
+ * Initialisiert sanfte Scroll-Animation für alle Anker-Links auf der Seite.
+ * Verhindert das Standard-Scroll-Verhalten und nutzt stattdessen animateScroll().
+ */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (event) {
@@ -26,6 +34,12 @@ function initSmoothScroll() {
   });
 }
 
+/**
+ * Animiert das Scrollen der Seite mit einer Easing-Funktion.
+ * @param {number} start - Die Startposition des Scrolls in Pixeln
+ * @param {number} distance - Die Distanz, die gescrollt werden soll, in Pixeln
+ * @param {number} duration - Die Dauer der Animation in Millisekunden
+ */
 function animateScroll(start, distance, duration) {
   let startTime = null;
   function step(timestamp) {
@@ -41,22 +55,39 @@ function animateScroll(start, distance, duration) {
   requestAnimationFrame(step);
 }
 
+/**
+ * Easing-Funktion für sanfte Scroll-Animationen (Cubic In-Out).
+ * @param {number} t - Der Fortschritt der Animation (0 bis 1)
+ * @returns {number} Der eased Fortschritt
+ */
 function easeInOutCubic(t) {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
 
+/**
+ * Leitet den Benutzer zur Hauptseite weiter.
+ */
 function redirectToMainPage(){
   window.location.href = "../index.html"
 }
 
 // --- Scroll Animations ---
 
+/**
+ * Weist Animations-Klassen zu Elementen zu.
+ * Ungerade Elemente erhalten 'reveal-left', gerade Elemente 'reveal-right'.
+ */
 function assignRevealClasses() {
   document.querySelectorAll('main > *:not(.hero)').forEach((el, i) => {
     el.classList.add(i % 2 === 0 ? 'reveal-left' : 'reveal-right');
   });
 }
 
+/**
+ * Erstellt einen IntersectionObserver für Scroll-Animationen.
+ * Fügt die 'active'-Klasse hinzu, wenn ein Element in den Viewport kommt.
+ * @returns {IntersectionObserver} Der konfigurierte Observer
+ */
 function createScrollObserver() {
   let obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -69,6 +100,11 @@ function createScrollObserver() {
   return obs;
 }
 
+/**
+ * Initialisiert Scroll-Animationen für alle Elemente auf der Seite.
+ * Weist Animations-Klassen zu und beobachtet Elemente mit IntersectionObserver.
+ * Triggert Animationen auch für Elemente, die beim initialen Laden bereits sichtbar sind.
+ */
 function initScrollAnimations() {
   assignRevealClasses();
   let observer = createScrollObserver();
@@ -89,6 +125,9 @@ function initScrollAnimations() {
 
 // --- Hamburger Menu ---
 
+/**
+ * Schließt das Hamburger-Menü durch Entfernen der 'open'-Klasse.
+ */
 function closeMenu() {
   let hamburger = document.getElementById('hamburger');
   let navLinks = document.querySelector('.nav-links');
@@ -98,6 +137,10 @@ function closeMenu() {
   }
 }
 
+/**
+ * Initialisiert das Hamburger-Menü für mobile Navigation.
+ * Togglet die 'open'-Klasse beim Klick und schließt das Menü beim Klick auf Links.
+ */
 function initHamburger() {
   let hamburger = document.getElementById('hamburger');
   let navLinks = document.querySelector('.nav-links');
