@@ -1,12 +1,12 @@
 // --- Webinar Modal ---
 
 function initWebinarModal() {
-  const modal = document.getElementById('webinar-modal');
-  const closeBtn = document.getElementById('webinar-modal-close');
-  const form = document.getElementById('webinar-form');
-  const statusEl = document.getElementById('form-status');
-  const loadTime = Date.now();
-  const MIN_SUBMIT_TIME_MS = 2000;
+  let modal = document.getElementById('webinar-modal');
+  let closeBtn = document.getElementById('webinar-modal-close');
+  let form = document.getElementById('webinar-form');
+  let statusEl = document.getElementById('form-status');
+  let loadTime = Date.now();
+  let MIN_SUBMIT_TIME_MS = 2000;
 
   if (!modal) return;
 
@@ -25,7 +25,7 @@ function initWebinarModal() {
     e.preventDefault();
     
     // Bot-Schutz prüfen
-    const botCheck = checkBotGuards(form, loadTime);
+    let botCheck = checkBotGuards(form, loadTime);
     if (botCheck) {
       showStatus(statusEl, botCheck.msg, botCheck.type);
       return;
@@ -56,7 +56,7 @@ async function performSubmit(form, submitBtn, statusEl) {
   statusEl.className = 'form-status';
 
   try {
-    const payload = collectPayload(form);
+    let payload = collectPayload(form);
     console.log('Anmeldung:', payload);
     
     showStatus(statusEl, 'Anmeldung erfolgreich! Sie erhalten in Kürze eine Bestätigungs-E-Mail.', 'success');

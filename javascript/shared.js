@@ -9,8 +9,8 @@ window.addEventListener('scroll', () => {
 });
 
 function scrollToTarget(target) {
-  const navHeight = document.querySelector('nav').offsetHeight;
-  const targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight;
+  let navHeight = document.querySelector('nav').offsetHeight;
+  let targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight;
   animateScroll(window.scrollY, targetTop - window.scrollY, 700);
 }
 
@@ -18,8 +18,10 @@ function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) scrollToTarget(target);
+      let target = document.querySelector(this.getAttribute('href'));
+      if(target){
+        scrollToTarget(target);
+      }
     });
   });
 }
@@ -28,7 +30,7 @@ function animateScroll(start, distance, duration) {
   let startTime = null;
   function step(timestamp) {
     if (!startTime) startTime = timestamp;
-    const progress = Math.min((timestamp - startTime) / duration, 1);
+    let progress = Math.min((timestamp - startTime) / duration, 1);
     window.scrollTo(0, start + distance * easeInOutCubic(progress));
     if (progress < 1) requestAnimationFrame(step);
   }
@@ -52,7 +54,7 @@ function assignRevealClasses() {
 }
 
 function createScrollObserver() {
-  const obs = new IntersectionObserver((entries) => {
+  let obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
@@ -65,15 +67,15 @@ function createScrollObserver() {
 
 function initScrollAnimations() {
   assignRevealClasses();
-  const observer = createScrollObserver();
+  let observer = createScrollObserver();
   document.querySelectorAll('.reveal-left, .reveal-right').forEach(el => observer.observe(el));
 }
 
 // --- Hamburger Menu ---
 
 function closeMenu() {
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.querySelector('.nav-links');
+  let hamburger = document.getElementById('hamburger');
+  let navLinks = document.querySelector('.nav-links');
   if (hamburger && navLinks) {
     hamburger.classList.remove('open');
     navLinks.classList.remove('open');
@@ -81,8 +83,8 @@ function closeMenu() {
 }
 
 function initHamburger() {
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.querySelector('.nav-links');
+  let hamburger = document.getElementById('hamburger');
+  let navLinks = document.querySelector('.nav-links');
   if (!hamburger || !navLinks) return;
   
   hamburger.addEventListener('click', () => {
@@ -95,7 +97,7 @@ function initHamburger() {
 // --- Form Validation & Utilities ---
 
 function sanitize(str) {
-  const div = document.createElement('div');
+  let div = document.createElement('div');
   div.textContent = str;
   return div.innerHTML.trim();
 }
@@ -106,7 +108,7 @@ function showStatus(statusEl, msg, type) {
 }
 
 function getValidationMessage(input) {
-  const value = input.value.trim();
+  let value = input.value.trim();
   if (input.type === 'checkbox') {
     return input.checked ? '' : 'Bitte stimmen Sie der Datenschutzerklärung zu.';
   }
@@ -119,8 +121,8 @@ function getValidationMessage(input) {
 }
 
 function validateField(form, input) {
-  const message = getValidationMessage(input);
-  const errorEl = form.querySelector(`[data-for="${input.id}"]`);
+  let message = getValidationMessage(input);
+  let errorEl = form.querySelector(`[data-for="${input.id}"]`);
   if (errorEl) errorEl.textContent = message;
   input.classList.toggle('invalid', !!message);
   return !message;
