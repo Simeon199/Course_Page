@@ -9,8 +9,8 @@ window.addEventListener('scroll', () => {
 });
 
 /**
- * Scrollt die Seite zu einem bestimmten Element mit Berücksichtigung der Navigationsleiste.
- * @param {HTMLElement} target - Das Ziel-Element, zu dem gescrollt werden soll
+ * Scrolls the page to a specific element, accounting for the navigation bar height.
+ * @param {HTMLElement} target - The target element to scroll to
  */
 function scrollToTarget(target) {
   let navHeight = document.querySelector('nav').offsetHeight;
@@ -19,8 +19,8 @@ function scrollToTarget(target) {
 }
 
 /**
- * Initialisiert sanfte Scroll-Animation für alle Anker-Links auf der Seite.
- * Verhindert das Standard-Scroll-Verhalten und nutzt stattdessen animateScroll().
+ * Initializes smooth scroll animation for all anchor links on the page.
+ * Prevents default scroll behavior and uses animateScroll() instead.
  */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -35,10 +35,10 @@ function initSmoothScroll() {
 }
 
 /**
- * Animiert das Scrollen der Seite mit einer Easing-Funktion.
- * @param {number} start - Die Startposition des Scrolls in Pixeln
- * @param {number} distance - Die Distanz, die gescrollt werden soll, in Pixeln
- * @param {number} duration - Die Dauer der Animation in Millisekunden
+ * Animates page scrolling with an easing function.
+ * @param {number} start - The starting scroll position in pixels
+ * @param {number} distance - The distance to scroll in pixels
+ * @param {number} duration - The animation duration in milliseconds
  */
 function animateScroll(start, distance, duration) {
   let startTime = null;
@@ -56,16 +56,16 @@ function animateScroll(start, distance, duration) {
 }
 
 /**
- * Easing-Funktion für sanfte Scroll-Animationen (Cubic In-Out).
- * @param {number} t - Der Fortschritt der Animation (0 bis 1)
- * @returns {number} Der eased Fortschritt
+ * Easing function for smooth scroll animations (Cubic In-Out).
+ * @param {number} t - The animation progress (0 to 1)
+ * @returns {number} The eased progress value
  */
 function easeInOutCubic(t) {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
 
 /**
- * Leitet den Benutzer zur Hauptseite weiter.
+ * Redirects the user to the main page.
  */
 function redirectToMainPage(){
   window.location.href = "../index.html"
@@ -74,8 +74,8 @@ function redirectToMainPage(){
 // --- Scroll Animations ---
 
 /**
- * Weist Animations-Klassen zu Elementen zu.
- * Ungerade Elemente erhalten 'reveal-left', gerade Elemente 'reveal-right'.
+ * Assigns animation classes to elements.
+ * Odd-indexed elements receive 'reveal-left', even-indexed elements receive 'reveal-right'.
  */
 function assignRevealClasses() {
   document.querySelectorAll('main > *:not(.hero)').forEach((el, i) => {
@@ -84,9 +84,9 @@ function assignRevealClasses() {
 }
 
 /**
- * Erstellt einen IntersectionObserver für Scroll-Animationen.
- * Fügt die 'active'-Klasse hinzu, wenn ein Element in den Viewport kommt.
- * @returns {IntersectionObserver} Der konfigurierte Observer
+ * Creates an IntersectionObserver for scroll animations.
+ * Adds the 'active' class when an element enters the viewport.
+ * @returns {IntersectionObserver} The configured observer instance
  */
 function createScrollObserver() {
   let obs = new IntersectionObserver((entries) => {
@@ -101,9 +101,9 @@ function createScrollObserver() {
 }
 
 /**
- * Initialisiert Scroll-Animationen für alle Elemente auf der Seite.
- * Weist Animations-Klassen zu und beobachtet Elemente mit IntersectionObserver.
- * Triggert Animationen auch für Elemente, die beim initialen Laden bereits sichtbar sind.
+ * Initializes scroll animations for all elements on the page.
+ * Assigns animation classes and observes elements with IntersectionObserver.
+ * Triggers animations for elements that are already visible on initial page load.
  */
 function initScrollAnimations() {
   assignRevealClasses();
@@ -126,7 +126,7 @@ function initScrollAnimations() {
 // --- Hamburger Menu ---
 
 /**
- * Schließt das Hamburger-Menü durch Entfernen der 'open'-Klasse.
+ * Closes the hamburger menu by removing the 'open' class.
  */
 function closeMenu() {
   let hamburger = document.getElementById('hamburger');
@@ -138,8 +138,8 @@ function closeMenu() {
 }
 
 /**
- * Initialisiert das Hamburger-Menü für mobile Navigation.
- * Togglet die 'open'-Klasse beim Klick und schließt das Menü beim Klick auf Links.
+ * Initializes the hamburger menu for mobile navigation.
+ * Toggles the 'open' class on click and closes the menu when links are clicked.
  */
 function initHamburger() {
   let hamburger = document.getElementById('hamburger');
