@@ -16,8 +16,8 @@ function scrollToTarget(target) {
 
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
+    anchor.addEventListener('click', function (event) {
+      event.preventDefault();
       let target = document.querySelector(this.getAttribute('href'));
       if (target) {
         scrollToTarget(target);
@@ -102,16 +102,16 @@ function initHamburger() {
 
 // --- Form Validation & Utilities ---
 
-function sanitize(str) {
-  let div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML.trim();
-}
+// function sanitize(str) {
+//   let div = document.createElement('div');
+//   div.textContent = str;
+//   return div.innerHTML.trim();
+// }
 
-function showStatus(statusEl, msg, type) {
-  statusEl.textContent = msg;
-  statusEl.className = `form-status ${type}`;
-}
+// function showStatus(statusEl, msg, type) {
+//   statusEl.textContent = msg;
+//   statusEl.className = `form-status ${type}`;
+// }
 
 // function getValidationMessage(input) {
 //   let value = input.value.trim();
