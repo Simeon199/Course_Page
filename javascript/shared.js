@@ -19,7 +19,7 @@ function initSmoothScroll() {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
       let target = document.querySelector(this.getAttribute('href'));
-      if(target){
+      if (target) {
         scrollToTarget(target);
       }
     });
@@ -89,7 +89,9 @@ function closeMenu() {
 function initHamburger() {
   let hamburger = document.getElementById('hamburger');
   let navLinks = document.querySelector('.nav-links');
-  if (!hamburger || !navLinks) return;
+  if (!hamburger || !navLinks) {
+    return;
+  }
   
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
@@ -127,7 +129,9 @@ function getValidationMessage(input) {
 function validateField(form, input) {
   let message = getValidationMessage(input);
   let errorEl = form.querySelector(`[data-for="${input.id}"]`);
-  if (errorEl) errorEl.textContent = message;
+  if (errorEl) {
+    errorEl.textContent = message;
+  }
   input.classList.toggle('invalid', !!message);
   return !message;
 }
@@ -135,7 +139,9 @@ function validateField(form, input) {
 function validateAll(form) {
   let isValid = true;
   form.querySelectorAll('input[required]').forEach(input => {
-    if (!validateField(form, input)) isValid = false;
+    if (!validateField(form, input)) {
+      isValid = false;
+    }
   });
   return isValid;
 }
