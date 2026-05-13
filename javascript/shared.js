@@ -122,7 +122,9 @@ function getValidationMessage(input) {
   if (input.type === 'email' && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
     return 'Bitte eine gültige E-Mail-Adresse eingeben.';
   }
-  if (input.maxLength > 0 && value.length > input.maxLength) return `Maximal ${input.maxLength} Zeichen erlaubt.`;
+  if (input.maxLength > 0 && value.length > input.maxLength) {
+    return `Maximal ${input.maxLength} Zeichen erlaubt.`;
+  }
   return '';
 }
 
