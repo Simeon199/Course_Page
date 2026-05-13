@@ -252,10 +252,3 @@
 }
 
 .testimonial-card.featured .testimonial-role { color: rgba(255,255,255,0.5); }
-
-.stars {
-  margin-left: auto;
-  color: #F5A623;
-  font-size: 13px;
-  letter-spacing: 1px;
-}
