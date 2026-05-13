@@ -113,56 +113,56 @@ function showStatus(statusEl, msg, type) {
   statusEl.className = `form-status ${type}`;
 }
 
-function getValidationMessage(input) {
-  let value = input.value.trim();
-  if (input.type === 'checkbox') {
-    return input.checked ? '' : 'Bitte stimmen Sie der Datenschutzerklärung zu.';
-  }
-  if (input.required && !value) return 'Dieses Feld ist erforderlich.';
-  if (input.type === 'email' && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-    return 'Bitte eine gültige E-Mail-Adresse eingeben.';
-  }
-  if (input.maxLength > 0 && value.length > input.maxLength) {
-    return `Maximal ${input.maxLength} Zeichen erlaubt.`;
-  }
-  return '';
-}
+// function getValidationMessage(input) {
+//   let value = input.value.trim();
+//   if (input.type === 'checkbox') {
+//     return input.checked ? '' : 'Bitte stimmen Sie der Datenschutzerklärung zu.';
+//   }
+//   if (input.required && !value) return 'Dieses Feld ist erforderlich.';
+//   if (input.type === 'email' && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+//     return 'Bitte eine gültige E-Mail-Adresse eingeben.';
+//   }
+//   if (input.maxLength > 0 && value.length > input.maxLength) {
+//     return `Maximal ${input.maxLength} Zeichen erlaubt.`;
+//   }
+//   return '';
+// }
 
-function validateField(form, input) {
-  let message = getValidationMessage(input);
-  let errorEl = form.querySelector(`[data-for="${input.id}"]`);
-  if (errorEl) {
-    errorEl.textContent = message;
-  }
-  input.classList.toggle('invalid', !!message);
-  return !message;
-}
+// function validateField(form, input) {
+//   let message = getValidationMessage(input);
+//   let errorEl = form.querySelector(`[data-for="${input.id}"]`);
+//   if (errorEl) {
+//     errorEl.textContent = message;
+//   }
+//   input.classList.toggle('invalid', !!message);
+//   return !message;
+// }
 
-function validateAll(form) {
-  let isValid = true;
-  form.querySelectorAll('input[required]').forEach(input => {
-    if (!validateField(form, input)) {
-      isValid = false;
-    }
-  });
-  return isValid;
-}
+// function validateAll(form) {
+//   let isValid = true;
+//   form.querySelectorAll('input[required]').forEach(input => {
+//     if (!validateField(form, input)) {
+//       isValid = false;
+//     }
+//   });
+//   return isValid;
+// }
 
-function collectPayload(form) {
-  return {
-    firstName: sanitize(form.firstName.value),
-    lastName: sanitize(form.lastName.value),
-    email: sanitize(form.email.value),
-    registeredAt: new Date().toISOString(),
-  };
-}
+// function collectPayload(form) {
+//   return {
+//     firstName: sanitize(form.firstName.value),
+//     lastName: sanitize(form.lastName.value),
+//     email: sanitize(form.email.value),
+//     registeredAt: new Date().toISOString(),
+//   };
+// }
 
-function checkBotGuards(form, loadTime, minTime = 2000) {
-  if (form.querySelector('[name="website"]').value) {
-    return { msg: 'Vielen Dank für Ihre Anmeldung!', type: 'success' };
-  }
-  if (Date.now() - loadTime < minTime) {
-    return { msg: 'Bitte warten Sie einen Moment und versuchen Sie es erneut.', type: 'error' };
-  }
-  return null;
-}
+// function checkBotGuards(form, loadTime, minTime = 2000) {
+//   if (form.querySelector('[name="website"]').value) {
+//     return { msg: 'Vielen Dank für Ihre Anmeldung!', type: 'success' };
+//   }
+//   if (Date.now() - loadTime < minTime) {
+//     return { msg: 'Bitte warten Sie einen Moment und versuchen Sie es erneut.', type: 'error' };
+//   }
+//   return null;
+// }
