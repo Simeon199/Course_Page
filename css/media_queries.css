@@ -67,10 +67,6 @@
     font-size: 16px;
     letter-spacing: 2px;
   }
-
-  footer {
-    padding: 40px 80px;
-  }
 }
 
 @media (min-width: 819px) and (max-width: 1023px) {
@@ -231,10 +227,6 @@
     justify-content: space-around;
     width: 100%;
   }
-
-  /* li {
-    word-break: break-all;
-  } */
 
   .seal {
     text-align: center;

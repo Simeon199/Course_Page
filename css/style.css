@@ -77,3 +77,33 @@ a {
 .padding-bottom {
   padding-bottom: 80px;
 }
+
+.margin-left {
+  margin-left: 12px;
+}
+
+.back-to-main-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.back-to-main-page a {
+  color: rgb(35, 35, 133);
+  font-size: 18px;
+}
+
+.back-to-main-page a:hover {
+  font-weight: bold;
+}
+
+.seal {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.seal a {
+  color: rgb(35, 35, 133);
+}
