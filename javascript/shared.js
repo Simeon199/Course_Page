@@ -12,6 +12,7 @@ window.addEventListener('scroll', () => {
  * Scrolls the page to a specific element, accounting for the navigation bar height.
  * @param {HTMLElement} target - The target element to scroll to
  */
+
 function scrollToTarget(target) {
   let navHeight = document.querySelector('nav').offsetHeight;
   let targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight;
@@ -22,6 +23,7 @@ function scrollToTarget(target) {
  * Initializes smooth scroll animation for all anchor links on the page.
  * Prevents default scroll behavior and uses animateScroll() instead.
  */
+
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (event) {
@@ -40,6 +42,7 @@ function initSmoothScroll() {
  * @param {number} distance - The distance to scroll in pixels
  * @param {number} duration - The animation duration in milliseconds
  */
+
 function animateScroll(start, distance, duration) {
   let startTime = null;
   function step(timestamp) {
@@ -60,6 +63,7 @@ function animateScroll(start, distance, duration) {
  * @param {number} t - The animation progress (0 to 1)
  * @returns {number} The eased progress value
  */
+
 function easeInOutCubic(t) {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
@@ -67,6 +71,7 @@ function easeInOutCubic(t) {
 /**
  * Redirects the user to the main page.
  */
+
 function redirectToMainPage(){
   window.location.href = "../index.html"
 }
@@ -77,6 +82,7 @@ function redirectToMainPage(){
  * Assigns animation classes to elements.
  * Odd-indexed elements receive 'reveal-left', even-indexed elements receive 'reveal-right'.
  */
+
 function assignRevealClasses() {
   document.querySelectorAll('main > *:not(.hero)').forEach((el, i) => {
     el.classList.add(i % 2 === 0 ? 'reveal-left' : 'reveal-right');
@@ -88,6 +94,7 @@ function assignRevealClasses() {
  * Adds the 'active' class when an element enters the viewport.
  * @returns {IntersectionObserver} The configured observer instance
  */
+
 function createScrollObserver() {
   let obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -105,6 +112,7 @@ function createScrollObserver() {
  * Assigns animation classes and observes elements with IntersectionObserver.
  * Triggers animations for elements that are already visible on initial page load.
  */
+
 function initScrollAnimations() {
   assignRevealClasses();
   let observer = createScrollObserver();
@@ -128,6 +136,7 @@ function initScrollAnimations() {
 /**
  * Closes the hamburger menu by removing the 'open' class.
  */
+
 function closeMenu() {
   let hamburger = document.getElementById('hamburger');
   let navLinks = document.querySelector('.nav-links');
@@ -141,6 +150,7 @@ function closeMenu() {
  * Initializes the hamburger menu for mobile navigation.
  * Toggles the 'open' class on click and closes the menu when links are clicked.
  */
+
 function initHamburger() {
   let hamburger = document.getElementById('hamburger');
   let navLinks = document.querySelector('.nav-links');
