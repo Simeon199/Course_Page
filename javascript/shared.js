@@ -29,10 +29,14 @@ function initSmoothScroll() {
 function animateScroll(start, distance, duration) {
   let startTime = null;
   function step(timestamp) {
-    if (!startTime) startTime = timestamp;
+    if (!startTime) {
+      startTime = timestamp;
+    }
     let progress = Math.min((timestamp - startTime) / duration, 1);
     window.scrollTo(0, start + distance * easeInOutCubic(progress));
-    if (progress < 1) requestAnimationFrame(step);
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    }
   }
   requestAnimationFrame(step);
 }
