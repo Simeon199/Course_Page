@@ -72,7 +72,19 @@ function createScrollObserver() {
 function initScrollAnimations() {
   assignRevealClasses();
   let observer = createScrollObserver();
-  document.querySelectorAll('.reveal-left, .reveal-right').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal-left, .reveal-right').forEach(el => {
+    observer.observe(el);
+  });
+  
+  // Trigger animation for elements already in viewport on page load
+  setTimeout(() => {
+    document.querySelectorAll('.reveal-left, .reveal-right').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        el.classList.add('active');
+        observer.unobserve(el);
+      }
+    });
+  }, 100);
 }
 
 // --- Hamburger Menu ---
