@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initScrollAnimations();
   initHamburger();
+  showCarouselAnimation();
 });
 
 window.addEventListener('scroll', () => {
