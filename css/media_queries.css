@@ -26,10 +26,11 @@
 
   .hero {
     padding-top: 120px;
+    padding-bottom: 0;
   }
 
   .hero-title {
-    font-size: 64px;
+    font-size: 48px;
     text-align: center;
   }
 
@@ -173,10 +174,6 @@
   .hero-inner {
     flex-direction: column-reverse;
     gap: 32px;
-  }
-
-  .hero-title {
-    font-size: 48px;
   }
 
   .hero-image-wrap {
