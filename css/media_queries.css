@@ -172,7 +172,7 @@
 
 @media (max-width: 768px) {
   .hero-inner {
-    flex-direction: column-reverse;
+    /* flex-direction: column-reverse; */
     gap: 32px;
   }
 

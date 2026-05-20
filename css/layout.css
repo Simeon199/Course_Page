@@ -33,11 +33,13 @@
 }
 
 .hero-content {
+  height: 100%;
   flex: 1;
   min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .hero-image-wrap {
@@ -89,17 +91,26 @@
 @keyframes fade {
   from {opacity: 0.4;} 
   to {opacity: 1;}
-} 
+}
+
+.hero-content-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .hero-title {
-  font-size: clamp(48px, 8vw, 120px);
-  line-height: 0.85;
-  margin-bottom: 48px;
+  font-size: clamp(48px, 72px, 96px);
+  text-align: center;
+  padding-top: 16px;
 }
 
 .hero-title span {
   display: block;
   color: white;
+  letter-spacing: 2.6px;
 }
 
 .hero-desc {
@@ -107,9 +118,9 @@
   font-size: 20px;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 48px;
-  line-height: 1.6;
-  letter-spacing: 0.3px;
+  line-height: 2.6;
+  letter-spacing: 1.3px;
+  text-align: center;
 }
 
 /* About Me Section */

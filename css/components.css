@@ -17,8 +17,10 @@
 
 .hero-btns {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 24px;
+  padding-bottom: 16px;
 }
 
 .hero-btns .btn-primary {
