@@ -66,7 +66,9 @@
   position: relative;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .image-wrapper {
@@ -87,6 +89,21 @@
   animation-name: fade;
   animation-duration: 1.5s;
 }
+
+/* .dot-container {
+  position: absolute;
+  bottom: clamp(2%, 5%, 10%);
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.dot {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #bbb;
+} */
 
 @keyframes fade {
   from {opacity: 0.4;} 
@@ -183,7 +200,7 @@
 @media(max-width: 1350px){
   .hero-inner {
     flex-direction: column;
-    gap: 40px;
+    gap: 0;
   }
 
   .hero-description-wrapper {
@@ -203,6 +220,32 @@
 
   .carousel {
     height: auto;
-    width: clamp(40%, 50%, 70%);
+    width: clamp(40%, 55%, 70%);
+  }
+
+  .carousel-content-wrapper {
+    justify-content: flex-start;
+  }
+
+  .carousel-image {
+    margin-top: 24px;
+  }
+}
+
+@media(max-width: 1025px) {
+  .carousel {
+    width: clamp(50%, 70%, 90%);
+  }
+}
+
+@media(max-width: 768px){
+  .carousel {
+    width: 80%;
+  }
+}
+
+@media(max-width: 600px){
+  .carousel{
+    width: 100%;
   }
 }
