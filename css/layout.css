@@ -90,21 +90,6 @@
   animation-duration: 1.5s;
 }
 
-/* .dot-container {
-  position: absolute;
-  bottom: clamp(2%, 5%, 10%);
-  display: flex;
-  width: 100%;
-  justify-content: space-evenly;
-}
-
-.dot {
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  background-color: #bbb;
-} */
-
 @keyframes fade {
   from {opacity: 0.4;} 
   to {opacity: 1;}
@@ -247,5 +232,9 @@
 @media(max-width: 600px){
   .carousel{
     width: 100%;
+  }
+
+  .hero-title span {
+    letter-spacing: 1.6px;
   }
 }

@@ -23,7 +23,8 @@
   padding-bottom: 24px;
 }
 
-.hero-btns .btn-primary {
+.hero-btns 
+.btn-primary {
   padding: 14px 32px;
   font-size: 18px;
   font-weight: 600;
@@ -390,4 +391,19 @@
 
 #pricing .about-the-course {
   text-align: center;
+}
+
+@media(max-width: 600px){
+  .hero-btns 
+  .btn-primary {
+    font-size: 16px;
+  } 
+
+  .coming-soon span {
+    text-align: center;
+  }
+
+  .pricing-card {
+    padding: 24px;
+  }
 }
