@@ -1,3 +1,8 @@
+/* ============================================
+   RESPONSIVE DESIGN - ORGANIZED BY BREAKPOINT
+   ============================================ */
+
+/* Desktop: min-width 1025px */
 @media (min-width: 1025px) {
   .d-flex {
     flex-direction: row;
@@ -15,7 +20,26 @@
   }
 }
 
-@media(max-width: 1350px){
+/* Large Desktop: min-width 820px */
+@media (min-width: 820px) {
+  .hamburger {
+    display: none;
+  }
+
+  .about-me-photo {
+    align-self: center;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+}
+
+/* Tablet Large: max-width 1350px */
+@media (max-width: 1350px) {
   .pricing-grid {
     flex-direction: column;
     align-items: center;
@@ -46,9 +70,32 @@
     text-align: center;
     line-height: 1.6;
   }
+
+  /* Carousel */
+  .hero-inner {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .hero-description-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .carousel {
+    height: auto;
+    width: clamp(40%, 55%, 70%);
+  }
+
+  .carousel-content-wrapper {
+    justify-content: flex-start;
+  }
 }
 
-@media(max-width: 1024px){
+/* Tablet: max-width 1024px */
+@media (max-width: 1024px) {
   .about-me-wrapper {
     flex-direction: column;
     align-items: center;
@@ -62,23 +109,14 @@
   }
 }
 
-@media (min-width: 820px) {
-  .hamburger {
-    display: none;
-  }
-
-  .about-me-photo {
-    align-self: center;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    font-size: 16px;
-    letter-spacing: 2px;
+/* Tablet Medium: max-width 1025px */
+@media (max-width: 1025px) {
+  .carousel {
+    width: clamp(50%, 70%, 90%);
   }
 }
 
+/* Tablet: min-width 819px and max-width 1023px */
 @media (min-width: 819px) and (max-width: 1023px) {
   .hero-inner {
     gap: unset;
@@ -97,6 +135,7 @@
   }
 }
 
+/* Mobile Large: max-width 819px */
 @media (max-width: 819px) {
   nav .btn-primary {
     display: none;
@@ -179,8 +218,8 @@
   }
 }
 
+/* Mobile: max-width 768px */
 @media (max-width: 768px) {
-
   .hero-image-wrap {
     order: -1;
   }
@@ -217,9 +256,14 @@
     padding: 20px;
     gap: 16px;
   }
+
+  .carousel {
+    width: 80%;
+  }
 }
 
-@media(max-width: 600px){
+/* Mobile Small: max-width 600px */
+@media (max-width: 600px) {
   .div-logo {
     display: none;
   }
@@ -238,8 +282,8 @@
     gap: 16px;
   }
 
-  p, 
-  .generic-p, 
+  p,
+  .generic-p,
   .webinar-p {
     font-size: 16px;
   }
@@ -260,22 +304,43 @@
     font-size: 40px;
   }
 
+  .hero-title span {
+    letter-spacing: 1.6px;
+  }
+
   .hero-desc {
     font-size: 16px;
   }
 
-  .btn-primary, 
+  .btn-primary,
   .hero-btns {
     font-size: 16px;
     text-align: center;
   }
 
+  .hero-btns .btn-primary {
+    font-size: 16px;
+  }
+
   .about-me-photo {
     width: 90%;
   }
+
+  .coming-soon span {
+    text-align: center;
+  }
+
+  .pricing-card {
+    padding: 24px;
+  }
+
+  .carousel {
+    width: 100%;
+  }
 }
 
-@media(max-width: 400px){
+/* Mobile Extra Small: max-width 400px */
+@media (max-width: 400px) {
   h1 {
     font-size: 24px;
   }
@@ -294,7 +359,7 @@
     justify-content: center;
   }
 
-  .webinar-button:nth-child(2){
+  .webinar-button:nth-child(2) {
     margin-top: 32px;
   }
 }

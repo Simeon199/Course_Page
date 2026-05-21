@@ -393,17 +393,3 @@
   text-align: center;
 }
 
-@media(max-width: 600px){
-  .hero-btns 
-  .btn-primary {
-    font-size: 16px;
-  } 
-
-  .coming-soon span {
-    text-align: center;
-  }
-
-  .pricing-card {
-    padding: 24px;
-  }
-}
