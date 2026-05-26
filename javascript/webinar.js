@@ -1,7 +1,66 @@
 /* WEBINAR-ANMELDEFORMULAR */
 
-let WEBHOOK_URL = 'https://n8n.lernenlernenleichtgemacht.de/webhook-test/webinar-anmeldung';
+// let WEBHOOK_URL = 'https://n8n.lernenlernenleichtgemacht.de/webhook-test/webinar-anmeldung';
+let WEBHOOK_URL = 'https://n8n.lernenlernenleichtgemacht.de/webhook-test/39ce9bf9-6ed9-47bb-b551-9a9e4cf775e3';
 let MIN_SUBMIT_TIME_MS = 3000;
+
+function collectPayload(form) {
+  let formData = new FormData(form);
+  let payload = {};
+  formData.forEach((value, key) => {
+    payload[key] = value;
+  });
+  return payload;
+}
+
+function showStatus(statusEl, message, type) {
+  statusEl.textContent = message;
+  statusEl.className = `form-status ${type}`;
+}
+
+function validateAll(form) {
+  let isValid = true;
+  let inputs = form.querySelectorAll('input[required], textarea[required], select[required]');
+  
+  inputs.forEach(input => {
+    if (!input.value.trim()) {
+      isValid = false;
+      input.classList.add('error');
+    } else {
+      input.classList.remove('error');
+    }
+  });
+  
+  // Email-Validierung
+  let emailInput = form.querySelector('input[type="email"]');
+  if (emailInput && emailInput.value.trim()) {
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailInput.value)) {
+      isValid = false;
+      emailInput.classList.add('error');
+    }
+  }
+  
+  if (!isValid) {
+    showStatus(form.querySelector('#form-status'), 'Bitte füllen Sie alle erforderlichen Felder korrekt aus.', 'error');
+  }
+  
+  return isValid;
+}
+
+function checkBotGuards(form, loadTime, minSubmitTimeMs) {
+  let currentTime = Date.now();
+  let elapsedTime = currentTime - loadTime;
+  
+  if (elapsedTime < minSubmitTimeMs) {
+    return {
+      msg: 'Bitte warten Sie einen Moment, bevor Sie das Formular absenden.',
+      type: 'error'
+    };
+  }
+  
+  return null;
+}
 
 function setSubmitting(submitBtn, statusEl) {
   submitBtn.disabled    = true;
