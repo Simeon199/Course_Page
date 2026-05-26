@@ -252,3 +252,203 @@
 }
 
 .testimonial-card.featured .testimonial-role { color: rgba(255,255,255,0.5); }
+
+/* === WEBINAR FORM === */
+
+#webinar-form {
+  background: linear-gradient(135deg, var(--teal) 0%, rgba(13, 92, 99, 0.95) 100%);
+  border-radius: 20px;
+  padding: 60px 48px;
+  border: 1px solid rgba(200, 240, 96, 0.15);
+  box-shadow: 
+    0 12px 40px rgba(13, 92, 99, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+#webinar-form:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 20px 60px rgba(13, 92, 99, 0.2),
+    0 8px 20px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-color: rgba(200, 240, 96, 0.3);
+}
+
+#webinar-form .form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+#webinar-form label {
+  display: block;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+#webinar-form input[type="text"],
+#webinar-form input[type="email"] {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(200, 240, 96, 0.2);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--dark);
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+#webinar-form input[type="text"]:focus,
+#webinar-form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--lime);
+  box-shadow: 0 0 0 3px rgba(200, 240, 96, 0.2);
+  background: #fff;
+}
+
+#webinar-form input::placeholder {
+  color: #aaa;
+}
+
+#webinar-form .form-group--checkbox {
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+#webinar-form .checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#webinar-form input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: var(--lime);
+  flex-shrink: 0;
+}
+
+#webinar-form .form-link {
+  color: var(--lime);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+#webinar-form .form-link:hover {
+  text-decoration: underline;
+  color: #e8ff4d;
+}
+
+#webinar-form .field-error {
+  display: block;
+  color: #ff6b6b;
+  font-size: 12px;
+  margin-top: 4px;
+  min-height: 16px;
+}
+
+#webinar-form .btn-submit {
+  width: 100%;
+  background: var(--lime);
+  color: var(--dark);
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+#webinar-form .btn-submit:hover:not(:disabled) {
+  background: #e8ff4d;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(200, 240, 96, 0.3);
+}
+
+#webinar-form .btn-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+#webinar-form .form-status {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;
+  min-height: 20px;
+}
+
+#webinar-form .form-status.success {
+  background: rgba(76, 175, 80, 0.2);
+  color: #c8f060;
+  border: 1px solid rgba(200, 240, 96, 0.3);
+}
+
+#webinar-form .form-status.error {
+  background: rgba(255, 107, 107, 0.2);
+  color: #ff6b6b;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+@media (max-width: 768px) {
+  #webinar-form {
+    padding: 40px 32px;
+  }
+
+  #webinar-form label {
+    font-size: 13px;
+  }
+
+  #webinar-form input[type="text"],
+  #webinar-form input[type="email"] {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  #webinar-form .checkbox-label {
+    font-size: 13px;
+  }
+
+  #webinar-form .btn-submit {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  #webinar-form {
+    padding: 32px 20px;
+  }
+
+  #webinar-form label {
+    font-size: 12px;
+  }
+
+  #webinar-form input[type="text"],
+  #webinar-form input[type="email"] {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  #webinar-form .checkbox-label {
+    font-size: 12px;
+  }
+
+  #webinar-form .btn-submit {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
