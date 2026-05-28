@@ -1,16 +1,51 @@
-/* WEBINAR-ANMELDEFORMULAR */
-
-// let WEBHOOK_URL = 'https://n8n.lernenlernenleichtgemacht.de/webhook-test/webinar-anmeldung';
 let WEBHOOK_URL = 'https://n8n.lernenlernenleichtgemacht.de/webhook-test/39ce9bf9-6ed9-47bb-b551-9a9e4cf775e3';
 let MIN_SUBMIT_TIME_MS = 3000;
 
-function collectPayload(form) {
-  let formData = new FormData(form);
-  let payload = {};
-  formData.forEach((value, key) => {
-    payload[key] = value;
+let schema = {
+  firstName: { type: 'string' },
+  lastName: { type: 'string' },
+  email: { type: 'string' },
+  timezone: { type: 'string' },
+  webinarId: { type: 'integer' },
+  webinarDateIds: { type: 'array' }
+} 
+
+document.addEventListener('DOMContentLoaded', () => {
+  let form      = document.getElementById('webinar-form');
+  let submitBtn = document.getElementById('submit-btn');
+  let statusEl  = document.getElementById('form-status');
+  let loadTime  = Date.now();
+
+  if (!form) {
+    return;
+  }
+
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    let guard = checkBotGuards(form, loadTime, MIN_SUBMIT_TIME_MS);
+    if (guard){ 
+      showStatus(statusEl, guard.msg, guard.type); 
+      return; 
+    }
+    if (!validateAll(form)){
+      return;
+    } 
+    await performSubmit(form, submitBtn, statusEl);
   });
-  return payload;
+});
+
+function checkBotGuards(form, loadTime, minSubmitTimeMs) {
+  let currentTime = Date.now();
+  let elapsedTime = currentTime - loadTime;
+  
+  if (elapsedTime < minSubmitTimeMs) {
+    return {
+      msg: 'Bitte warten Sie einen Moment, bevor Sie das Formular absenden.',
+      type: 'error'
+    };
+  }
+  
+  return null;
 }
 
 function showStatus(statusEl, message, type) {
@@ -48,18 +83,18 @@ function validateAll(form) {
   return isValid;
 }
 
-function checkBotGuards(form, loadTime, minSubmitTimeMs) {
-  let currentTime = Date.now();
-  let elapsedTime = currentTime - loadTime;
-  
-  if (elapsedTime < minSubmitTimeMs) {
-    return {
-      msg: 'Bitte warten Sie einen Moment, bevor Sie das Formular absenden.',
-      type: 'error'
-    };
+async function performSubmit(form, submitBtn, statusEl) {
+  setSubmitting(submitBtn, statusEl);
+  try {
+    await sendPayload(collectPayload(form, schema));
+    showStatus(statusEl, 'Anmeldung erfolgreich! Sie erhalten in Kürze eine Bestätigungs-E-Mail.', 'success');
+    form.reset();
+  } catch (error) {
+    console.error('Anmeldefehler:', error);
+    showStatus(statusEl, 'Leider ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.', 'error');
+  } finally {
+    resetSubmitting(submitBtn);
   }
-  
-  return null;
 }
 
 function setSubmitting(submitBtn, statusEl) {
@@ -67,11 +102,6 @@ function setSubmitting(submitBtn, statusEl) {
   submitBtn.textContent = 'Wird gesendet…';
   statusEl.textContent  = '';
   statusEl.className    = 'form-status';
-}
-
-function resetSubmitting(submitBtn) {
-  submitBtn.disabled    = false;
-  submitBtn.textContent = 'Kostenlos anmelden';
 }
 
 async function sendPayload(payload) {
@@ -85,40 +115,30 @@ async function sendPayload(payload) {
   };
 }
 
-async function performSubmit(form, submitBtn, statusEl) {
-  setSubmitting(submitBtn, statusEl);
-  try {
-    await sendPayload(collectPayload(form));
-    showStatus(statusEl, 'Anmeldung erfolgreich! Sie erhalten in Kürze eine Bestätigungs-E-Mail.', 'success');
-    form.reset();
-  } catch (error) {
-    console.error('Anmeldefehler:', error);
-    showStatus(statusEl, 'Leider ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.', 'error');
-  } finally {
-    resetSubmitting(submitBtn);
-  }
+function collectPayload(form, fieldSchema){
+  let formData = new FormData(form);
+  let payload = {};
+
+  formData.forEach((value, key) => {
+    if(!fieldSchema[key]){
+      return ;
+    }
+
+    let config = fieldSchema[key];
+
+    if(config.type === 'integer'){
+      payload[key] = parseInt(value, 10);
+    } else if(config.type === 'array'){
+      payload[key] = value.split(',').map(value => parseInt(value.trim(), 10))
+    } else {
+      payload[key] = value;
+    }
+  });
+  
+  return payload;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  let form      = document.getElementById('webinar-form');
-  let submitBtn = document.getElementById('submit-btn');
-  let statusEl  = document.getElementById('form-status');
-  let loadTime  = Date.now();
-
-  if (!form) {
-    return;
-  }
-
-  form.addEventListener('submit', async event => {
-    event.preventDefault();
-    let guard = checkBotGuards(form, loadTime, MIN_SUBMIT_TIME_MS);
-    if (guard){ 
-      showStatus(statusEl, guard.msg, guard.type); 
-      return; 
-    }
-    if (!validateAll(form)){
-      return;
-    } 
-    await performSubmit(form, submitBtn, statusEl);
-  });
-});
+function resetSubmitting(submitBtn) {
+  submitBtn.disabled    = false;
+  submitBtn.textContent = 'Kostenlos anmelden';
+}
