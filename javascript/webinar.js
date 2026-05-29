@@ -7,8 +7,9 @@ let schema = {
   email: { type: 'string' },
   timezone: { type: 'string' },
   webinarId: { type: 'integer' },
-  webinarDateIds: { type: 'array' }
-} 
+  webinarDateIds: { type: 'array' },
+  privacy: { type: 'boolean' }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   let form      = document.getElementById('webinar-form');
@@ -53,6 +54,25 @@ function showStatus(statusEl, message, type) {
   statusEl.className = `form-status ${type}`;
 }
 
+function validateField(name, value) {
+  switch(name) {
+    case 'firstName':
+    case 'lastName':
+      if (!value || value.trim().length < 2) return `${name === 'firstName' ? 'Vorname' : 'Nachname'} zu kurz`;
+      break;
+    case 'email':
+      if (!value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return 'Ungültige E-Mail';
+      break;
+    case 'timezone':
+      if (!value) return 'Zeitzone erforderlich';
+      break;
+    case 'privacy':
+      if (!document.getElementById('privacy').checked) return 'Datenschutz zustimmen erforderlich';
+      break;
+  }
+  return null;
+}
+
 function validateAll(form) {
   let isValid = true;
   let inputs = form.querySelectorAll('input[required], textarea[required], select[required]');
@@ -86,12 +106,29 @@ function validateAll(form) {
 async function performSubmit(form, submitBtn, statusEl) {
   setSubmitting(submitBtn, statusEl);
   try {
-    await sendPayload(collectPayload(form, schema));
-    showStatus(statusEl, 'Anmeldung erfolgreich! Sie erhalten in Kürze eine Bestätigungs-E-Mail.', 'success');
-    form.reset();
+    let payload = collectPayload(form, schema);
+    let result = await sendPayload(payload);
+    
+    if (result.success) {
+      showSuccess('Anmeldung erfolgreich! Sie erhalten in Kürze eine Bestätigungs-E-Mail.');
+      form.reset();
+      
+      // Zur Webinar-Seite umleiten, falls Link vorhanden
+      if (result.webinarLink && result.webinarLink.startsWith('https://')) {
+        setTimeout(() => {
+          window.location.href = result.webinarLink;
+        }, 2000);
+      }
+    } else {
+      showError(result.error || 'Anmeldung fehlgeschlagen');
+    }
   } catch (error) {
     console.error('Anmeldefehler:', error);
-    showStatus(statusEl, 'Leider ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.', 'error');
+    if (error.name === 'AbortError') {
+      showError('Request Timeout - bitte versuchen Sie es später');
+    } else {
+      showError('Netzwerkfehler - prüfen Sie Ihre Verbindung');
+    }
   } finally {
     resetSubmitting(submitBtn);
   }
@@ -109,10 +146,13 @@ async function sendPayload(payload) {
     method:  'POST',
     headers: { 'Content-Type': 'application/json' },
     body:    JSON.stringify(payload),
+    signal:  AbortSignal.timeout(10000)
   });
   if(!response.ok){
-    throw new Error(`HTTP ${response.status}`)
-  };
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.error || `HTTP ${response.status}`);
+  }
+  return await response.json();
 }
 
 function collectPayload(form, fieldSchema){
@@ -129,7 +169,9 @@ function collectPayload(form, fieldSchema){
     if(config.type === 'integer'){
       payload[key] = parseInt(value, 10);
     } else if(config.type === 'array'){
-      payload[key] = value.split(',').map(value => parseInt(value.trim(), 10))
+      payload[key] = value.split(',').map(value => parseInt(value.trim(), 10)).filter(v => !isNaN(v));
+    } else if(config.type === 'boolean'){
+      payload[key] = form.querySelector(`[name="${key}"]`).checked;
     } else {
       payload[key] = value;
     }
@@ -141,4 +183,22 @@ function collectPayload(form, fieldSchema){
 function resetSubmitting(submitBtn) {
   submitBtn.disabled    = false;
   submitBtn.textContent = 'Kostenlos anmelden';
+}
+
+function showError(message) {
+  let statusDiv = document.getElementById('form-status');
+  statusDiv.innerHTML = `<div class="form-status__error">${message}</div>`;
+  statusDiv.classList.add('form-status--error');
+}
+
+function showSuccess(message) {
+  let statusDiv = document.getElementById('form-status');
+  statusDiv.innerHTML = `<div class="form-status__success">${message}</div>`;
+  statusDiv.classList.add('form-status--success');
+}
+
+function showLoading(message) {
+  let statusDiv = document.getElementById('form-status');
+  statusDiv.innerHTML = `<div class="form-status__loading">${message}</div>`;
+  statusDiv.classList.add('form-status--loading');
 }
