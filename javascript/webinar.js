@@ -1,5 +1,6 @@
 let WEBHOOK_URL = 'https://n8n.lernenlernenleichtgemacht.de/webhook-test/39ce9bf9-6ed9-47bb-b551-9a9e4cf775e3';
 let MIN_SUBMIT_TIME_MS = 3000;
+let defaultSuccessMessage = 'Anmeldung erfolgreich! Sie erhalten in Kürze eine Bestätigungs-E-Mail.';
 
 let schema = {
   firstName: { type: 'string' },
@@ -58,19 +59,43 @@ function validateField(name, value) {
   switch(name) {
     case 'firstName':
     case 'lastName':
-      if (!value || value.trim().length < 2) return `${name === 'firstName' ? 'Vorname' : 'Nachname'} zu kurz`;
+      if (!isLastNameValid(value)) {
+        return `${name === 'firstName' ? 'Vorname' : 'Nachname'} zu kurz`
+      };
       break;
     case 'email':
-      if (!value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return 'Ungültige E-Mail';
+      if (!isEmailValid(value)){
+        return 'Ungültige E-Mail';
+      }
       break;
     case 'timezone':
-      if (!value) return 'Zeitzone erforderlich';
+      if (!isTimeZoneValid(value)){
+        return 'Zeitzone erforderlich';
+      }
       break;
     case 'privacy':
-      if (!document.getElementById('privacy').checked) return 'Datenschutz zustimmen erforderlich';
+      if (isPrivacyCheckboxInvalid()){
+        return 'Datenschutz zustimmen erforderlich';
+      }
       break;
   }
   return null;
+}
+
+function isLastNameValid(value){
+  return value && value.trim().length >= 2;
+}
+
+function isEmailValid(value){
+  return value && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function isTimeZoneValid(value){
+  return !!value;
+}
+
+function isPrivacyCheckboxInvalid(){
+  return !document.getElementById('privacy').checked;
 }
 
 function validateAll(form) {
@@ -106,31 +131,45 @@ function validateAll(form) {
 async function performSubmit(form, submitBtn, statusEl) {
   setSubmitting(submitBtn, statusEl);
   try {
-    let payload = collectPayload(form, schema);
-    let result = await sendPayload(payload);
-    
-    if (result.success) {
-      showSuccess('Anmeldung erfolgreich! Sie erhalten in Kürze eine Bestätigungs-E-Mail.');
-      form.reset();
-      
-      // Zur Webinar-Seite umleiten, falls Link vorhanden
-      if (result.webinarLink && result.webinarLink.startsWith('https://')) {
-        setTimeout(() => {
-          window.location.href = result.webinarLink;
-        }, 2000);
-      }
-    } else {
-      showError(result.error || 'Anmeldung fehlgeschlagen');
-    }
+    await submittingForm(form);
   } catch (error) {
-    console.error('Anmeldefehler:', error);
-    if (error.name === 'AbortError') {
-      showError('Request Timeout - bitte versuchen Sie es später');
-    } else {
-      showError('Netzwerkfehler - prüfen Sie Ihre Verbindung');
-    }
+    handleErrorScenario(error);
   } finally {
     resetSubmitting(submitBtn);
+  }
+}
+
+async function submittingForm(form){
+  let payload = collectPayload(form, schema);
+  let result = await sendPayload(payload);
+    
+  if (result.success) {
+    showSuccess(defaultSuccessMessage);
+    handleSuccessfullSubmit(form, result);
+  } else {
+    showError(result.error || 'Anmeldung fehlgeschlagen');
+  }
+}
+
+function handleSuccessfullSubmit(form, result){
+  form.reset();    
+  if (isWebinarLinkValid(result)) {
+    setTimeout(() => {
+      window.location.href = result.webinarLink;
+    }, 2000);
+  }
+}
+
+function isWebinarLinkValid(result){
+  return result.webinarLink && result.webinarLink.startsWith('https://');
+}
+
+function handleErrorScenario(error){
+  console.error('Anmeldefehler:', error);
+  if (error.name === 'AbortError') {
+    showError('Request Timeout - bitte versuchen Sie es später');
+  } else {
+    showError('Netzwerkfehler - prüfen Sie Ihre Verbindung');
   }
 }
 
@@ -166,11 +205,11 @@ function collectPayload(form, fieldSchema){
 
     let config = fieldSchema[key];
 
-    if(config.type === 'integer'){
+    if(isDatatype(config.type, "integer")){ 
       payload[key] = parseInt(value, 10);
-    } else if(config.type === 'array'){
-      payload[key] = value.split(',').map(value => parseInt(value.trim(), 10)).filter(v => !isNaN(v));
-    } else if(config.type === 'boolean'){
+    } else if(isDatatype(config.type, "array")){ 
+      payload[key] = value.split(',').map(value => parseInt(value.trim(), 10)).filter(value => !isNaN(value));
+    } else if(isDatatype(config.type, "boolean")){ 
       payload[key] = form.querySelector(`[name="${key}"]`).checked;
     } else {
       payload[key] = value;
@@ -178,6 +217,10 @@ function collectPayload(form, fieldSchema){
   });
   
   return payload;
+}
+
+function isDatatype(configType, dataType){
+  return configType == dataType;
 }
 
 function resetSubmitting(submitBtn) {
