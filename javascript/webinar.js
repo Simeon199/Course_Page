@@ -59,27 +59,42 @@ function validateField(name, value) {
   switch(name) {
     case 'firstName':
     case 'lastName':
-      if (!isLastNameValid(value)) {
-        return `${name === 'firstName' ? 'Vorname' : 'Nachname'} zu kurz`
-      };
+      handleLastNameCase(name, value);
       break;
     case 'email':
-      if (!isEmailValid(value)){
-        return 'Ungültige E-Mail';
-      }
+      handleEmailCase(value);
       break;
     case 'timezone':
-      if (!isTimeZoneValid(value)){
-        return 'Zeitzone erforderlich';
-      }
       break;
     case 'privacy':
-      if (isPrivacyCheckboxInvalid()){
-        return 'Datenschutz zustimmen erforderlich';
-      }
+      handlePrivacyCheckboxCase();
       break;
   }
   return null;
+}
+
+function handleLastNameCase(name, value){
+  if (!isLastNameValid(value)) {
+    return `${name === 'firstName' ? 'Vorname' : 'Nachname'} zu kurz`
+  };
+}
+
+function handleEmailCase(value){
+  if (!isEmailValid(value)){
+    return 'Ungültige E-Mail';
+  }
+}
+
+function handleTimeZoneCase(value){
+  if (!isTimeZoneValid(value)){
+    return 'Zeitzone erforderlich';
+  }
+}
+
+function handlePrivacyCheckboxCase(){
+  if (isPrivacyCheckboxInvalid()){
+    return 'Datenschutz zustimmen erforderlich';
+  }
 }
 
 function isLastNameValid(value){
@@ -101,7 +116,6 @@ function isPrivacyCheckboxInvalid(){
 function validateAll(form) {
   let isValid = true;
   let inputs = form.querySelectorAll('input[required], textarea[required], select[required]');
-  
   inputs.forEach(input => {
     if (!input.value.trim()) {
       isValid = false;
