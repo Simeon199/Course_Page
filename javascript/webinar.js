@@ -9,7 +9,6 @@ let schema = {
   timezone: { type: 'string' },
   webinarId: { type: 'integer' },
   webinarDateIds: { type: 'array' },
-  privacy: { type: 'boolean' }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -59,15 +58,15 @@ function validateField(name, value) {
   switch(name) {
     case 'firstName':
     case 'lastName':
-      handleLastNameCase(name, value);
+      return handleLastNameCase(name, value);
       break;
     case 'email':
-      handleEmailCase(value);
+      return handleEmailCase(value);
       break;
     case 'timezone':
       break;
     case 'privacy':
-      handlePrivacyCheckboxCase();
+      return handlePrivacyCheckboxCase();
       break;
   }
   return null;
@@ -155,13 +154,20 @@ async function performSubmit(form, submitBtn, statusEl) {
 
 async function submittingForm(form){
   let payload = collectPayload(form, schema);
-  let result = await sendPayload(payload);
+  let response = await fetch(WEBHOOK_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+    signal: AbortSignal.timeout(10000)
+  });
+
+  let result = await response.json().catch(() => ({}));
     
   if (result.success) {
     showSuccess(defaultSuccessMessage);
     handleSuccessfullSubmit(form, result);
   } else {
-    showError(result.error || 'Anmeldung fehlgeschlagen');
+    showError(result.error?.message || result.error || 'Anmeldung fehlgeschlagen');
   }
 }
 
@@ -192,20 +198,6 @@ function setSubmitting(submitBtn, statusEl) {
   submitBtn.textContent = 'Wird gesendet…';
   statusEl.textContent  = '';
   statusEl.className    = 'form-status';
-}
-
-async function sendPayload(payload) {
-  let response = await fetch(WEBHOOK_URL, {
-    method:  'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body:    JSON.stringify(payload),
-    signal:  AbortSignal.timeout(10000)
-  });
-  if(!response.ok){
-    const errorData = await response.json().catch(() => ({}));
-    throw new Error(errorData.error || `HTTP ${response.status}`);
-  }
-  return await response.json();
 }
 
 function collectPayload(form, fieldSchema){
