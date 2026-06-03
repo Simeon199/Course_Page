@@ -220,8 +220,8 @@ function initHamburger() {
 
 // function collectPayload(form) {
 //   return {
-//     firstName: sanitize(form.firstName.value),
-//     lastName: sanitize(form.lastName.value),
+//     firstname: sanitize(form.firstname.value),
+//     lastname: sanitize(form.lastname.value),
 //     email: sanitize(form.email.value),
 //     registeredAt: new Date().toISOString(),
 //   };

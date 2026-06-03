@@ -3,8 +3,8 @@ let MIN_SUBMIT_TIME_MS = 3000;
 let defaultSuccessMessage = 'Anmeldung erfolgreich! Sie erhalten in Kürze eine Bestätigungs-E-Mail.';
 
 let schema = {
-  firstName: { type: 'string' },
-  lastName: { type: 'string' },
+  firstname: { type: 'string' },
+  lastname: { type: 'string' },
   email: { type: 'string' },
   timezone: { type: 'string' },
   webinarId: { type: 'integer' },
@@ -56,9 +56,9 @@ function showStatus(statusEl, message, type) {
 
 function validateField(name, value) {
   switch(name) {
-    case 'firstName':
-    case 'lastName':
-      return handleLastNameCase(name, value);
+    case 'firstname':
+    case 'lastname':
+      return handlelastnameCase(name, value);
       break;
     case 'email':
       return handleEmailCase(value);
@@ -72,9 +72,9 @@ function validateField(name, value) {
   return null;
 }
 
-function handleLastNameCase(name, value){
-  if (!isLastNameValid(value)) {
-    return `${name === 'firstName' ? 'Vorname' : 'Nachname'} zu kurz`
+function handlelastnameCase(name, value){
+  if (!islastnameValid(value)) {
+    return `${name === 'firstname' ? 'Vorname' : 'Nachname'} zu kurz`
   };
 }
 
@@ -96,7 +96,7 @@ function handlePrivacyCheckboxCase(){
   }
 }
 
-function isLastNameValid(value){
+function islastnameValid(value){
   return value && value.trim().length >= 2;
 }
 
