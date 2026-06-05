@@ -40,9 +40,16 @@
 
 @media (max-width: 900px) {
   .hero {
-    padding-top: 100px;
-    padding-bottom: 64px;
+    padding-top: 80px;
+    padding-bottom: 24px;
     min-height: auto;
+    max-height: none;
+    overflow-y: auto;
+  }
+
+  .webinar-hero-inner {
+    max-height: none;
+    padding-top: 20px;
   }
 
   .hero-left {
@@ -62,7 +69,9 @@
   }
 
   .form-card {
-    padding: 32px 24px;
+    padding: 24px 20px;
+    max-height: none;
+    overflow-y: visible;
   }
   
   .section, 
@@ -135,10 +144,26 @@
 }
 
 @media(max-width: 600px){
+  .hero {
+    max-height: none;
+    min-height: auto;
+  }
+
+  .webinar-hero-inner {
+    padding-top: 16px;
+  }
+
   .form-card {
     border-radius: unset;
     border: unset;
     width: 100%;
+    padding: 16px 14px;
+    max-height: none;
+  }
+
+  .webinar-hero-desc {
+    font-size: 13px;
+    margin-bottom: 10px;
   }
 
   .benefit-card {
@@ -170,5 +195,21 @@
 
   .testimonial-card {
     min-width: 256px;
+  }
+
+  .form-card-title {
+    font-size: 15px;
+  }
+
+  .date-row {
+    gap: 10px;
+  }
+
+  .date-label {
+    font-size: 10px;
+  }
+
+  .date-value {
+    font-size: 13px;
   }
 }

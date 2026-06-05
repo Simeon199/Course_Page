@@ -258,7 +258,7 @@
 #webinar-form {
   background: linear-gradient(135deg, var(--teal) 0%, rgba(13, 92, 99, 0.95) 100%);
   border-radius: 20px;
-  padding: 60px 48px;
+  padding: clamp(20px, 2.5vh, 40px) clamp(24px, 3vw, 48px);
   border: 1px solid rgba(200, 240, 96, 0.15);
   box-shadow: 
     0 12px 40px rgba(13, 92, 99, 0.15),
@@ -277,28 +277,28 @@
 }
 
 #webinar-form .form-group {
-  margin-bottom: 20px;
+  margin-bottom: clamp(8px, 1vh, 16px);
   text-align: left;
 }
 
 #webinar-form label {
   display: block;
   color: rgba(255, 255, 255, 0.85);
-  font-size: 14px;
+  font-size: clamp(12px, 1.2vw, 14px);
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: clamp(4px, 0.5vh, 8px);
 }
 
 #webinar-form input[type="text"],
 #webinar-form input[type="email"],
 #webinar-form select {
   width: 100%;
-  padding: 12px 16px;
+  padding: clamp(8px, 1vh, 12px) 16px;
   border: 1px solid rgba(200, 240, 96, 0.2);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.95);
   color: var(--dark);
-  font-size: 16px;
+  font-size: clamp(13px, 1.2vw, 16px);
   transition: all 0.3s ease;
   box-sizing: border-box;
 }
@@ -331,18 +331,18 @@
 }
 
 #webinar-form .form-group--checkbox {
-  margin-bottom: 24px;
+  margin-bottom: clamp(8px, 1vh, 16px);
   text-align: left;
 }
 
 #webinar-form .checkbox-label {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 10px;
   cursor: pointer;
   color: rgba(255, 255, 255, 0.75);
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: clamp(12px, 1.1vw, 14px);
+  line-height: 1.4;
 }
 
 #webinar-form input[type="checkbox"] {
@@ -378,13 +378,13 @@
   background: var(--lime);
   color: var(--dark);
   font-weight: 600;
-  padding: 14px 32px;
+  padding: clamp(8px, 1vh, 14px) 32px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 16px;
-  margin-top: 8px;
+  font-size: clamp(13px, 1.2vw, 16px);
+  margin-top: clamp(4px, 0.5vh, 8px);
 }
 
 #webinar-form .btn-submit:hover:not(:disabled) {
@@ -399,8 +399,8 @@
 }
 
 #webinar-form .form-status {
-  margin-top: 16px;
-  padding: 12px 16px;
+  margin-top: clamp(8px, 1vh, 16px);
+  padding: clamp(6px, 0.8vh, 12px) 16px;
   border-radius: 10px;
   font-size: 14px;
   text-align: center;

@@ -1,24 +1,41 @@
 /* ── HERO ─────────────────────────── */
 
+.hero {
+  height: 100dvh;
+  /* min-height: 100dvh; */
+  /* max-height: 100dvh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
 .webinar-hero-inner {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 56px;
+    gap: 0;
+    height: 100%;
+    max-height: 100dvh;
+    box-sizing: border-box;
+    /* padding-top: 80px; */
 }
 
 .webinar-hero-desc {
-  font-size: 18px;
+  font-size: clamp(13px, 1.4vw, 17px);
   font-weight: 400;
-  margin-bottom: 40px;
+  margin-bottom: clamp(12px, 1.5vh, 24px);
   color: rgba(0, 0, 0, 0.75);
-  line-height: 1.6;
+  line-height: 1.5;
   letter-spacing: 0.01em;
 }
 
 .webinar-hero-inner h1 {
   text-align: center;
+  font-size: clamp(24px, 3.5vw, 52px);
+  margin-bottom: clamp(8px, 1vh, 20px);
 }
 
 /* .hero {
@@ -113,9 +130,9 @@ h1 {
 .date-row {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  margin-top: 36px;
-  padding-top: 32px;
+  gap: clamp(16px, 2.5vw, 40px);
+  margin-top: clamp(12px, 1.5vh, 24px);
+  padding-top: clamp(12px, 1.5vh, 24px);
   border-top: 1px solid rgba(93, 156, 156, 0.15);
   animation: fadeUp 0.8s ease 0.4s both;
 }
@@ -135,10 +152,10 @@ h1 {
 }
 
 .date-value {
-  font-size: 18px;
+  font-size: clamp(14px, 1.3vw, 18px);
   font-weight: 700;
   color: var(--dark);
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .divider-v {
@@ -155,7 +172,7 @@ h1 {
   align-items: center;
   text-align: center;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.96) 100%);
-  padding: 48px 44px;
+  padding: clamp(16px, 2.5vh, 48px) clamp(20px, 3vw, 44px);
   border: 1px solid rgba(93, 156, 156, 0.25);
   border-radius: 20px;
   animation: fadeUp 0.8s ease 0.3s both;
@@ -168,6 +185,9 @@ h1 {
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  overflow-y: auto;
+  max-height: calc(100dvh - 100px);
+  box-sizing: border-box;
 }
 
 .form-card:hover {
@@ -179,11 +199,11 @@ h1 {
 }
 
 .form-card-title {
-  font-size: 26px;
+  font-size: clamp(16px, 2vw, 24px);
   font-weight: 700;
   color: var(--dark);
   line-height: 1.2;
-  margin-bottom: 20px;
+  margin-bottom: clamp(8px, 1vh, 16px);
   letter-spacing: -0.01em;
 }
 
@@ -278,8 +298,8 @@ h1 {
 /* Submit-Button */
 
 .btn-submit {
-  padding: 18px 32px;
-  margin-top: 12px;
+  padding: clamp(10px, 1.2vh, 18px) 32px;
+  margin-top: clamp(4px, 0.8vh, 12px);
   background: linear-gradient(135deg, var(--lime) 0%, #c8e87a 100%);
   color: var(--dark);
   border: none;
