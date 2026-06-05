@@ -1,6 +1,7 @@
 @media(max-width: 2100px){
   .form-card {
     width: 90%;
+    margin-bottom: 40px;
   }
 }
 

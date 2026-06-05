@@ -52,22 +52,22 @@
           <p class="webinar-hero-desc">
             Entdecken Sie unser neues Online-Tool, das Schülerinnen und Schüler spielerisch mit den wichtigsten Lernstrategien vertraut macht – wissenschaftlich fundiert, motivierend und einfach in den Alltag integrierbar.
           </p>
-          <a href="https://join.next.edudip.com/de/webinar/testwebinar/2653374" target="_blank" rel="noopener noreferrer" class="btn-submit btn-webinar-link">
+          <!-- <a href="https://join.next.edudip.com/de/webinar/testwebinar/2653374" target="_blank" rel="noopener noreferrer" class="btn-submit btn-webinar-link">
             Jetzt am Webinar teilnehmen
-          </a>
+          </a> -->
 
-          <!-- <form id="webinar-form" class="webinar-form" novalidate style="display: none;">
+          <form id="webinar-form" class="webinar-form" novalidate>
 
             <div class="form-group">
-              <label for="firstName">Vorname</label>
-              <input type="text" id="firstName" name="firstName" required maxlength="50" autocomplete="given-name" placeholder="z. B. Anna">
-              <span class="field-error" data-for="firstName"></span>
+              <label for="firstname">Vorname</label>
+              <input type="text" id="firstname" name="firstname" required maxlength="50" autocomplete="given-name" placeholder="z. B. Anna">
+              <span class="field-error" data-for="firstname"></span>
             </div>
 
             <div class="form-group">
-              <label for="lastName">Nachname</label>
-              <input type="text" id="lastName" name="lastName" required maxlength="50" autocomplete="family-name" placeholder="z. B. Müller">
-              <span class="field-error" data-for="lastName"></span>
+              <label for="lastname">Nachname</label>
+              <input type="text" id="lastname" name="lastname" required maxlength="50" autocomplete="family-name" placeholder="z. B. Müller">
+              <span class="field-error" data-for="lastname"></span>
             </div>
 
             <div class="form-group">
@@ -76,15 +76,30 @@
               <span class="field-error" data-for="email"></span>
             </div>
 
-            <div class="form-hp" aria-hidden="true">
+            <div class="form-group">
+              <label for="timezone">Zeitzone</label>
+              <select name="timezone" id="timezone" required>
+                <option value="">-- Wählen --</option>
+                <option value="Europe/Berlin">Europe/Berlin</option>
+                <option value="Europe/London">Europe/London</option>
+                <option value="America/New_York">America/New_York</option>
+              </select>
+              <span class="field-error" data-for="timezone"></span>
+            </div>
+
+            <!-- Versteckte Felder -->
+            <input type="hidden" name="webinarId" value="2667902">
+            <!-- <input type="hidden" name="webinarDateIds" value="456,789"> -->
+
+            <!-- <div class="form-hp" aria-hidden="true">
               <label for="website">Website</label>
               <input type="text" id="website" name="website" autocomplete="off" tabindex="-1">
-            </div>
+            </div> -->
 
             <div class="form-group form-group--checkbox">
               <label class="checkbox-label">
                 <input type="checkbox" id="privacy" name="privacy" required>
-                <span>Ich habe die <a href="#" class="form-link">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Webinar-Anmeldung zu.</span>
+                <span>Ich habe die <a href="/legal/datenschutz.html" class="form-link">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Webinar-Anmeldung zu.</span>
               </label>
               <span class="field-error" data-for="privacy"></span>
             </div>
@@ -95,7 +110,7 @@
 
             <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
 
-          </form> -->
+          </form>
 
           <div class="date-row">
             <div class="date-item">
@@ -144,7 +159,7 @@
           <p>Stellen Sie Ihre Fragen direkt an die Lernforschungs-Expert:innen und erhalten Sie persönliche Antworten.</p>
         </div>
         <div class="benefit-card">
-          <h3>Individualisierung & Differenzierung</h3>
+          <h3>Individualisierung &amp; Differenzierung</h3>
           <p>Wie das Tool sich an unterschiedliche Lerntypen und Leistungslevels anpasst – ganz ohne Mehraufwand.</p>
         </div>
         <div class="benefit-card">
@@ -164,7 +179,7 @@
           <div class="agenda-item">
             <span class="agenda-time">19:00</span>
             <div class="agenda-content">
-              <h4>Begrüßung & Vorstellung</h4>
+              <h4>Begrüßung &amp; Vorstellung</h4>
               <p>Wer wir sind, was uns antreibt – und warum Lernen-Lernen so dringend nötig ist.</p>
             </div>
           </div>
@@ -192,7 +207,7 @@
           <div class="agenda-item">
             <span class="agenda-time">19:55</span>
             <div class="agenda-content">
-              <h4>Fragen & Antworten</h4>
+              <h4>Fragen &amp; Antworten</h4>
               <p>Alles, was Sie noch wissen wollen – im offenen Q&A mit dem gesamten Team.</p>
             </div>
           </div>
@@ -257,7 +272,6 @@
               <span class="testimonial-name">Maria K.</span>
               <span class="testimonial-role">Klassenlehrerin, Klasse 6 · Berlin</span>
             </div>
-            <!-- <div class="stars">★★★★★</div> -->
           </div>
         </div>
 
@@ -269,7 +283,6 @@
               <span class="testimonial-name">Sandra R.</span>
               <span class="testimonial-role">Mutter eines Siebtklässlers · München</span>
             </div>
-            <!-- <div class="stars">★★★★★</div> -->
           </div>
         </div>
 
@@ -279,9 +292,8 @@
             <div class="testimonial-avatar ta3">JP</div>
             <div class="testimonial-info">
               <span class="testimonial-name">Jana P.</span>
-              <span class="testimonial-role">Lernbegleiterin & Nachhilfe · Hamburg</span>
+              <span class="testimonial-role">Lernbegleiterin &amp; Nachhilfe · Hamburg</span>
             </div>
-            <!-- <div class="stars">★★★★★</div> -->
           </div>
         </div>
       </div>
@@ -316,6 +328,6 @@
 </footer>
 <script src="../javascript/shared.js"></script>
 <!-- <script src="../javascript/script.js"></script> -->
-<!-- <script src="../javascript/webinar.js"></script> -->
+<script src="../javascript/webinar.js"></script>
 </body>
 </html>
