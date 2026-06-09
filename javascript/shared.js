@@ -2,11 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initScrollAnimations();
   initHamburger();
-  
-  // Nur auf index.html die Carousel-Animation ausführen
-  if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
-    showCarouselAnimation();
-  }
 });
 
 window.addEventListener('scroll', () => {
