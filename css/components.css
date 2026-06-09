@@ -131,7 +131,6 @@
   padding-top: 40px;
   padding-bottom: 40px;
   text-align: center;
-  background: linear-gradient(135deg, rgba(13, 92, 99, 0.05) 0%, rgba(181, 212, 109, 0.05) 100%);
   width: 100%;
 }
 
@@ -395,7 +394,8 @@
 
 /* Webinar Cards (Index-Seite) */
 .webinar-section {
-  background: linear-gradient(135deg, var(--teal, #0D5C63) 0%, #0a4a50 100%);
+  background: linear-gradient(135deg, var(--teal, #092e31) 0%, #193638 100%);
+  /* background: linear-gradient(135deg, rgba(2, 100, 10, 0.45) 0%, #268b19 100%); */
   padding: 72px 0;
 }
 
