@@ -168,7 +168,6 @@
 /* Contact Section */
 .contact-section {
   background: linear-gradient(135deg, var(--teal) 0%, var(--dark) 100%);
-  padding: 80px 0;
   text-align: center;
 }
 
