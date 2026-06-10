@@ -64,6 +64,7 @@ function validateField(name, value) {
       return handleEmailCase(value);
       break;
     case 'timezone':
+      return handleTimeZoneCase(value);
       break;
     case 'privacy':
       return handlePrivacyCheckboxCase();
@@ -161,22 +162,18 @@ async function submittingForm(form){
     signal: AbortSignal.timeout(10000)
   });
 
-  let result = await response.json().catch(() => ({}));
-    
-  if (result.success) {
+  if (response.ok) {
+    let result = await response.json().catch(() => ({}));
+    form.reset();
     showSuccess(defaultSuccessMessage);
-    handleSuccessfullSubmit(form, result);
+    if (isWebinarLinkValid(result)) {
+      setTimeout(() => {
+        window.location.href = result.webinarLink;
+      }, 2000);
+    }
   } else {
+    let result = await response.json().catch(() => ({}));
     showError(result.error?.message || result.error || 'Anmeldung fehlgeschlagen');
-  }
-}
-
-function handleSuccessfullSubmit(form, result){
-  form.reset();    
-  if (isWebinarLinkValid(result)) {
-    setTimeout(() => {
-      window.location.href = result.webinarLink;
-    }, 2000);
   }
 }
 
