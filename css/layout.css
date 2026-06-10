@@ -135,8 +135,6 @@
 }
 
 .about-me-wrapper {
-  /* margin: 0 auto;
-  width: 90%; */
   display: flex;
   gap: 40px;
 }
@@ -172,12 +170,17 @@
 }
 
 .contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
   max-width: 600px;
   margin: 0 auto;
 }
 
 .contact-form .generic-h3 {
   color: white;
-  margin-bottom: 24px;
   font-size: 28px;
+  margin-bottom: unset;
+  margin-top: unset;
 }
