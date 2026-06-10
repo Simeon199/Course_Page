@@ -1,6 +1,13 @@
-@media(max-width: 2100px){
+@media(min-width: 2101px){
   .form-card {
     width: 90%;
+    max-width: 1400px;
+  }
+}
+
+@media(max-width: 2100px){
+  .form-card {
+    max-width: 1400px;
     margin-bottom: 40px;
   }
 }
@@ -16,6 +23,11 @@
     flex-direction: column;
     width: 90%;
     max-width: 600px;
+  }
+
+  .form-card {
+    max-width: unset;
+    width: 90%;
   }
 }
 

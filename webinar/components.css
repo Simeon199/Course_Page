@@ -241,7 +241,6 @@
 }
 
 #webinar-form:hover {
-  transform: translateY(-6px);
   box-shadow: 
     0 20px 60px rgba(13, 92, 99, 0.2),
     0 8px 20px rgba(0, 0, 0, 0.1),
@@ -259,7 +258,6 @@
   color: rgba(255, 255, 255, 0.85);
   font-size: clamp(12px, 1.2vw, 14px);
   font-weight: 600;
-  margin-bottom: clamp(4px, 0.5vh, 8px);
 }
 
 #webinar-form input[type="text"],
@@ -310,7 +308,7 @@
 
 #webinar-form .checkbox-label {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
   cursor: pointer;
   color: rgba(255, 255, 255, 0.75);
@@ -334,7 +332,6 @@
 }
 
 #webinar-form .form-link:hover {
-  text-decoration: underline;
   color: #e8ff4d;
 }
 
