@@ -50,8 +50,17 @@ function checkBotGuards(form, loadTime, minSubmitTimeMs) {
 }
 
 function showStatus(statusEl, message, type) {
-  statusEl.textContent = message;
-  statusEl.className = `form-status ${type}`;
+  clearStatusClasses(statusEl);
+  if (type === 'error') {
+    statusEl.innerHTML = `<div class="form-status__error">${escapeHtml(message)}</div>`;
+    statusEl.classList.add('form-status--error');
+  } else if (type === 'success') {
+    statusEl.innerHTML = `<div class="form-status__success">${escapeHtml(message)}</div>`;
+    statusEl.classList.add('form-status--success');
+  } else {
+    statusEl.innerHTML = `<div class="form-status__loading">${escapeHtml(message)}</div>`;
+    statusEl.classList.add('form-status--loading');
+  }
 }
 
 function validateField(name, value) {
@@ -231,20 +240,41 @@ function resetSubmitting(submitBtn) {
   submitBtn.textContent = 'Kostenlos anmelden';
 }
 
+function clearStatusClasses(statusDiv) {
+  statusDiv.classList.remove('form-status--error', 'form-status--success', 'form-status--loading', 'form-status--fade-out');
+}
+
 function showError(message) {
   let statusDiv = document.getElementById('form-status');
-  statusDiv.innerHTML = `<div class="form-status__error">${message}</div>`;
+  clearStatusClasses(statusDiv);
+  statusDiv.innerHTML = `<div class="form-status__error">${escapeHtml(message)}</div>`;
   statusDiv.classList.add('form-status--error');
 }
 
 function showSuccess(message) {
   let statusDiv = document.getElementById('form-status');
-  statusDiv.innerHTML = `<div class="form-status__success">${message}</div>`;
+  clearStatusClasses(statusDiv);
+  statusDiv.innerHTML = `<div class="form-status__success">${escapeHtml(message)}</div>`;
   statusDiv.classList.add('form-status--success');
+
+  setTimeout(() => {
+    statusDiv.classList.add('form-status--fade-out');
+    setTimeout(() => {
+      statusDiv.innerHTML = '';
+      clearStatusClasses(statusDiv);
+    }, 500);
+  }, 6000);
 }
 
 function showLoading(message) {
   let statusDiv = document.getElementById('form-status');
-  statusDiv.innerHTML = `<div class="form-status__loading">${message}</div>`;
+  clearStatusClasses(statusDiv);
+  statusDiv.innerHTML = `<div class="form-status__loading">${escapeHtml(message)}</div>`;
   statusDiv.classList.add('form-status--loading');
+}
+
+function escapeHtml(text) {
+  let div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
 }
