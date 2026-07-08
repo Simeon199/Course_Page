@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="hero.css">
 <link rel="stylesheet" href="sections.css">
 <link rel="stylesheet" href="components.css">
-<link rel="stylesheet" href="form-status.css">
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/navigation.css">
 <link rel="stylesheet" href="../css/layout.css">
@@ -51,55 +50,11 @@
           <h1>Wie Kinder wirklich lernen zu lernen</h1>
           <h2 class="form-card-title">Sichern Sie sich ganz kostenlos und unverbindlich ihren Webinarplatz</h2>
 
-          <form id="webinar-form" class="webinar-form" novalidate>
+          <p class="webinar-register-hint">Zur Anmeldung gelangen Sie direkt über Edudip – schnell, kostenlos und unverbindlich.</p>
 
-            <div class="form-group">
-              <label for="firstname">Vorname</label>
-              <input type="text" id="firstname" name="firstname" required maxlength="50" autocomplete="given-name" placeholder="z. B. Anna">
-              <span class="field-error" data-for="firstname"></span>
-            </div>
-
-            <div class="form-group">
-              <label for="lastname">Nachname</label>
-              <input type="text" id="lastname" name="lastname" required maxlength="50" autocomplete="family-name" placeholder="z. B. Müller">
-              <span class="field-error" data-for="lastname"></span>
-            </div>
-
-            <div class="form-group">
-              <label for="email">E-Mail-Adresse</label>
-              <input type="email" id="email" name="email" required maxlength="100" autocomplete="email" placeholder="ihre@email.de">
-              <span class="field-error" data-for="email"></span>
-            </div>
-
-            <div class="form-group">
-              <label for="timezone">Zeitzone</label>
-              <select name="timezone" id="timezone" required>
-                <option value="">-- Wählen --</option>
-                <option value="Europe/Berlin">Europe/Berlin</option>
-                <option value="Europe/London">Europe/London</option>
-                <option value="America/New_York">America/New_York</option>
-              </select>
-              <span class="field-error" data-for="timezone"></span>
-            </div>
-
-            <input type="hidden" name="webinarId" value="2695391">
-
-            <div class="form-group form-group--checkbox">
-              <label class="checkbox-label">
-                <input type="checkbox" id="privacy" name="privacy" required>
-                <span>Ich habe die <a href="/legal/datenschutz.html" class="form-link">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Webinar-Anmeldung zu.</span>
-              </label>
-              <span class="field-error" data-for="privacy"></span>
-            </div>
-
-            
-            <button type="submit" id="submit-btn" class="btn-submit">
-              Kostenlos anmelden
-            </button>
-
-            <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
-
-          </form>
+          <a href="https://www.edudip.com/PLATZHALTER" target="_blank" rel="noopener noreferrer" class="btn-submit webinar-register-btn">
+            Kostenlos anmelden →
+          </a>
 
           <div class="date-row">
             <div class="date-item">
@@ -314,6 +269,5 @@
     </div>
 </footer>
 <script src="../javascript/shared.js"></script>
-<script src="../javascript/webinar.js"></script>
 </body>
 </html>
