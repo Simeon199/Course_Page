@@ -47,8 +47,32 @@
 
 .webinar-hero-inner h1 {
   text-align: center;
-  font-size: clamp(24px, 3.5vw, 52px);
+  font-size: clamp(26px, 3.8vw, 54px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--dark);
   margin-bottom: clamp(8px, 1vh, 20px);
+}
+
+/* Handgezeichnet wirkender Lime-Marker hinter dem Keyword */
+.hl-marker {
+  position: relative;
+  isolation: isolate;
+  white-space: nowrap;
+}
+
+.hl-marker::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: -0.12em;
+  right: -0.12em;
+  bottom: 0.1em;
+  height: 0.34em;
+  background: var(--lime);
+  border-radius: 4px;
+  opacity: 0.85;
+  transform: rotate(-1.8deg);
 }
 
 /* .hero {
@@ -276,10 +300,10 @@ h1 {
 }
 
 .form-card-title {
-  font-size: clamp(16px, 2vw, 24px);
-  font-weight: 700;
-  color: var(--dark);
-  line-height: 1.2;
+  font-size: clamp(15px, 1.8vw, 21px);
+  font-weight: 600;
+  color: var(--mid);
+  line-height: 1.35;
   margin-bottom: clamp(8px, 1vh, 16px);
   letter-spacing: -0.01em;
 }

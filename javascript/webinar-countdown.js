@@ -1,32 +1,88 @@
 'use strict';
 
 /**
- * Source of the next webinar's start date.
+ * Source of the next webinar's configuration.
  * Currently reads a static JSON config. To switch to an n8n webhook later,
  * only this function needs to change (e.g. fetch the webhook URL instead).
- * @returns {Promise<string|null>} ISO 8601 start string, or null if unavailable.
+ * @returns {Promise<Object|null>} The `nextWebinar` object, or null if unavailable.
  */
-async function fetchNextWebinarStart() {
+async function fetchWebinarConfig() {
   try {
     const response = await fetch('webinar-config.json', { cache: 'no-store' });
     if (!response.ok) return null;
     const data = await response.json();
-    return data?.nextWebinar?.start ?? null;
+    return data?.nextWebinar ?? null;
   } catch {
     return null;
   }
 }
 
 /**
- * Parses an ISO date string into a future Date, or null if invalid/past.
- * @param {string|null} isoString - The ISO 8601 start string.
- * @returns {Date|null} A valid future Date, otherwise null.
+ * Parses an ISO date string into a valid Date, or null if invalid.
+ * @param {string|undefined} isoString - The ISO 8601 start string.
+ * @returns {Date|null} A valid Date, otherwise null.
  */
-function parseFutureDate(isoString) {
+function parseDate(isoString) {
   if (!isoString) return null;
   const date = new Date(isoString);
-  if (Number.isNaN(date.getTime())) return null;
-  return date.getTime() > Date.now() ? date : null;
+  return Number.isNaN(date.getTime()) ? null : date;
+}
+
+/**
+ * Formats a date as a long German date (e.g. "15. September 2026").
+ * @param {Date} date - The date to format.
+ * @param {string|undefined} timeZone - IANA time zone for consistent display.
+ * @returns {string} The localized date string.
+ */
+function formatWebinarDate(date, timeZone) {
+  const options = { day: 'numeric', month: 'long', year: 'numeric', timeZone };
+  return new Intl.DateTimeFormat('de-DE', options).format(date);
+}
+
+/**
+ * Formats a date as a German clock time with unit (e.g. "19:00 Uhr").
+ * @param {Date} date - The date to format.
+ * @param {string|undefined} timeZone - IANA time zone for consistent display.
+ * @returns {string} The localized time string.
+ */
+function formatWebinarTime(date, timeZone) {
+  const options = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone };
+  return `${new Intl.DateTimeFormat('de-DE', options).format(date)} Uhr`;
+}
+
+/**
+ * Formats a duration in minutes as an approximate label (e.g. "ca. 60 Min.").
+ * @param {number} minutes - The duration in minutes.
+ * @returns {string} The duration label.
+ */
+function formatDuration(minutes) {
+  return `ca. ${minutes} Min.`;
+}
+
+/**
+ * Writes a value into the date-row field carrying the given data-field name.
+ * @param {string} name - The data-field identifier.
+ * @param {string} value - The text to display.
+ * @returns {void}
+ */
+function setDateField(name, value) {
+  const el = document.querySelector(`[data-field="${name}"]`);
+  if (el) el.textContent = value;
+}
+
+/**
+ * Populates the date-row (date, time, duration) from the webinar config.
+ * @param {Object} config - The `nextWebinar` configuration object.
+ * @param {Date} date - The parsed webinar start date.
+ * @returns {void}
+ */
+function fillDateRow(config, date) {
+  const timeZone = config.timezoneLabel;
+  setDateField('date', formatWebinarDate(date, timeZone));
+  setDateField('time', formatWebinarTime(date, timeZone));
+  if (config.durationMinutes) {
+    setDateField('duration', formatDuration(config.durationMinutes));
+  }
 }
 
 /**
@@ -119,14 +175,16 @@ function getCountdownElements() {
 }
 
 /**
- * Bootstraps the webinar countdown: loads the date and starts or falls back.
+ * Bootstraps the webinar UI: loads the config, syncs the date-row and countdown.
  * @returns {Promise<void>} Resolves once the initial state is applied.
  */
 async function initWebinarCountdown() {
   const els = getCountdownElements();
   if (!els) return;
-  const target = parseFutureDate(await fetchNextWebinarStart());
-  if (target) startCountdown(target, els);
+  const config = await fetchWebinarConfig();
+  const date = parseDate(config?.start);
+  if (config && date) fillDateRow(config, date);
+  if (date && date.getTime() > Date.now()) startCountdown(date, els);
   else toggleViews(els, false);
 }
 
