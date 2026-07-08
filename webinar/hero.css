@@ -1,6 +1,7 @@
 /* ── HERO ─────────────────────────── */
 
 .hero {
+  position: relative;
   height: 100dvh;
   /* min-height: 100dvh; */
   /* max-height: 100dvh; */
@@ -11,7 +12,19 @@
   box-sizing: border-box;
 }
 
+/* Dezente Marken-Glows im Hintergrund, damit die weiße Karte schwebt */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 55% 60% at 85% 12%, rgba(181, 212, 109, 0.28) 0%, transparent 70%),
+              radial-gradient(ellipse 50% 55% at 12% 88%, rgba(255, 107, 71, 0.18) 0%, transparent 70%);
+}
+
 .webinar-hero-inner {
+    position: relative;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,6 +119,14 @@
 }
 .badge::before { content: '●'; font-size: 8px; animation: pulse 2s infinite; }
 
+/* Badge-Variante für den hellen Karten-Hintergrund (Teal statt Lime für Kontrast) */
+.form-card .badge {
+  background: rgba(13, 92, 99, 0.08);
+  border-color: rgba(13, 92, 99, 0.25);
+  color: var(--teal);
+  margin: 0 0 clamp(12px, 1.5vh, 20px);
+}
+
 /* ── ANIMATIONEN ─────────────────────────── */
 
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
@@ -123,6 +144,64 @@ h1 {
   /* color: #fff; */
   margin-bottom: 24px;
   animation: fadeUp 0.8s ease 0.2s both;
+}
+
+/* ── COUNTDOWN ─────────────────────────── */
+
+.countdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(6px, 1vh, 10px);
+  margin-top: clamp(12px, 1.5vh, 20px);
+  animation: fadeUp 0.8s ease 0.5s both;
+}
+
+.countdown-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(13, 92, 99, 0.7);
+}
+
+.countdown-timer {
+  display: flex;
+  gap: clamp(8px, 2vw, 14px);
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 52px;
+  padding: clamp(8px, 1vh, 12px) clamp(6px, 1vw, 10px);
+  background: rgba(13, 92, 99, 0.06);
+  border: 1px solid rgba(13, 92, 99, 0.12);
+  border-radius: 12px;
+}
+
+.countdown-value {
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--dark);
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-unit-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(13, 92, 99, 0.7);
+}
+
+.countdown-fallback {
+  font-size: clamp(13px, 1.3vw, 15px);
+  color: #666;
+  margin-top: clamp(12px, 1.5vh, 20px);
 }
 
 /* ── DATUM-ZEILE ─────────────────────────── */
@@ -177,16 +256,14 @@ h1 {
   border-radius: 20px;
   animation: fadeUp 0.8s ease 0.3s both;
   width: 100%;
-  max-width: 1920px;
+  max-width: 500px;
   margin: 0 auto;
-  box-shadow: 
+  box-shadow:
     0 20px 60px rgba(93, 156, 156, 0.12),
     0 8px 24px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
-  overflow-y: auto;
-  max-height: calc(100dvh - 100px);
   box-sizing: border-box;
 }
 

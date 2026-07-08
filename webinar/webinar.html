@@ -47,6 +47,7 @@
 
       <div class="hero-right">
         <div class="form-card">
+          <span class="badge">Kostenloses Live-Webinar</span>
           <h1>Wie Kinder wirklich lernen zu lernen</h1>
           <h2 class="form-card-title">Sichern Sie sich ganz kostenlos und unverbindlich ihren Webinarplatz</h2>
 
@@ -55,6 +56,30 @@
           <a href="https://www.edudip.com/PLATZHALTER" target="_blank" rel="noopener noreferrer" class="btn-submit webinar-register-btn">
             Kostenlos anmelden →
           </a>
+
+          <div class="countdown" id="countdown" role="timer" aria-live="polite" hidden>
+            <span class="countdown-label">Nächstes Webinar startet in</span>
+            <div class="countdown-timer">
+              <div class="countdown-unit">
+                <span class="countdown-value" data-unit="days">--</span>
+                <span class="countdown-unit-label">Tage</span>
+              </div>
+              <div class="countdown-unit">
+                <span class="countdown-value" data-unit="hours">--</span>
+                <span class="countdown-unit-label">Std.</span>
+              </div>
+              <div class="countdown-unit">
+                <span class="countdown-value" data-unit="minutes">--</span>
+                <span class="countdown-unit-label">Min.</span>
+              </div>
+              <div class="countdown-unit">
+                <span class="countdown-value" data-unit="seconds">--</span>
+                <span class="countdown-unit-label">Sek.</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="countdown-fallback" id="countdown-fallback" hidden>Der nächste Webinar-Termin wird in Kürze bekannt gegeben.</p>
 
           <div class="date-row">
             <div class="date-item">
@@ -269,5 +294,6 @@
     </div>
 </footer>
 <script src="../javascript/shared.js"></script>
+<script src="../javascript/webinar-countdown.js"></script>
 </body>
 </html>
