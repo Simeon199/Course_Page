@@ -86,17 +86,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 16px;
-  padding-bottom: 16px;
-}
-
-.back-to-main-page a {
-  color: rgb(35, 35, 133);
-  font-size: 18px;
-}
-
-.back-to-main-page a:hover {
-  font-weight: bold;
+  padding: 24px 0 8px;
 }
 
 .seal {
