@@ -2,9 +2,10 @@
 
 .hero {
   position: relative;
-  height: 100dvh;
-  /* min-height: 100dvh; */
-  /* max-height: 100dvh; */
+  min-height: 100dvh;
+  /* Oben: 80px fixe Nav + Luft, damit die Karte nie unter die Navigation rutscht;
+     unten: Abstand zur nächsten Sektion, damit die Karte nicht an die Kante stößt. */
+  padding: 112px 24px 64px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,10 +31,7 @@
     align-items: center;
     flex-direction: column;
     gap: 0;
-    height: 100%;
-    max-height: 100dvh;
     box-sizing: border-box;
-    /* padding-top: 80px; */
 }
 
 .webinar-hero-desc {

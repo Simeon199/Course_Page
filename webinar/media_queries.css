@@ -1,3 +1,13 @@
+/* Webinar-Hero gegen die geteilten .hero-Regeln aus css/media_queries.css abschirmen
+   (dort ist .hero für die Index-Seite mit padding-bottom:0 gedacht). Ab 901px zentriert
+   die Anmelde-Karte mit ausreichend Abstand zur fixen Nav (oben) und zur Folgesektion. */
+@media (min-width: 901px) {
+  .hero {
+    min-height: 100dvh;
+    padding: 112px 24px 64px;
+  }
+}
+
 @media(max-width: 1350px){
   .testimonials-grid {
     flex-direction: column;
