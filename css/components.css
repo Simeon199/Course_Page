@@ -237,47 +237,6 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Order Form (pricing card) */
-.order-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
-}
-
-.order-form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  text-align: left;
-}
-
-.order-form-field label {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--dark);
-}
-
-.order-form-field input {
-  padding: 10px 14px;
-  border-radius: 8px;
-  border: 1px solid rgba(26, 26, 46, 0.15);
-  font-size: 15px;
-  font-family: inherit;
-}
-
-.order-form-field input:focus {
-  outline: 2px solid var(--teal);
-  outline-offset: 1px;
-}
-
-.order-form-hint {
-  font-size: 13px;
-  color: var(--mid);
-  text-align: center;
-  margin: 0;
-}
-
 .pricing-title {
   font-size: 24px;
   font-weight: 700;
