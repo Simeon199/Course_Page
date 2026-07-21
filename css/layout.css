@@ -104,7 +104,8 @@
 }
 
 .hero-title {
-  font-size: clamp(48px, 72px, 96px);
+  /* Base size for large screens (>1350px); stepped down via media_queries.css */
+  font-size: 72px;
   text-align: center;
   padding-top: 16px;
 }

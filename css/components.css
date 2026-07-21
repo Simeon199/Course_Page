@@ -458,18 +458,6 @@
 }
 
 /* Utility Classes */
-.d-flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  padding-top: 32px;
-  padding-bottom: 32px;
-  padding-inline: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 .centered {
   text-align: center;
 }

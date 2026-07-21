@@ -4,15 +4,6 @@
 
 /* Desktop: min-width 1025px */
 @media (min-width: 1025px) {
-  .d-flex {
-    flex-direction: row;
-    align-items: stretch;
-  }
-
-  .d-flex .box {
-    flex: 1;
-  }
-
   .about-me {
     flex-direction: row;
     align-items: flex-start;
@@ -108,24 +99,16 @@
   .pricing-grid {
     width: 90%;
   }
-}
 
-/* Tablet Medium: max-width 1025px */
-@media (max-width: 1025px) {
   .carousel {
     width: clamp(50%, 70%, 90%);
   }
 }
 
-/* Tablet: min-width 819px and max-width 1023px */
-@media (min-width: 819px) and (max-width: 1023px) {
+/* Tablet: min-width 820px and max-width 1024px */
+@media (min-width: 820px) and (max-width: 1024px) {
   .hero-inner {
     gap: unset;
-  }
-
-  .d-flex {
-    flex-direction: column;
-    align-items: center;
   }
 
   .box {
@@ -198,12 +181,6 @@
 
   .hero-btns {
     justify-content: center;
-  }
-
-  .d-flex {
-    flex-direction: column;
-    align-items: center;
-    padding-inline: 16px;
   }
 
   .box {
@@ -342,12 +319,12 @@
 
 /* Mobile Extra Small: max-width 400px */
 @media (max-width: 400px) {
-  h1 {
-    font-size: 24px;
-  }
-
-  h2 {
-    font-size: 20px;
+  /* Hero heading is class-based; this rule wins over the .hero-title size set at
+     max-width:600 (40px). Bare h1/h2 tag rules were removed here because they were
+     always overridden by more specific selectors (.hero-title on index,
+     .*-container h1 on legal, hero/section rules on webinar) and never applied. */
+  .hero-title {
+    font-size: 32px;
   }
 
   footer {
