@@ -4,3 +4,4 @@ logs
 .claude
 .vscode
 .mcp.json
+.git-rewrite
