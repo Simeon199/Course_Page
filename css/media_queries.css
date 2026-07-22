@@ -45,8 +45,13 @@
   }
 
   .hero {
+    /* Ab hier stapelt .hero-inner Text und Bild (statt nebeneinander), wodurch sich
+       ihre Höhen addieren. min-height:auto lässt die Section mit dem Inhalt wachsen/
+       schrumpfen statt ihn in 100dvh zu zwingen (Quetschen) oder ihn stumm über den
+       Viewport hinauswachsen zu lassen (wirkt wie abgeschnittenes Bild). */
+    min-height: auto;
     padding-top: 120px;
-    padding-bottom: 0;
+    padding-bottom: 48px;
   }
 
   .hero-content {
