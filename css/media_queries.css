@@ -2,23 +2,10 @@
    RESPONSIVE DESIGN - ORGANIZED BY BREAKPOINT
    ============================================ */
 
-/* Desktop: min-width 1025px */
-@media (min-width: 1025px) {
-  .about-me {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 40px;
-  }
-}
-
 /* Large Desktop: min-width 820px */
 @media (min-width: 820px) {
   .hamburger {
     display: none;
-  }
-
-  .about-me-photo {
-    align-self: center;
   }
 
   .nav-links {
@@ -31,19 +18,6 @@
 
 /* Tablet Large: max-width 1350px */
 @media (max-width: 1350px) {
-  .about-me-wrapper {
-    width: 90%;
-    margin: 0 auto;
-  }
-
-  .pricing-grid {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    margin: 0 auto;
-  }
-
   .hero {
     /* Ab hier stapelt .hero-inner Text und Bild (statt nebeneinander), wodurch sich
        ihre Höhen addieren. min-height:auto lässt die Section mit dem Inhalt wachsen/
@@ -93,20 +67,46 @@
 
 /* Tablet: max-width 1024px */
 @media (max-width: 1024px) {
-  .about-me-wrapper {
+  .about-me-inner {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* width: 90%;
-    margin: 0 auto; */
+    gap: 32px;
   }
 
-  .pricing-grid {
-    width: 90%;
+  .about-me-media {
+    width: 70%;
+    max-width: 340px;
+  }
+
+  .about-me-content {
+    text-align: center;
+  }
+
+  .about-me-eyebrow {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-me .about-me-heading {
+    text-align: center;
+  }
+
+  .about-me-text {
+    margin: 0 auto;
+  }
+
+  .about-me-stats {
+    justify-content: center;
   }
 
   .carousel {
     width: clamp(50%, 70%, 90%);
+  }
+}
+
+/* Price-Grid: max-width 900px (aus Homepage_Design-Vorlage übernommen) */
+@media (max-width: 900px) {
+  .price-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -139,9 +139,9 @@
     align-items: center;
     gap: 24px;
     padding: 32px 0;
-    background: rgba(26, 26, 46, 0.97);
+    background: rgba(250, 248, 244, 0.97);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(23, 48, 27, 0.08);
   }
 
   .nav-links.open {
@@ -192,10 +192,6 @@
     width: 100%;
   }
 
-  .about-me-photo {
-    align-self: center;
-  }
-
   footer {
     padding: 24px 16px;
   }
@@ -205,14 +201,6 @@
 @media (max-width: 768px) {
   .hero-image-wrap {
     order: -1;
-  }
-
-  .pricing-card.featured {
-    transform: scale(1);
-  }
-
-  .pricing-card.featured:hover {
-    transform: translateY(-8px);
   }
 
   .footer-wrapper {
@@ -231,7 +219,7 @@
     top: 80px;
     left: 0;
     right: 0;
-    background: rgba(13, 92, 99, 0.95);
+    background: rgba(250, 248, 244, 0.95);
     padding: 20px;
     gap: 16px;
   }
@@ -257,10 +245,6 @@
     text-align: center;
   }
 
-  .webinar-wrapper {
-    gap: 16px;
-  }
-
   p,
   .generic-p,
   .webinar-p {
@@ -269,10 +253,6 @@
 
   .webinar-p {
     text-align: justify;
-  }
-
-  .webinar-button a {
-    font-size: 16px;
   }
 
   .FAQ-item .generic-h3::before {
@@ -291,8 +271,17 @@
     font-size: 16px;
   }
 
-  .about-me .generic-p {
+  .about-me-text {
     font-size: 16px;
+  }
+
+  .about-me-media {
+    width: 90%;
+    max-width: 280px;
+  }
+
+  .about-me-stats {
+    gap: 20px;
   }
 
   .btn-primary,
@@ -305,16 +294,8 @@
     font-size: 16px;
   }
 
-  .about-me-photo {
-    width: 90%;
-  }
-
-  .coming-soon span {
-    text-align: center;
-  }
-
-  .pricing-card {
-    padding: 24px;
+  .price-card {
+    padding: 24px 20px;
   }
 
   .carousel {
@@ -340,10 +321,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-
-  .webinar-button:nth-child(2) {
-    margin-top: 32px;
   }
 }
 

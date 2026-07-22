@@ -9,21 +9,15 @@
 .hero {
   position: relative;
   min-height: 100dvh;
-  background: var(--teal);
+  /* Test: exakter Hero-Gradient aus der Homepage_Design-Vorlage */
+  background:
+    radial-gradient(circle at 82% 18%, var(--amber-soft) 0%, transparent 45%),
+    radial-gradient(circle at 6% 90%, var(--sage) 0%, transparent 40%);
   display: flex;
   justify-content: center;
   padding-top: 200px;
   padding-bottom: 80px;
   overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(ellipse 55% 65% at 85% 15%, rgba(200, 240, 96, 0.28) 0%, transparent 70%),
-              radial-gradient(ellipse 50% 60% at 10% 85%, rgba(255, 107, 71, 0.22) 0%, transparent 70%);
 }
 
 .hero-inner {
@@ -53,7 +47,7 @@
   width: 100%;
   max-width: 700px;
   border-radius: 24px;
-  border: 3px solid rgba(181, 212, 109, 0.45);
+  border: 3px solid rgba(229, 149, 96, 0.45);
   display: block;
 }
 
@@ -82,7 +76,7 @@
 
 .carousel-image {
   border-radius: 24px;
-  border: 3px solid rgba(181, 212, 109, 0.45);
+  border: 3px solid rgba(229, 149, 96, 0.45);
   display: block;
 }
 
@@ -92,7 +86,7 @@
 }
 
 @keyframes fade {
-  from {opacity: 0.4;} 
+  from {opacity: 0.4;}
   to {opacity: 1;}
 }
 
@@ -113,7 +107,7 @@
 
 .hero-title span {
   display: block;
-  color: white;
+  color: var(--teal-dark);
   letter-spacing: 2.6px;
 }
 
@@ -121,53 +115,128 @@
   max-width: 600px;
   font-size: 20px;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--muted);
   line-height: 2.6;
   letter-spacing: 1.3px;
   text-align: center;
 }
 
-/* About Me Section */
+/* About Me Section (Card-Duo mit Kennzahlen) */
 .about-me {
-  display: flex;
-  justify-content: center;
   padding: 80px 0;
-  background: linear-gradient(135deg, rgba(13, 92, 99, 0.05) 0%, rgba(181, 212, 109, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(28, 92, 92, 0.05) 0%, rgba(229, 149, 96, 0.05) 100%);
   width: 100%;
 }
 
-.about-me-wrapper {
+.about-me-inner {
   display: flex;
-  gap: 40px;
+  align-items: center;
+  gap: 56px;
+}
+
+.about-me-media {
+  position: relative;
+  flex: 0 0 auto;
+  width: 38%;
+}
+
+.about-me-media::before {
+  content: '';
+  position: absolute;
+  inset: 16px -16px -16px 16px;
+  background: var(--sage);
+  border-radius: 20px;
+  z-index: 0;
+}
+
+.about-me-photo-card {
+  position: relative;
+  z-index: 1;
+  background: var(--white);
+  padding: 12px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(23, 48, 27, 0.15);
 }
 
 .about-me-photo {
-  border-radius: 50%;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  margin: 0 auto 40px;
-  border: 4px solid var(--lime);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
+  border-radius: 14px;
 }
 
-.about-me-photo:hover {
-  transform: scale(1.05);
+.about-me-content {
+  flex: 1;
+  min-width: 0;
 }
 
-.about-me .generic-h2 {
-  margin-bottom: 40px;
+.about-me-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 1px solid rgba(23, 48, 27, 0.1);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--teal-dark);
+  margin-bottom: 16px;
 }
 
-.about-me .generic-p {
-  max-width: 700px;
-  margin: 0 auto;
+.about-me-eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--amber);
+}
+
+.about-me .about-me-heading {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.about-me-text {
+  max-width: 640px;
   font-size: 18px;
-  line-height: 1.8;
+  line-height: 1.75;
+}
+
+.about-me-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 32px;
+}
+
+.about-me-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 20px;
+  border-left: 2px solid var(--paper-soft);
+}
+
+.about-me-stat:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+.about-me-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--teal-dark);
+}
+
+.about-me-stat-label {
+  font-size: 0.8rem;
+  color: var(--muted);
 }
 
 /* Contact Section */
 .contact-section {
-  background: linear-gradient(135deg, var(--teal) 0%, var(--dark) 100%);
+  background: linear-gradient(135deg, var(--teal-dark) 0%, var(--ink) 100%);
   text-align: center;
 }
 

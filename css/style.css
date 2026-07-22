@@ -1,10 +1,15 @@
 :root {
-  --lime: #B5D46D;
-  --teal: #0D5C63;
-  --cream: #F7F3EB;
-  --coral: #FF6B47;
-  --dark: #1A1A2E;
-  --mid: #3A3A5C;
+  --ink: #17301B;
+  --teal: #3FB4B4;
+  --teal-dark: #1C5C5C;
+  --paper: #FAF8F4;
+  --paper-soft: #F0EBE2;
+  --amber: #E59560;
+  --amber-soft: #F7DCC5;
+  --coral: var(--amber);
+  --sage: #D8F0E0;
+  --white: #FFFFFF;
+  --muted: #4E6664;
   --accent: var(--teal);
 }
 
@@ -16,28 +21,34 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--dark);
+  background: var(--teal-dark);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--teal);
+  background: var(--teal-dark);
   border-radius: 100px;
-  border: 2px solid var(--dark);
+  border: 2px solid var(--teal-dark);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--lime);
+  background: var(--amber);
 }
 
 body {
   font-family: 'DM Sans', sans-serif;
-  background: var(--cream);
+  background: var(--paper);
   overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
   color: black;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 3px;
 }
 
 .generic-p {
