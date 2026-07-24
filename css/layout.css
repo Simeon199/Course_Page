@@ -28,11 +28,11 @@
 
 .hero-content {
   height: 100%;
-  flex: 1;
+  flex: 1.1;
   min-width: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
@@ -52,7 +52,7 @@
 }
 
 .carousel {
-  flex: 1;
+  flex: 0.9;
   height: 100%;
 }
 
@@ -95,13 +95,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .hero-title {
   /* Base size for large screens (>1350px); stepped down via media_queries.css */
   font-size: 72px;
-  text-align: center;
+  text-align: left;
   padding-top: 16px;
 }
 
@@ -112,19 +112,37 @@
 }
 
 .hero-desc {
-  max-width: 600px;
+  max-width: 520px;
   font-size: 20px;
   font-weight: 300;
   color: var(--muted);
-  line-height: 2.6;
-  letter-spacing: 1.3px;
-  text-align: center;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Sekundärer Hero-CTA (Stil aus Homepage_Design-Vorlage, dort .btn-ghost) */
+.btn-secondary {
+  padding: 14px 32px;
+  border-radius: 100px;
+  font-size: 18px;
+  font-weight: 600;
+  background: none;
+  border: 1.5px solid rgba(23, 48, 27, 0.25);
+  color: var(--teal-dark);
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  border-color: var(--teal-dark);
 }
 
 /* About Me Section (Card-Duo mit Kennzahlen) */
 .about-me {
   padding: 80px 0;
-  background: linear-gradient(135deg, rgba(28, 92, 92, 0.05) 0%, rgba(229, 149, 96, 0.05) 100%);
+  background: var(--paper-soft);
   width: 100%;
 }
 
@@ -135,27 +153,14 @@
 }
 
 .about-me-media {
-  position: relative;
   flex: 0 0 auto;
   width: 38%;
 }
 
-.about-me-media::before {
-  content: '';
-  position: absolute;
-  inset: 16px -16px -16px 16px;
-  background: var(--sage);
-  border-radius: 20px;
-  z-index: 0;
-}
-
 .about-me-photo-card {
-  position: relative;
-  z-index: 1;
   background: var(--white);
-  padding: 12px;
+  border: 1px solid rgba(23, 48, 27, 0.08);
   border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(23, 48, 27, 0.15);
 }
 
 .about-me-photo {
@@ -163,33 +168,12 @@
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 20px;
 }
 
 .about-me-content {
   flex: 1;
   min-width: 0;
-}
-
-.about-me-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--white);
-  border: 1px solid rgba(23, 48, 27, 0.1);
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--teal-dark);
-  margin-bottom: 16px;
-}
-
-.about-me-eyebrow-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--amber);
 }
 
 .about-me .about-me-heading {
@@ -203,9 +187,96 @@
   line-height: 1.75;
 }
 
+/* Programm-Ablauf Section (Journey-Timeline, Struktur aus Homepage_Design übernommen) */
+.journey-path {
+  position: relative;
+  margin-top: 48px;
+  padding-left: 36px;
+}
+
+.journey-path::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: repeating-linear-gradient(to bottom, var(--teal) 0 8px, transparent 8px 16px);
+}
+
+.journey-stop {
+  position: relative;
+  padding-bottom: 40px;
+  max-width: 560px;
+}
+
+.journey-stop:last-child {
+  padding-bottom: 0;
+}
+
+.journey-stop::before {
+  content: '';
+  position: absolute;
+  left: -36px;
+  top: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--teal);
+}
+
+.journey-stop.current::before {
+  background: var(--amber);
+  border-color: var(--amber);
+}
+
+.journey-stop .stage {
+  display: block;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.78rem;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+
+.journey-stop h4 {
+  font-size: 1.2rem;
+  color: var(--teal-dark);
+  margin-bottom: 8px;
+}
+
+.journey-stop p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Final CTA Section */
+.final-cta {
+  text-align: center;
+}
+
+.final-cta .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.final-cta-desc {
+  min-height: 0;
+  max-width: 480px;
+}
+
+.final-cta-note {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
 /* Contact Section */
 .contact-section {
-  background: linear-gradient(135deg, var(--teal-dark) 0%, var(--ink) 100%);
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
   text-align: center;
 }
 

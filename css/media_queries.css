@@ -30,10 +30,12 @@
 
   .hero-content {
     flex: 0;
+    align-items: center;
   }
 
   .hero-content-wrapper {
     gap: 24px;
+    align-items: center;
   }
 
   .hero-title {
@@ -43,7 +45,10 @@
 
   .hero-desc {
     text-align: center;
-    line-height: 1.6;
+  }
+
+  .hero-btns {
+    justify-content: center;
   }
 
   /* Carousel */

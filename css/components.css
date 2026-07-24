@@ -17,9 +17,10 @@
 
 .hero-btns {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  gap: 14px;
   padding-bottom: 24px;
 }
 
@@ -66,7 +67,7 @@
 }
 
 .background-dark {
-  background: var(--teal-dark);
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
 }
 
 .background-brand {
@@ -250,7 +251,7 @@
   border-left: 4px solid var(--amber);
   margin-bottom: 24px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: var(--teal-dark);
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
 }
 
 .FAQ-item:hover {
@@ -330,7 +331,7 @@
 
 /* Webinar Cards (Index-Seite) */
 .webinar-section {
-  background: linear-gradient(135deg, var(--teal-dark, #1C5C5C) 0%, #143f3f 100%);
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
   padding: 72px 0;
 }
 
