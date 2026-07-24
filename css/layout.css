@@ -203,37 +203,6 @@
   line-height: 1.75;
 }
 
-.about-me-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 28px;
-  margin-top: 32px;
-}
-
-.about-me-stat {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding-left: 20px;
-  border-left: 2px solid var(--paper-soft);
-}
-
-.about-me-stat:first-child {
-  padding-left: 0;
-  border-left: none;
-}
-
-.about-me-stat-value {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--teal-dark);
-}
-
-.about-me-stat-label {
-  font-size: 0.8rem;
-  color: var(--muted);
-}
-
 /* Contact Section */
 .contact-section {
   background: linear-gradient(135deg, var(--teal-dark) 0%, var(--ink) 100%);
