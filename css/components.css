@@ -1,7 +1,7 @@
 /* Buttons */
 .btn-primary {
-  background: var(--lime);
-  color: black;
+  background: var(--amber);
+  color: var(--teal-dark);
   padding: 10px 24px;
   border-radius: 100px;
   font-size: 16px;
@@ -17,13 +17,14 @@
 
 .hero-btns {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  gap: 14px;
   padding-bottom: 24px;
 }
 
-.hero-btns 
+.hero-btns
 .btn-primary {
   padding: 14px 32px;
   font-size: 18px;
@@ -32,26 +33,9 @@
   transition: all 0.3s ease;
 }
 
-.hero-btns .btn-primary:hover,
-.webinar-button:hover {
+.hero-btns .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
-}
-
-.button-width {
-  width: 100%;
-  max-width: 264px;
-  justify-content: center;
-  align-self: center;
-  padding: 14px 24px;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.button-width a {
-  color: black;
-  text-decoration: none;
-  width: 100%;
 }
 
 .contact-form .btn-primary {
@@ -69,7 +53,7 @@
 }
 
 .contact-form .btn-primary a {
-  color: black;
+  color: var(--teal-dark);
   text-decoration: none;
 }
 
@@ -83,7 +67,11 @@
 }
 
 .background-dark {
-  background: var(--teal);
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+}
+
+.background-brand {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
 }
 
 .background-light {
@@ -108,15 +96,15 @@
 
 .info-block .generic-p {
   padding: 20px;
-  background: rgba(181, 212, 109, 0.1);
-  border-left: 4px solid var(--lime);
+  background: rgba(229, 149, 96, 0.1);
+  border-left: 4px solid var(--amber);
   border-radius: 8px;
   font-weight: 500;
 }
 
 /* Testimonials */
 .testimonial {
-  border-left: 4px solid var(--lime);
+  border-left: 4px solid var(--amber);
   position: relative;
   padding-left: 40px;
 }
@@ -139,149 +127,114 @@
   margin: 0 auto;
 }
 
-.webinar-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+/* Pricing Grid (Struktur/Stil aus Homepage_Design übernommen) */
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 44px;
+  align-items: stretch;
 }
 
-.webinar-button {
-  background: var(--lime);
-  color: black;
-  margin-bottom: 32px;
-  padding: 10px 24px;
-  border-radius: 100px;
-  font-size: 18px;
+.price-card {
+  background: var(--white);
+  border: 1px solid rgba(23, 48, 27, 0.1);
+  border-radius: 20px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.price-card.active {
+  border: 2px solid var(--teal);
+  box-shadow: 0 16px 40px rgba(63, 180, 180, 0.18);
+}
+
+.price-badge {
+  position: absolute;
+  top: -13px;
+  left: 28px;
+  background: var(--paper-soft);
+  color: #6B7A78;
+  font-size: 0.75rem;
   font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(23, 48, 27, 0.1);
+}
+
+.price-card.active .price-badge {
+  background: var(--teal);
+  color: white;
   border: none;
-  cursor: pointer;
-  transition: transform 0.2s;
-  max-width: 320px;
-  align-self: center;
 }
 
-/* Pricing Grid */
-.pricing-grid {
-  display: flex;
-  gap: 32px;
-  margin-bottom: 40px;
+.price-class {
+  font-size: 0.85rem;
+  color: #6B7A78;
+  font-weight: 600;
+  margin-bottom: 6px;
 }
 
-.pricing-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 16px;
-  padding: 40px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.pricing-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--lime), var(--coral));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.pricing-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
-}
-
-.pricing-card:hover::before {
-  opacity: 1;
-}
-
-.pricing-card.featured {
-  border: 2px solid var(--lime);
-  transform: scale(1.02);
-}
-
-.pricing-card.featured:hover {
-  transform: scale(1.02) translateY(-8px);
-}
-
-/* Coming Soon Overlay */
-.pricing-card {
-  position: relative;
-}
-
-.coming-soon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(1px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 16px;
-  z-index: 10;
-}
-
-.coming-soon span {
-  font-size: 24px;
+.price-value {
+  font-size: 2.4rem;
   font-weight: 700;
-  color: var(--teal);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  color: var(--teal-dark);
 }
 
-.pricing-title {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 16px;
-  color: var(--teal);
+.price-meta {
+  font-size: 0.82rem;
+  color: #6B7A78;
+  margin-bottom: 20px;
 }
 
-.pricing-price {
-  font-size: 48px;
-  font-weight: 700;
-  color: var(--teal);
-  margin-bottom: 8px;
-}
-
-.pricing-period {
-  font-size: 14px;
-  color: #999;
-  margin-bottom: 24px;
-}
-
-.pricing-features {
+.price-features {
   list-style: none;
-  margin-bottom: 32px;
+  padding: 0;
+  margin: 0 0 26px;
   flex-grow: 1;
 }
 
-.pricing-features li {
-  padding: 12px 0;
-  border-bottom: 1px solid #eee;
-  font-size: 15px;
-  color: #555;
-  position: relative;
-  padding-left: 24px;
+.price-features li {
+  font-size: 0.9rem;
+  color: var(--ink);
+  padding: 9px 0;
+  border-top: 1px solid var(--paper-soft);
+  display: flex;
+  gap: 8px;
 }
 
-.pricing-features li:last-child {
-  border-bottom: none;
+.price-features li:first-child {
+  border-top: none;
 }
 
-.pricing-features li::before {
+.price-features li::before {
   content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--lime);
+  color: var(--teal);
   font-weight: 700;
+}
+
+.price-btn {
+  text-align: center;
+  padding: 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  background: var(--paper-soft);
+  color: #6B7A78;
+  text-decoration: none;
+  display: block;
+  transition: transform 0.2s;
+}
+
+.price-card.active .price-btn {
+  background: var(--amber);
+  color: var(--teal-dark);
+}
+
+.price-card.active .price-btn:hover {
+  transform: scale(1.05);
 }
 
 /* FAQ Section */
@@ -291,39 +244,73 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .FAQ-item {
+  border-left: 4px solid var(--amber);
   margin-bottom: 24px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background: var(--teal);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
 }
 
 .FAQ-item:hover {
-  transform: translateX(8px);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
 }
 
-.FAQ-item .generic-h3 {
-  margin-bottom: 12px;
+.FAQ-question {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 12px;
+  width: 100%;
 }
 
-.FAQ-item .generic-h3::before {
+.FAQ-question::before {
   content: '+';
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 24px;
   height: 24px;
-  background: var(--lime);
-  color: black;
+  background: var(--amber);
+  color: var(--teal-dark);
   border-radius: 50%;
   font-weight: 700;
   font-size: 18px;
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.FAQ-question[aria-expanded="true"]::before {
+  transform: rotate(45deg);
+}
+
+.FAQ-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.FAQ-item.open .FAQ-answer {
+  grid-template-rows: 1fr;
+}
+
+.FAQ-answer-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.FAQ-answer-inner .generic-p {
+  padding-top: 12px;
 }
 
 .about-the-course:last-child {
@@ -336,152 +323,15 @@
   padding: 80px 0;
 }
 
-.content-wrapper:nth-child(2) {
-  background: var(--teal);
-}
-
-/* Legal Pages (Impressum / Datenschutz / AGB) */
-.privacy-policy-container,
-.legal-notice-container,
-.usage-right-container {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  max-width: 860px;
-  margin: 0 auto;
-  /* padding-top clears the fixed nav (80px) plus breathing room */
-  padding-top: 112px;
-  padding-bottom: 80px;
-  /* lange URLs/Wörter (z. B. Links in der Datenschutzerklärung) umbrechen,
-     statt bei schmalen Viewports abgeschnitten zu werden */
-  overflow-wrap: anywhere;
-  hyphens: auto;
-}
-
-/* Page title */
-.privacy-policy-container h1,
-.legal-notice-container h1,
-.usage-right-container h1 {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--dark);
-  border-bottom: 3px solid var(--teal);
-  padding-bottom: 14px;
-  margin-bottom: 36px;
-}
-
-/* Section headings */
-.privacy-policy-container h2,
-.legal-notice-container h2,
-.usage-right-container h2 {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--teal);
-  margin-top: 32px;
-  margin-bottom: 10px;
-}
-
-/* Sub-headings */
-.privacy-policy-container h3,
-.legal-notice-container h3,
-.usage-right-container h3 {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--mid);
-  margin-top: 20px;
-  margin-bottom: 6px;
-}
-
-/* Body text */
-.privacy-policy-container p,
-.legal-notice-container p,
-.usage-right-container p {
-  color: #333;
-  font-size: .95rem;
-  line-height: 1.8;
-  margin-bottom: 14px;
-}
-
-/* List items */
-.privacy-policy-container li,
-.legal-notice-container li,
-.usage-right-container li {
-  color: #333;
-  font-size: .95rem;
-  line-height: 1.8;
-  padding: 3px 0;
-}
-
-/* Links */
-.privacy-policy-container a,
-.legal-notice-container a,
-.usage-right-container a {
-  color: var(--teal);
-  transition: color .15s;
-}
-
-.privacy-policy-container a:hover,
-.legal-notice-container a:hover,
-.usage-right-container a:hover {
-  color: var(--coral);
-}
-
-/* Content blocks (Impressum sections) */
-.top-left-corner {
-  background: #fff;
-  border: 1px solid #e6e0d4;
-  border-radius: 10px;
-  padding: 24px 28px;
-  margin-bottom: 24px;
-}
-
-/* Back-to-start link rendered as an outlined button (scoped to legal pages
-   so it overrides the generic link styles above) */
-.privacy-policy-container .back-to-main-page a,
-.legal-notice-container .back-to-main-page a,
-.usage-right-container .back-to-main-page a {
-  color: var(--teal);
-  font-size: .95rem;
-  font-weight: 600;
-  border: 1.5px solid var(--teal);
-  padding: 10px 22px;
-  border-radius: 8px;
-  transition: background .15s, color .15s;
-}
-
-.privacy-policy-container .back-to-main-page a:hover,
-.legal-notice-container .back-to-main-page a:hover,
-.usage-right-container .back-to-main-page a:hover {
-  background: var(--teal);
-  color: #fff;
-  text-decoration: none;
-}
-
 /* Utility Classes */
-.d-flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  padding-top: 32px;
-  padding-bottom: 32px;
-  padding-inline: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.centered {
-  text-align: center;
-}
-
 #pricing .about-the-course {
   text-align: center;
+  margin-top: 40px;
 }
 
 /* Webinar Cards (Index-Seite) */
 .webinar-section {
-  background: linear-gradient(135deg, var(--teal, #092e31) 0%, #193638 100%);
-  /* background: linear-gradient(135deg, rgba(2, 100, 10, 0.45) 0%, #268b19 100%); */
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
   padding: 72px 0;
 }
 
@@ -560,8 +410,8 @@
   display: inline-block;
   margin-top: 8px;
   padding: 12px 24px;
-  background: var(--lime, #B5D46D);
-  color: #1a1a1a;
+  background: var(--amber, #E59560);
+  color: var(--teal-dark);
   font-weight: 700;
   font-size: 15px;
   border-radius: 100px;
@@ -571,6 +421,6 @@
 }
 
 .webinar-card-btn:hover {
-  background: #c8e47e;
+  background: #D9834A;
   transform: translateY(-2px);
 }

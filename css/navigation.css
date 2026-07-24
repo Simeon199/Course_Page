@@ -4,9 +4,9 @@ nav {
   top: 0;
   width: 100%;
   z-index: 100;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(13, 92, 99, 0.75);
+  background: rgba(250, 248, 244, 0.92);
   backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(23, 48, 27, 0.08);
 }
 
 .nav-content {
@@ -22,12 +22,12 @@ nav {
   gap: 10px;
   font-size: 24px;
   letter-spacing: -1px;
-  color: white;
+  color: var(--teal-dark);
   cursor: pointer;
 }
 
 .logo a {
-  color: white;
+  color: var(--teal-dark);
 }
 
 .logo-img {
@@ -38,12 +38,12 @@ nav {
 }
 
 .nav-links {
-  color: white;
+  color: var(--teal-dark);
   display: none;
 }
 
 .nav-links a {
-  color: white;
+  color: var(--teal-dark);
   text-decoration: none;
   opacity: 0.7;
   transition: opacity 0.2s;
@@ -58,7 +58,10 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 5px;
+  min-width: 44px;
+  min-height: 44px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -69,7 +72,7 @@ nav {
   display: block;
   width: 22px;
   height: 2px;
-  background: white;
+  background: var(--teal-dark);
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }

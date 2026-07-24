@@ -3,3 +3,6 @@ CLAUDE.md
 logs
 .claude
 .vscode
+.mcp.json
+.git-rewrite
+mockup.html
