@@ -9,21 +9,15 @@
 .hero {
   position: relative;
   min-height: 100dvh;
-  background: var(--teal);
+  /* Test: exakter Hero-Gradient aus der Homepage_Design-Vorlage */
+  background:
+    radial-gradient(circle at 82% 18%, var(--amber-soft) 0%, transparent 45%),
+    radial-gradient(circle at 6% 90%, var(--sage) 0%, transparent 40%);
   display: flex;
   justify-content: center;
   padding-top: 200px;
   padding-bottom: 80px;
   overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(ellipse 55% 65% at 85% 15%, rgba(200, 240, 96, 0.28) 0%, transparent 70%),
-              radial-gradient(ellipse 50% 60% at 10% 85%, rgba(255, 107, 71, 0.22) 0%, transparent 70%);
 }
 
 .hero-inner {
@@ -34,11 +28,11 @@
 
 .hero-content {
   height: 100%;
-  flex: 1;
+  flex: 1.1;
   min-width: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
@@ -53,26 +47,27 @@
   width: 100%;
   max-width: 700px;
   border-radius: 24px;
-  border: 3px solid rgba(181, 212, 109, 0.45);
+  border: 3px solid rgba(229, 149, 96, 0.45);
   display: block;
 }
 
 .carousel {
-  flex: 1;
+  flex: 0.9;
   height: 100%;
 }
 
 .carousel-content-wrapper {
-  position: relative;
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  align-content: center;
   align-items: center;
-  justify-content: center;
 }
 
 .image-wrapper {
-  position: absolute;
+  /* All slides share a single grid cell so they overlap for the crossfade while
+     staying in flow — this lets the container derive its height from the image
+     (an absolutely positioned slide would contribute 0 height and get clipped). */
+  grid-area: 1 / 1;
 }
 
 .image-wrapper img {
@@ -81,7 +76,7 @@
 
 .carousel-image {
   border-radius: 24px;
-  border: 3px solid rgba(181, 212, 109, 0.45);
+  border: 3px solid rgba(229, 149, 96, 0.45);
   display: block;
 }
 
@@ -91,7 +86,7 @@
 }
 
 @keyframes fade {
-  from {opacity: 0.4;} 
+  from {opacity: 0.4;}
   to {opacity: 1;}
 }
 
@@ -100,72 +95,188 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .hero-title {
-  font-size: clamp(48px, 72px, 96px);
-  text-align: center;
+  /* Base size for large screens (>1350px); stepped down via media_queries.css */
+  font-size: 72px;
+  text-align: left;
   padding-top: 16px;
 }
 
 .hero-title span {
   display: block;
-  color: white;
+  color: var(--teal-dark);
   letter-spacing: 2.6px;
 }
 
 .hero-desc {
-  max-width: 600px;
+  max-width: 520px;
   font-size: 20px;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.95);
-  line-height: 2.6;
-  letter-spacing: 1.3px;
-  text-align: center;
+  color: var(--muted);
+  line-height: 1.6;
+  text-align: left;
 }
 
-/* About Me Section */
+/* Sekundärer Hero-CTA (Stil aus Homepage_Design-Vorlage, dort .btn-ghost) */
+.btn-secondary {
+  padding: 14px 32px;
+  border-radius: 100px;
+  font-size: 18px;
+  font-weight: 600;
+  background: none;
+  border: 1.5px solid rgba(23, 48, 27, 0.25);
+  color: var(--teal-dark);
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  border-color: var(--teal-dark);
+}
+
+/* About Me Section (Card-Duo mit Kennzahlen) */
 .about-me {
-  display: flex;
-  justify-content: center;
   padding: 80px 0;
-  background: linear-gradient(135deg, rgba(13, 92, 99, 0.05) 0%, rgba(181, 212, 109, 0.05) 100%);
+  background: var(--paper-soft);
   width: 100%;
 }
 
-.about-me-wrapper {
+.about-me-inner {
   display: flex;
-  gap: 40px;
+  align-items: center;
+  gap: 56px;
+}
+
+.about-me-media {
+  flex: 0 0 auto;
+  width: 38%;
+}
+
+.about-me-photo-card {
+  background: var(--white);
+  border: 1px solid rgba(23, 48, 27, 0.08);
+  border-radius: 20px;
 }
 
 .about-me-photo {
-  border-radius: 50%;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  margin: 0 auto 40px;
-  border: 4px solid var(--lime);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
+  border-radius: 20px;
 }
 
-.about-me-photo:hover {
-  transform: scale(1.05);
+.about-me-content {
+  flex: 1;
+  min-width: 0;
 }
 
-.about-me .generic-h2 {
-  margin-bottom: 40px;
+.about-me .about-me-heading {
+  text-align: left;
+  margin-bottom: 20px;
 }
 
-.about-me .generic-p {
-  max-width: 700px;
-  margin: 0 auto;
+.about-me-text {
+  max-width: 640px;
   font-size: 18px;
-  line-height: 1.8;
+  line-height: 1.75;
+}
+
+/* Programm-Ablauf Section (Journey-Timeline, Struktur aus Homepage_Design übernommen) */
+.journey-path {
+  position: relative;
+  margin-top: 48px;
+  padding-left: 36px;
+}
+
+.journey-path::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: repeating-linear-gradient(to bottom, var(--teal) 0 8px, transparent 8px 16px);
+}
+
+.journey-stop {
+  position: relative;
+  padding-bottom: 40px;
+  max-width: 560px;
+}
+
+.journey-stop:last-child {
+  padding-bottom: 0;
+}
+
+.journey-stop::before {
+  content: '';
+  position: absolute;
+  left: -36px;
+  top: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--teal);
+}
+
+.journey-stop.current::before {
+  background: var(--amber);
+  border-color: var(--amber);
+}
+
+.journey-stop .stage {
+  display: block;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.78rem;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+
+.journey-stop h4 {
+  font-size: 1.2rem;
+  color: var(--teal-dark);
+  margin-bottom: 8px;
+}
+
+.journey-stop p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Final CTA Section */
+.final-cta {
+  text-align: center;
+}
+
+.final-cta .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.final-cta-desc {
+  min-height: 0;
+  max-width: 480px;
+}
+
+.final-cta-note {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 /* Contact Section */
 .contact-section {
-  background: linear-gradient(135deg, var(--teal) 0%, var(--dark) 100%);
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
   text-align: center;
 }
 

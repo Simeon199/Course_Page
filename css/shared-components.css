@@ -29,6 +29,34 @@
   cursor: pointer;
 }
 
+/* Eyebrow Badge (wiederverwendbar auf mehreren Sektionen) */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 1px solid rgba(23, 48, 27, 0.1);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--teal-dark);
+  margin-bottom: 16px;
+}
+
+.eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--amber);
+}
+
+.eyebrow--on-dark {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: var(--white);
+}
+
 /* === SHARED ANIMATIONS === */
 
 @keyframes slamIn {

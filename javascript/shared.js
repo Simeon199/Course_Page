@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initScrollAnimations();
   initHamburger();
+  initFaqAccordion();
 });
 
 window.addEventListener('scroll', () => {
@@ -163,6 +164,54 @@ function initHamburger() {
     navLinks.classList.toggle('open');
   });
   navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+}
+
+// --- FAQ Accordion ---
+
+/**
+ * Opens or closes a single FAQ item and syncs its ARIA state.
+ * @param {HTMLElement} item - The .FAQ-item element to update
+ * @param {boolean} shouldOpen - Whether the item should end up open
+ */
+
+function setFaqItemOpen(item, shouldOpen) {
+  let button = item.querySelector('.FAQ-question');
+  let answer = item.querySelector('.FAQ-answer');
+  item.classList.toggle('open', shouldOpen);
+  button.setAttribute('aria-expanded', String(shouldOpen));
+  answer.setAttribute('aria-hidden', String(!shouldOpen));
+}
+
+/**
+ * Closes every FAQ item except the one passed in, enforcing single-open behavior.
+ * @param {HTMLElement} currentItem - The FAQ item to keep open
+ * @param {NodeListOf<HTMLElement>} allItems - All .FAQ-item elements in the section
+ */
+
+function closeOtherFaqItems(currentItem, allItems) {
+  allItems.forEach(item => {
+    if (item !== currentItem) {
+      setFaqItemOpen(item, false);
+    }
+  });
+}
+
+/**
+ * Initializes accordion behavior for the FAQ section.
+ * Clicking a question opens its answer and closes any other open item.
+ */
+
+function initFaqAccordion() {
+  let items = document.querySelectorAll('.FAQ-item');
+  items.forEach(item => {
+    let button = item.querySelector('.FAQ-question');
+    if (!button) return;
+    button.addEventListener('click', () => {
+      let isOpen = item.classList.contains('open');
+      closeOtherFaqItems(item, items);
+      setFaqItemOpen(item, !isOpen);
+    });
+  });
 }
 
 // --- Form Validation & Utilities ---
