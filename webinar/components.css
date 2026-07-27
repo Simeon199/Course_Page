@@ -96,7 +96,7 @@
   overflow: hidden;
   transition: all 0.3s ease;
   border: 1px solid rgba(200, 240, 96, 0.15);
-  box-shadow: 
+  box-shadow:
     0 12px 40px rgba(13, 92, 99, 0.15),
     0 4px 12px rgba(0, 0, 0, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -113,9 +113,9 @@
   transform-origin: left;
 }
 
-.stat-card:hover { 
+.stat-card:hover {
   transform: translateY(-6px);
-  box-shadow: 
+  box-shadow:
     0 20px 60px rgba(13, 92, 99, 0.2),
     0 8px 20px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -156,7 +156,7 @@
   flex-direction: column;
   gap: 24px;
   flex: 1;
-  box-shadow: 
+  box-shadow:
     0 12px 40px rgba(93, 156, 156, 0.1),
     0 4px 12px rgba(0, 0, 0, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
@@ -164,7 +164,7 @@
 
 .testimonial-card:hover {
   transform: translateY(-6px);
-  box-shadow: 
+  box-shadow:
     0 20px 60px rgba(93, 156, 156, 0.15),
     0 8px 20px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);

@@ -1,0 +1,91 @@
+/* Neue Marketing-Sektionen aus mockup.html (Pain, Was-Wie/Contrast, Format) */
+/* Card-Label (kleines farbiges Tag innerhalb einer .box, z. B. "Eltern wünschen sich") */
+.card-label {
+  display: block;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.78rem;
+  color: var(--teal);
+  margin-bottom: 14px;
+}
+
+.card-label--amber {
+  color: var(--amber);
+}
+
+/* Zitat-Absätze innerhalb einer Card-Label-Box (bewusst kein .generic-p,
+   dessen min-height:100px bei mehreren gestapelten Absätzen zu viel Leerraum erzeugt) */
+.quote-text {
+  font-size: 1rem;
+  color: var(--ink);
+  margin-top: 14px;
+}
+
+.quote-text:first-of-type {
+  margin-top: 0;
+}
+
+/* Contrast-Section ("Der Unterschied": Das Was vs. Das Wie) */
+.contrast-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.contrast-col {
+  flex: 1 1 260px;
+  max-width: 360px;
+  text-align: center;
+}
+
+.contrast-label {
+  display: block;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 8px;
+}
+
+.contrast-label--amber {
+  color: var(--amber);
+}
+
+.contrast-arrow {
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.5);
+  flex: 0 0 auto;
+}
+
+/* Format-Section ("So läuft das Programm ab.") */
+.format-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.format-item {
+  flex: 1 1 180px;
+  max-width: 220px;
+  text-align: center;
+  padding: 12px 8px;
+}
+
+.format-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--amber);
+}
+
+.format-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 6px;
+}

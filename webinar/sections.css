@@ -42,7 +42,7 @@
   overflow: hidden;
   width: 90%;
   margin: 0 auto;
-  box-shadow: 
+  box-shadow:
     0 12px 40px rgba(13, 92, 99, 0.15),
     0 4px 12px rgba(0, 0, 0, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -61,7 +61,7 @@
 
 .benefit-card:hover {
   transform: translateY(-6px);
-  box-shadow: 
+  box-shadow:
     0 20px 60px rgba(13, 92, 99, 0.2),
     0 8px 20px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -140,7 +140,7 @@
   border-radius: 12px;
 }
 
-.agenda-item:hover { 
+.agenda-item:hover {
   background: rgba(255, 255, 255, 0.05);
   padding-left: 32px;
 }
