@@ -57,6 +57,19 @@
   text-decoration: none;
 }
 
+.final-cta .btn-primary {
+  padding: 14px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.final-cta .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
 /* Box Styling */
 .box {
   border-radius: 16px;

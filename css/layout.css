@@ -175,15 +175,18 @@
 .about-me-content {
   flex: 1;
   min-width: 0;
+  text-align: center;
 }
 
 .about-me .about-me-heading {
-  text-align: left;
-  margin-bottom: 20px;
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 20px;
 }
 
 .about-me-text {
   max-width: 640px;
+  margin: 0 auto;
   font-size: 18px;
   line-height: 1.75;
 }

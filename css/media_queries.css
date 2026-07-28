@@ -82,23 +82,6 @@
     max-width: 340px;
   }
 
-  .about-me-content {
-    text-align: center;
-  }
-
-  .about-me-eyebrow {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .about-me .about-me-heading {
-    text-align: center;
-  }
-
-  .about-me-text {
-    margin: 0 auto;
-  }
-
   .carousel {
     width: clamp(50%, 70%, 90%);
   }
