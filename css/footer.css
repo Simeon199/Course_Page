@@ -1,9 +1,9 @@
 /* Footer */
 footer {
-  background: var(--teal-dark);
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
   color: white;
   padding: 40px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .footer-wrapper {

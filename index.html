@@ -59,15 +59,18 @@
                 </div>
                 <div class="carousel">
                     <div class="carousel-content-wrapper">
+                        <!-- Carousel pausiert (Stand 2026-07), bis alle Kurse frei verfügbar sind – nur 5.-7. Klasse als statisches Bild -->
                         <div class="image-wrapper active">
-                            <img class="carousel-image" src="assets/3-4.jpg" alt="third-to-fourth">
-                        </div>
-                        <div class="image-wrapper inactive">
                             <img class="carousel-image" src="assets/5-7.jpg" alt="fifth-to-seventh">
+                        </div>
+                        <!--
+                        <div class="image-wrapper inactive">
+                            <img class="carousel-image" src="assets/3-4.jpg" alt="third-to-fourth">
                         </div>
                         <div class="image-wrapper inactive">
                             <img class="carousel-image" src="assets/8-10.jpg" alt="eigth-to-tenth">
                         </div>
+                        -->
                     </div>
                 </div>
             </div>
@@ -252,7 +255,7 @@
         <div class="padding-bottom">
             <div class="container">
                 <div class="about-the-course">
-                    <h2 class="generic-h2">Das sagen Eltern über unseren Kurs</h2>
+                    <h2 class="generic-h2" style="margin-top: 40px;">Das sagen Eltern über unseren Kurs</h2>
                     <div class="add-gap-to-box-grid">
                         <div class="box background-light testimonial">
                             <p class="generic-p">
@@ -304,17 +307,14 @@
             <div class="container">
                 <div class="about-the-course">
                     <h2 class="generic-h2">Investiere in die Zukunft deines Kindes</h2>
-                    <p class="generic-p" style="font-size: 18px;">Einmaliger Zugang – kein Abo, keine versteckten Kosten.</p>
                 </div>
                 <div class="price-grid">
                     <div class="price-card">
                         <span class="price-badge">Demnächst verfügbar</span>
                         <div class="price-class">Klasse 3‑4</div>
-                        <div class="price-value">199 €</div>
-                        <div class="price-meta">Einmalzahlung · 12 Monate Zugang</div>
+                        <div class="price-value" style="font-size: 1.3rem; color: #6B7A78;">Kommt demnächst</div>
                         <ul class="price-features">
                             <li>Grundlagen des Lernens</li>
-                            <li>1 persönliche Coaching‑Session</li>
                             <li>Eltern‑Begleitguide (PDF)</li>
                         </ul>
                         <a href="#" class="price-btn">Jetzt starten</a>
@@ -322,11 +322,10 @@
                     <div class="price-card active">
                         <span class="price-badge">Verfügbar</span>
                         <div class="price-class">Klasse 5‑7</div>
-                        <div class="price-value">249 €</div>
-                        <div class="price-meta">Einmalzahlung · 12 Monate Zugang</div>
+                        <div class="price-value">299 €</div>
                         <ul class="price-features">
                             <li>Alles aus Basis</li>
-                            <li>2 persönliche Coaching‑Sessions</li>
+                            <li>Einmalzahlung vs. Ratenzahlung (auf Anfrage möglich)</li>
                             <li>Eltern‑Begleitguide (PDF)</li>
                             <li>Priority‑Support</li>
                             <li>Zertifikat bei Abschluss</li>
@@ -336,11 +335,9 @@
                     <div class="price-card">
                         <span class="price-badge">Demnächst verfügbar</span>
                         <div class="price-class">Klasse 8‑10</div>
-                        <div class="price-value">299 €</div>
-                        <div class="price-meta">Einmalzahlung · 12 Monate Zugang</div>
+                        <div class="price-value" style="font-size: 1.3rem; color: #6B7A78;">Kommt demnächst</div>
                         <ul class="price-features">
                             <li>Fortgeschrittene Lerntechniken</li>
-                            <li>3 persönliche Coaching‑Sessions</li>
                             <li>Eltern‑Begleitguide (PDF)</li>
                             <li>Priority‑Support</li>
                         </ul>
@@ -391,7 +388,6 @@
                 <h2 class="generic-h2 title-light">Bereit, den ersten Schritt zu gehen?</h2>
                 <p class="generic-p title-light final-cta-desc">Sichere jetzt den Zugang zum Vollprogramm für Klasse 5–7.</p>
                 <a href="https://www.checkout-ds24.com/product/677281" class="btn-primary" target="_blank" rel="noopener noreferrer">Jetzt starten</a>
-                <p class="final-cta-note">Einmalzahlung · 12 Monate Zugang · Kein Abo</p>
             </div>
         </div>
         <div class="about-me" id="ueber-uns">
@@ -435,6 +431,7 @@
     </footer>
 
     <script src="javascript/shared.js"></script>
-    <script src="javascript/animation.js"></script>
+    <!-- Carousel-Animation pausiert (Stand 2026-07) – animation.js erst wieder einbinden, sobald alle Kurse frei verfügbar sind -->
+    <!-- <script src="javascript/animation.js"></script> -->
 </body>
 </html>

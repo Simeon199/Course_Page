@@ -155,20 +155,21 @@
 .about-me-media {
   flex: 0 0 auto;
   width: 38%;
+  max-width: 320px;
 }
 
 .about-me-photo-card {
   background: var(--white);
   border: 1px solid rgba(23, 48, 27, 0.08);
-  border-radius: 20px;
+  border-radius: 50%;
 }
 
 .about-me-photo {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 50%;
 }
 
 .about-me-content {
@@ -190,7 +191,8 @@
 /* Programm-Ablauf Section (Journey-Timeline, Struktur aus Homepage_Design übernommen) */
 .journey-path {
   position: relative;
-  margin-top: 48px;
+  max-width: 596px;
+  margin: 48px auto 0;
   padding-left: 36px;
 }
 
@@ -267,11 +269,6 @@
 .final-cta-desc {
   min-height: 0;
   max-width: 480px;
-}
-
-.final-cta-note {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.65);
 }
 
 /* Contact Section */
