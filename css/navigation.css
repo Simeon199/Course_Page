@@ -2,7 +2,10 @@
 nav {
   position: fixed;
   top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
+  max-width: 1920px;
   z-index: 100;
   background: rgba(250, 248, 244, 0.92);
   backdrop-filter: blur(12px);
