@@ -206,6 +206,18 @@
   background: repeating-linear-gradient(to bottom, var(--teal) 0 8px, transparent 8px 16px);
 }
 
+.journey-path-fill {
+  position: absolute;
+  left: 11px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: var(--amber);
+  transform: scaleY(0);
+  transform-origin: top;
+  pointer-events: none;
+}
+
 .journey-stop {
   position: relative;
   padding-bottom: 40px;
@@ -228,7 +240,8 @@
   border: 3px solid var(--teal);
 }
 
-.journey-stop.current::before {
+.journey-stop.current::before,
+.journey-stop.reached::before {
   background: var(--amber);
   border-color: var(--amber);
 }

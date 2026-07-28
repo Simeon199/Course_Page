@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initHamburger();
   initFaqAccordion();
+  initJourneyAnimation();
 });
 
 window.addEventListener('scroll', () => {
@@ -169,7 +170,25 @@ function initHamburger() {
 // --- FAQ Accordion ---
 
 /**
- * Opens or closes a single FAQ item and syncs its ARIA state.
+ * Fades and slides the FAQ answer text in or out with GSAP, synced to the
+ * CSS grid-row height transition. No-ops if GSAP is unavailable or the user
+ * prefers reduced motion.
+ * @param {HTMLElement} inner - The .FAQ-answer-inner element to animate
+ * @param {boolean} shouldOpen - Whether the answer is opening or closing
+ */
+
+function animateFaqText(inner, shouldOpen) {
+  if (!window.gsap || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return;
+  }
+  gsap.fromTo(inner,
+    { opacity: shouldOpen ? 0 : 1, y: shouldOpen ? 8 : 0 },
+    { opacity: shouldOpen ? 1 : 0, y: shouldOpen ? 0 : 8, duration: 0.25, delay: shouldOpen ? 0.15 : 0, ease: 'power1.out' }
+  );
+}
+
+/**
+ * Opens or closes a single FAQ item, syncs its ARIA state, and animates its text.
  * @param {HTMLElement} item - The .FAQ-item element to update
  * @param {boolean} shouldOpen - Whether the item should end up open
  */
@@ -180,6 +199,7 @@ function setFaqItemOpen(item, shouldOpen) {
   item.classList.toggle('open', shouldOpen);
   button.setAttribute('aria-expanded', String(shouldOpen));
   answer.setAttribute('aria-hidden', String(!shouldOpen));
+  animateFaqText(item.querySelector('.FAQ-answer-inner'), shouldOpen);
 }
 
 /**
@@ -212,6 +232,74 @@ function initFaqAccordion() {
       setFaqItemOpen(item, !isOpen);
     });
   });
+}
+
+// --- Journey Path Progress Animation ---
+
+/**
+ * Removes the static "current" fallback marker from the last journey stop so
+ * the scroll-driven animation can reveal it progressively instead.
+ * @param {HTMLElement} path - The .journey-path container
+ */
+
+function resetJourneyFallback(path) {
+  let current = path.querySelector('.journey-stop.current');
+  if (current) {
+    current.classList.remove('current');
+  }
+}
+
+/**
+ * Animates the amber progress line growing from top to bottom of the
+ * journey path, scrubbed to the user's scroll position.
+ * @param {HTMLElement} path - The .journey-path container
+ * @param {HTMLElement} fill - The .journey-path-fill overlay element
+ */
+
+function animateJourneyLine(path, fill) {
+  gsap.to(fill, {
+    scaleY: 1,
+    ease: 'none',
+    scrollTrigger: { trigger: path, start: 'top 60%', end: 'bottom 60%', scrub: true }
+  });
+}
+
+/**
+ * Marks each journey stop as "reached" once it scrolls past the same
+ * viewport line the progress line is scrubbed against, keeping both in sync.
+ * @param {NodeListOf<HTMLElement>} stops - All .journey-stop elements in the path
+ */
+
+function animateJourneyStops(stops) {
+  stops.forEach(stop => {
+    ScrollTrigger.create({
+      trigger: stop,
+      start: 'top 60%',
+      once: true,
+      toggleClass: { targets: stop, className: 'reached' }
+    });
+  });
+}
+
+/**
+ * Initializes the scroll-driven journey progress animation (line fill and
+ * stop markers). No-ops if GSAP/ScrollTrigger are missing or the user
+ * prefers reduced motion, leaving the static "current" fallback in place.
+ */
+
+function initJourneyAnimation() {
+  let path = document.querySelector('.journey-path');
+  let fill = document.querySelector('.journey-path-fill');
+  if (!path || !fill || !window.gsap || !window.ScrollTrigger) {
+    return;
+  }
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+  resetJourneyFallback(path);
+  animateJourneyLine(path, fill);
+  animateJourneyStops(path.querySelectorAll('.journey-stop'));
 }
 
 // --- Form Validation & Utilities ---
