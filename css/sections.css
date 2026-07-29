@@ -48,7 +48,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.92);
   margin-bottom: 8px;
 }
 
@@ -86,6 +86,6 @@
 
 .format-label {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.92);
   margin-top: 6px;
 }

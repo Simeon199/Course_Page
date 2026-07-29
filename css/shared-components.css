@@ -4,27 +4,9 @@
   font-family: 'DM Sans';
 }
 
-.generic-p {
-  font-size: 18px;
-  text-align: center;
-}
-
-.generic-h2 {
-  text-align: center;
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  line-height: 1.2;
-  margin-bottom: 40px;
-}
-
-.generic-h3 {
-  text-align: center;
-  font-size: 24px;
-  line-height: 1.3;
-  margin-bottom: 16px;
-  font-weight: 600;
-}
+/* Geteilte Typografie (.generic-p/.generic-h2/.generic-h3) lebt jetzt zentral in
+   style.css – hier bewusst entfernt, um die frühere Doppel-/Konfliktdefinition
+   aufzulösen. */
 
 .pointer {
   cursor: pointer;
@@ -38,7 +20,7 @@
   background: var(--white);
   border: 1px solid rgba(23, 48, 27, 0.1);
   padding: 6px 14px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--teal-dark);
