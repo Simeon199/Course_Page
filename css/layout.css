@@ -287,10 +287,22 @@
   max-width: 480px;
 }
 
-/* Contact Section */
+/* Contact Section – heller Hintergrund statt des Dark-Gradients von .final-cta
+   direkt darüber, damit beide Sektionen nicht zu einem ununterbrochenen
+   Dark-Block verschmelzen; die eigentliche Box hebt sich stattdessen als
+   eigene Karte davon ab (siehe .contact-card). */
 .contact-section {
-  background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal-dark) 100%);
+  background: var(--paper);
   text-align: center;
+}
+
+.contact-card {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 56px 44px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal-dark) 100%);
+  box-shadow: var(--shadow-lg);
 }
 
 .contact-form {

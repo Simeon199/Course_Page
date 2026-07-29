@@ -127,6 +127,17 @@ button:focus-visible {
   color: #fff;
 }
 
+/* Abstand zwischen direkt aufeinanderfolgenden Textabsätzen innerhalb von
+   .about-the-course/.about-me-content. Ohne diese Regel stapeln sich mehrere
+   generic-p/generic-h3 ohne jeden Zwischenraum, da alle Margins global auf 0
+   gesetzt sind (siehe * oben) – generic-h3 selbst bringt bereits einen
+   margin-bottom mit, daher wird hier nur die fehlende Marge davor ergänzt. */
+.about-the-course .generic-p + .generic-p,
+.about-the-course .generic-p + .generic-h3,
+.about-me-content .generic-p + .generic-p {
+  margin-top: var(--space-4);
+}
+
 .add-gap-to-box-grid {
   display: flex;
   flex-direction: column;

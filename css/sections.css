@@ -89,3 +89,37 @@
   color: rgba(255, 255, 255, 0.92);
   margin-top: 6px;
 }
+
+/* Kompakter Highlight-Callout für kurze Kernaussagen innerhalb von Fließtext
+   (z. B. "Die Fähigkeit, erfolgreich zu lernen." in "Warum Rein Campus?").
+   Bewusst kein Pill-Radius, da der Text auf schmalen Viewports zweizeilig
+   umbrechen kann; --sage statt --amber, um sich vom .info-block-Zitat direkt
+   darunter abzuheben statt mit ihm zu konkurrieren. */
+.highlight-badge {
+  display: inline-block;
+  background: var(--sage);
+  color: var(--teal-dark);
+  padding: 12px 28px;
+  border-radius: var(--radius-md);
+}
+
+/* Marken-Abschlusszitat ("Geben Sie Ihrem Kind …") */
+.brand-quote-section {
+  padding: var(--space-18) 0 var(--space-12);
+  background: var(--paper);
+}
+
+.brand-quote {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(18px, 2.4vw, 22px);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--teal-dark);
+  line-height: 1.6;
+}
+
+.brand-quote .mark {
+  color: var(--amber);
+}
