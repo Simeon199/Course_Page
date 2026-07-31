@@ -6,12 +6,14 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 0.78rem;
-  color: var(--teal);
+  /* var(--muted) statt Akzentfarbe direkt auf Weiß: sichert WCAG-AA-Kontrast
+     (Mockup-Pendant .eyebrow-small nutzt aus demselben Grund var(--ink-soft)) */
+  color: var(--muted);
   margin-bottom: 14px;
 }
 
 .card-label--amber {
-  color: var(--amber);
+  color: var(--muted);
 }
 
 /* Zitat-Absätze innerhalb einer Card-Label-Box (bewusst kein .generic-p,
@@ -101,6 +103,106 @@
   color: var(--teal-dark);
   padding: 12px 28px;
   border-radius: var(--radius-md);
+}
+
+/* "Warum Rein Campus?" – redaktionellerer Rhythmus als bewusster Kontrastpunkt zu
+   den umgebenden, zentrierten Marketing-Sektionen (Vorbild: new_mockup.html .why,
+   dort ebenfalls linksbündiger Fließtext statt zentriertem Textblock). Eigenständige
+   Note nach Nutzerwunsch: heller Sektionston + Glow, Akzent-Linie unter der
+   Überschrift, Kernsatz als großes Gradient-Statement, Zitatblock mit Deko-Anführungszeichen. */
+#warum {
+  background: var(--paper-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+#warum::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(700px 400px at 92% -15%, rgba(95, 216, 206, 0.16), transparent 60%);
+  pointer-events: none;
+}
+
+#warum .container {
+  position: relative;
+}
+
+#warum .about-the-course {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+#warum .generic-h2,
+#warum .generic-p {
+  text-align: left;
+}
+
+#warum .generic-h2 {
+  position: relative;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+}
+
+#warum .generic-h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 64px;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--amber), var(--teal));
+}
+
+/* Kernsatz als großes Gradient-Statement statt kleiner Pille – übernimmt die
+   Verlaufstext-Technik, die new_mockup.html sonst für ".big"/".num" nutzt */
+#warum .highlight-badge {
+  display: block;
+  background: linear-gradient(90deg, var(--amber-dark), var(--teal-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: 0;
+  margin: 4px 0 24px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: clamp(24px, 3.2vw, 32px);
+  line-height: 1.25;
+  text-align: left;
+}
+
+#warum .info-block {
+  align-items: stretch;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#warum .info-block .generic-p {
+  position: relative;
+  text-align: left;
+  padding: 28px 32px 28px 60px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 19px;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  box-shadow: var(--shadow-sm);
+}
+
+#warum .info-block .generic-p::before {
+  content: '\201C';
+  position: absolute;
+  top: 6px;
+  left: 20px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 52px;
+  line-height: 1;
+  color: var(--amber);
+  opacity: 0.55;
 }
 
 /* Marken-Abschlusszitat ("Geben Sie Ihrem Kind …") */
