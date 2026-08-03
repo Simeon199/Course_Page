@@ -1,13 +1,16 @@
 /* Navigation */
 nav {
   position: fixed;
-  top: 0;
+  /* --nav-offset wird per JS auf die Höhe des Sales-Notice-Banners gesetzt,
+     solange dieser sichtbar ist, damit sich Banner und Nav nicht überlappen. */
+  top: var(--nav-offset, 0px);
   left: 0;
   width: 100%;
   z-index: 100;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
+  transition: top 0.25s ease;
 }
 
 .nav-content {

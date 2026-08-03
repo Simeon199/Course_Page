@@ -84,7 +84,18 @@
 /* === Sitewide Sales Notice === */
 
 .sitewide-notice {
+  /* Sticky am oberen Viewport-Rand: Banner scrollt zusammen mit der ebenfalls
+     fixierten Nav mit und bleibt sichtbar, bis er bewusst weggeklickt wird.
+     z-index über der Nav (100), damit er nie verdeckt werden kann. Der
+     Frosted-Glass-Look (halbtransparenter Amber-Ton + Blur) greift die
+     Gestaltung der Nav auf; opak wäre nötig, weil fixed über dem Inhalt liegt. */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 101;
   background: var(--amber-soft);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--amber);
 }
 

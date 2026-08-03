@@ -305,8 +305,6 @@ function initJourneyAnimation() {
 
 // --- Sitewide Sales Notice ---
 
-const SALES_NOTICE_DISMISSED_KEY = 'salesNoticeDismissed';
-
 /**
  * Builds the dismissible sitewide banner informing visitors that the site
  * is already public but real course purchases are not enabled yet.
@@ -327,19 +325,28 @@ function createSalesNotice() {
 }
 
 /**
- * Shows the sitewide sales notice unless it was already dismissed earlier
- * in this browser session, and wires up its close button.
+ * Pushes the fixed nav down by the given amount so it stops overlapping
+ * content rendered above it, such as the sitewide sales notice.
+ * @param {number} offsetPx - Offset in pixels to apply to the nav's top
+ */
+
+function setNavOffset(offsetPx) {
+  document.documentElement.style.setProperty('--nav-offset', `${offsetPx}px`);
+}
+
+/**
+ * Shows the sitewide sales notice on every page load and wires up its close
+ * button. Dismissal is intentionally not persisted, so the notice reappears
+ * on each reload until real course sales go live.
  */
 
 function initSalesNotice() {
-  if (sessionStorage.getItem(SALES_NOTICE_DISMISSED_KEY)) {
-    return;
-  }
   let notice = createSalesNotice();
   document.body.prepend(notice);
+  setNavOffset(notice.offsetHeight);
   notice.querySelector('.sitewide-notice-close').addEventListener('click', () => {
     notice.remove();
-    sessionStorage.setItem(SALES_NOTICE_DISMISSED_KEY, 'true');
+    setNavOffset(0);
   });
 }
 

@@ -121,6 +121,12 @@ body {
   color: var(--ink);
   background: var(--paper);
   overflow-x: hidden;
+  /* Gleicht aus, dass der jetzt fixierte Sales-Notice-Banner den normalen
+     Dokumentfluss verlässt: --nav-offset (= Banner-Höhe, per JS gesetzt)
+     schiebt allen Inhalt um exakt die Banner-Höhe nach unten und wird beim
+     Wegklicken auf 0 zurückgesetzt. transition passt zur Nav (top 0.25s). */
+  padding-top: var(--nav-offset, 0px);
+  transition: padding-top 0.25s ease;
 }
 
 a {
