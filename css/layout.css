@@ -1,7 +1,10 @@
 /* Layout & Container */
 .container {
   width: 90%;
-  max-width: 1920px;
+  /* 1280px statt 1920px: verhindert überlange Zeilen und übermäßig breite
+     Karten-Grids auf großen Monitoren; bis ~1420px Viewport greift weiterhin
+     die 90%-Breite, das Layout auf Laptops bleibt also unverändert. */
+  max-width: 1280px;
   margin: 0 auto;
 }
 

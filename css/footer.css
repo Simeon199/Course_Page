@@ -8,7 +8,7 @@ footer {
 
 .footer-wrapper {
   width: 90%;
-  max-width: 1920px;
+  max-width: 1280px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -25,13 +25,17 @@ footer {
 
 .footer-links {
   display: flex;
-  gap: 32px;
+  /* Gap reduziert, da die Links jetzt eigenes Padding als Touch-Fläche tragen –
+     der sichtbare Abstand bleibt dadurch etwa gleich */
+  gap: 16px;
 }
 
 .footer-links a {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   font-size: 14px;
+  /* Padding hebt die Tap-Fläche auf ~45px Höhe (Mindest-Touch-Target 44px) */
+  padding: 14px 10px;
   transition: color 0.3s ease;
 }
 

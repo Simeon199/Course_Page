@@ -39,7 +39,9 @@
   }
 
   .hero-title {
-    font-size: 48px;
+    /* Fluid statt fester Stufen (früher 48/40/32px bei 1350/600/400px):
+       48px im gestapelten Tablet-Layout, gleitend bis min. 32px auf Smartphones */
+    font-size: clamp(32px, 4.5vw + 14px, 48px);
     text-align: center;
   }
 
@@ -66,7 +68,9 @@
 
   .carousel {
     height: auto;
-    width: clamp(40%, 55%, 70%);
+    /* vormals clamp(40%, 55%, 70%) – drei statische Prozentwerte ergeben konstant
+       den Mittelwert, daher direkt als fester Wert notiert */
+    width: 55%;
   }
 }
 
@@ -83,7 +87,7 @@
   }
 
   .carousel {
-    width: clamp(50%, 70%, 90%);
+    width: 70%;
   }
 }
 
@@ -121,8 +125,8 @@
     right: 0;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
-    padding: 32px 0;
+    gap: 12px;
+    padding: 24px 0;
     background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
@@ -130,6 +134,11 @@
 
   .nav-links.open {
     display: flex;
+  }
+
+  /* Padding statt reinem Gap: hebt jeden Menüpunkt auf ~43px Tap-Fläche */
+  .nav-links a {
+    padding: 12px 16px;
   }
 
   .hero {
@@ -196,20 +205,20 @@
     justify-content: center;
   }
 
-  .nav-links.open {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 20px;
-    gap: 16px;
-  }
-
   .carousel {
     width: 80%;
+  }
+}
+
+/* Mobile: max-width 700px – „Das Was / Das Wie" stapelt ab hier deterministisch;
+   der Richtungspfeil zeigt dann nach unten statt seitwärts ins Leere */
+@media (max-width: 700px) {
+  .contrast-row {
+    flex-direction: column;
+  }
+
+  .contrast-arrow {
+    transform: rotate(90deg);
   }
 }
 
@@ -233,14 +242,6 @@
   .generic-p,
   .webinar-p {
     font-size: 16px;
-  }
-
-  .webinar-p {
-    text-align: justify;
-  }
-
-  .hero-title {
-    font-size: 40px;
   }
 
   .hero-desc {
@@ -281,14 +282,6 @@
 
 /* Mobile Extra Small: max-width 400px */
 @media (max-width: 400px) {
-  /* Hero heading is class-based; this rule wins over the .hero-title size set at
-     max-width:600 (40px). Bare h1/h2 tag rules were removed here because they were
-     always overridden by more specific selectors (.hero-title on index,
-     .*-container h1 on legal, hero/section rules on webinar) and never applied. */
-  .hero-title {
-    font-size: 32px;
-  }
-
   footer {
     padding: 24px 4px;
   }

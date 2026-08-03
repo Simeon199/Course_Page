@@ -112,13 +112,15 @@ html {
   background: var(--amber);
 }
 
+/* Kein max-width mehr auf dem body: Sektions-Hintergründe (Dark-Panels, Footer,
+   Hero-Glow) laufen auf Monitoren >1920px full-bleed durch, statt hart an einer
+   zentrierten 1920px-Kante abzureißen; die Inhaltsbreite begrenzt stattdessen
+   .container (siehe layout.css). */
 body {
   font-family: 'Inter', sans-serif;
   color: var(--ink);
   background: var(--paper);
   overflow-x: hidden;
-  max-width: 1920px;
-  margin: 0 auto;
 }
 
 a {
@@ -162,6 +164,23 @@ button:focus-visible {
   font-weight: 600;
   line-height: 1.2;
   margin-bottom: 16px;
+}
+
+/* Lesbare Zeilenlängen auf großen Bildschirmen: Intro-/Fließtextabsätze auf
+   ~70–80 Zeichen begrenzen (bei 18px ≈ 720px). Gilt nur für direkte Absatz-
+   Kinder der Textblöcke – verschachtelte Karten/Grids (Boxen, FAQ, Preise)
+   behalten ihre eigenen Breiten. */
+.about-the-course > .generic-p {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Direkteinstieg per URL-Anker (z. B. index.html#pricing von extern): Ziel-
+   Überschrift nicht unter der fixen 80px-Nav verstecken. Das JS-Smooth-Scrolling
+   kompensiert nur Klicks innerhalb der Seite. */
+#main, #programm, #warum, #pricing, #faq, #ueber-uns, #cta, #kontakt {
+  scroll-margin-top: 96px;
 }
 
 .title-light {
@@ -219,8 +238,5 @@ button:focus-visible {
 .seal {
   padding-top: 16px;
   padding-bottom: 16px;
-}
-
-.seal {
   color: rgb(35, 35, 133);
 }
