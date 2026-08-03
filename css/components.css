@@ -326,7 +326,7 @@
   margin: 0;
   font: inherit;
   color: inherit;
-  text-align: inherit;
+  text-align: left;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -370,7 +370,11 @@
 }
 
 .FAQ-answer-inner .generic-p {
+  text-align: left;
   padding-top: 12px;
+  /* rückt den Antworttext unter den Fragetext ein (Icon-Breite 24px + Gap 12px),
+     statt unter dem Plus-Icon zu beginnen */
+  padding-left: 36px;
 }
 
 .about-the-course:last-child {

@@ -403,7 +403,7 @@ h1 {
   color: var(--dark);
   border: none;
   border-radius: 14px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 18px;
   font-weight: 700;
   cursor: pointer;

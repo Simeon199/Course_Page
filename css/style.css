@@ -1,3 +1,35 @@
+/* alternative_style: Outfit/Inter lokal statt über Google-Fonts-CDN (Nutzerwunsch,
+   Dateien liegen in fonts/Outfit bzw. fonts/Inter). Variable Fonts statt einzelner
+   Static-Weight-Dateien: je ein Dateipaar deckt die komplette Weight-Achse ab
+   (Outfit 400–800, Inter 400–700 + Italic für die kursiven Testimonial-Zitate) –
+   weniger Dateien/Requests als ein Static-Weight-Satz. */
+@font-face {
+  font-family: 'Outfit';
+  src: url('../fonts/Outfit/Outfit-VariableFont_wght.ttf') format('truetype-variations'),
+       url('../fonts/Outfit/Outfit-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations'),
+       url('../fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype-variations'),
+       url('../fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   /* alternative_style: Token-Werte an new_mockup.html angeglichen; Variablennamen
      bleiben stabil, damit alle bestehenden Referenzen unverändert funktionieren. */
