@@ -198,7 +198,16 @@
 .about-me-photo-card {
   background: var(--white);
   box-shadow: var(--shadow-sm);
-  border-radius: 50%;
+  /* Eckig statt rund (Nutzerentscheidung): Ein Kreis berührt ein 1:1-Quadrat
+     nur an den vier Seitenmitten und wird oberhalb/unterhalb der Bildmitte
+     schmaler – bei diesem Gruppenfoto schnitt das die äußeren, randnahen
+     Köpfe seitlich an. Ein (abgerundetes) Rechteck verjüngt sich nicht und
+     behält die volle Bildbreite, wodurch das Problem geometrisch entfällt –
+     ganz ohne künstliche Rand-Streckung des Fotos (siehe Verlauf: erste
+     Korrektur dieses Bugs führte zu sichtbaren Verzerrungen an den Bildrändern
+     und wurde wieder zurückgenommen; assets/profile.jpeg ist wieder das
+     unveränderte Originalfoto, 1010x1280). */
+  border-radius: var(--radius-xl);
 }
 
 .about-me-photo {
@@ -206,7 +215,14 @@
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 50%;
+  /* Vertikaler Fokuspunkt an den oberen Bildrand gelegt (50% 0%): Cover-Fit
+     auf ein 1:1-Ziel nutzt die volle Bildbreite (kein Seiten-Zuschnitt) und
+     kürzt nur oben/unten. 0% schneidet oben gar nichts weg und nutzt damit
+     den im Originalfoto bereits vorhandenen Freiraum über dem Kopf der
+     linken Person als Luft nach oben, statt ihn wegzuschneiden – eine
+     Bildbearbeitung war dafür nicht nötig. */
+  object-position: 50% 0%;
+  border-radius: var(--radius-xl);
 }
 
 .about-me-content {
