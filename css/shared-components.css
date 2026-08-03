@@ -80,3 +80,41 @@
   opacity: 1;
   transform: translateX(0);
 }
+
+/* === Sitewide Sales Notice === */
+
+.sitewide-notice {
+  background: var(--amber-soft);
+  border-bottom: 1px solid var(--amber);
+}
+
+.sitewide-notice-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-6);
+  text-align: center;
+}
+
+.sitewide-notice-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--amber-dark);
+}
+
+.sitewide-notice-close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--amber-dark);
+  cursor: pointer;
+  padding: 0 var(--space-2);
+}
+
+.sitewide-notice-close:hover {
+  color: var(--ink);
+}

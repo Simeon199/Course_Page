@@ -277,6 +277,14 @@
   .carousel {
     width: 100%;
   }
+
+  .sitewide-notice-text {
+    font-size: 14px;
+  }
+
+  .sitewide-notice-inner {
+    padding: 10px 16px;
+  }
 }
 
 /* Mobile Extra Small: max-width 400px */

@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHamburger();
   initFaqAccordion();
   initJourneyAnimation();
+  initSalesNotice();
 });
 
 window.addEventListener('scroll', () => {
@@ -300,6 +301,46 @@ function initJourneyAnimation() {
   resetJourneyFallback(path);
   animateJourneyLine(path, fill);
   animateJourneyStops(path.querySelectorAll('.journey-stop'));
+}
+
+// --- Sitewide Sales Notice ---
+
+const SALES_NOTICE_DISMISSED_KEY = 'salesNoticeDismissed';
+
+/**
+ * Builds the dismissible sitewide banner informing visitors that the site
+ * is already public but real course purchases are not enabled yet.
+ * @returns {HTMLElement} The constructed banner element
+ */
+
+function createSalesNotice() {
+  let notice = document.createElement('div');
+  notice.className = 'sitewide-notice';
+  notice.setAttribute('role', 'status');
+  notice.innerHTML = `
+    <div class="sitewide-notice-inner">
+      <span class="sitewide-notice-text">Hinweis: Unsere Website ist bereits online – der Kursverkauf startet jedoch erst in Kürze. Vielen Dank für Ihre Geduld!</span>
+      <button class="sitewide-notice-close" type="button" aria-label="Hinweis schließen">&times;</button>
+    </div>
+  `;
+  return notice;
+}
+
+/**
+ * Shows the sitewide sales notice unless it was already dismissed earlier
+ * in this browser session, and wires up its close button.
+ */
+
+function initSalesNotice() {
+  if (sessionStorage.getItem(SALES_NOTICE_DISMISSED_KEY)) {
+    return;
+  }
+  let notice = createSalesNotice();
+  document.body.prepend(notice);
+  notice.querySelector('.sitewide-notice-close').addEventListener('click', () => {
+    notice.remove();
+    sessionStorage.setItem(SALES_NOTICE_DISMISSED_KEY, 'true');
+  });
 }
 
 // --- Form Validation & Utilities ---
