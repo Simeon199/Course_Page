@@ -1,17 +1,18 @@
 /* Buttons */
 .btn-primary {
   background: var(--amber);
-  color: var(--teal-dark);
+  color: var(--white);
   padding: 10px 24px;
   border-radius: var(--radius-pill);
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s, background 0.2s;
 }
 
 .btn-primary:hover {
+  background: var(--amber-dark);
   transform: scale(1.05);
 }
 
@@ -35,7 +36,7 @@
 
 .hero-btns .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-btn-hover);
 }
 
 .contact-form .btn-primary {
@@ -49,7 +50,7 @@
 
 .contact-form .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-btn-hover);
 }
 
 .contact-form .btn-primary a {
@@ -67,7 +68,7 @@
 
 .final-cta .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-btn-hover);
 }
 
 /* Box Styling */
@@ -80,11 +81,39 @@
 }
 
 .background-dark {
-  background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal-dark) 100%);
+  background: linear-gradient(135deg, var(--ink-deep) 0%, var(--panel-end) 100%);
 }
 
 .background-brand {
-  background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal-dark) 100%);
+  background: linear-gradient(135deg, var(--ink-deep) 0%, var(--panel-end) 100%);
+}
+
+/* Zusätzlicher Glow-Akzent für die breiten, flachen Content-Wrapper-Dark-Panels
+   (Kontrast-/Anspruch-/Erfahrungs-/Abschluss-Sektion) – der lineare Verlauf allein
+   wirkte hier weniger sichtbar als bei Footer/Kontakt-Karte; Farb-Akzente wie bei
+   .contact-card::before sorgen für mehr wahrnehmbare Farbvariation über die Fläche.
+   Bewusst über .content-wrapper skopiert, damit die (bereits helle) .FAQ-item
+   trotz gemeinsamer .background-dark-Klasse unberührt bleibt. */
+.content-wrapper.background-dark,
+.content-wrapper.background-brand {
+  position: relative;
+  overflow: hidden;
+}
+
+.content-wrapper.background-dark::before,
+.content-wrapper.background-brand::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(640px 340px at 12% 0%, rgba(255, 122, 69, 0.22), transparent 60%),
+    radial-gradient(640px 340px at 88% 100%, rgba(95, 216, 206, 0.24), transparent 60%);
+  pointer-events: none;
+}
+
+.content-wrapper.background-dark > .container,
+.content-wrapper.background-brand > .container {
+  position: relative;
 }
 
 .background-light {
@@ -110,7 +139,7 @@
 
 .info-block .generic-p {
   padding: 20px;
-  background: rgba(229, 149, 96, 0.1);
+  background: var(--amber-soft);
   border-left: 4px solid var(--amber);
   border-radius: var(--radius-sm);
   font-weight: 500;
@@ -125,7 +154,7 @@
 
 .testimonial .generic-p {
   font-style: italic;
-  color: #555;
+  color: var(--muted);
 }
 
 /* Webinar Section */
@@ -152,7 +181,7 @@
 
 .price-card {
   background: var(--white);
-  border: 1px solid rgba(23, 48, 27, 0.1);
+  border: 1.5px solid var(--line);
   border-radius: var(--radius-lg);
   padding: 32px 28px;
   display: flex;
@@ -161,7 +190,7 @@
 }
 
 .price-card.active {
-  border: 2px solid var(--teal);
+  border: 2px solid var(--amber);
   box-shadow: var(--shadow-active);
 }
 
@@ -169,18 +198,18 @@
   position: absolute;
   top: -13px;
   left: 28px;
-  background: var(--paper-soft);
-  color: var(--muted);
+  background: var(--muted);
+  color: var(--white);
   font-size: 0.75rem;
   font-weight: 600;
   padding: 5px 12px;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(23, 48, 27, 0.1);
+  border: none;
 }
 
 .price-card.active .price-badge {
-  background: var(--teal);
-  color: white;
+  background: var(--amber);
+  color: var(--white);
   border: none;
 }
 
@@ -192,9 +221,10 @@
 }
 
 .price-value {
+  font-family: 'Outfit', sans-serif;
   font-size: 2.4rem;
-  font-weight: 700;
-  color: var(--teal-dark);
+  font-weight: 800;
+  color: var(--ink);
   margin-bottom: 20px;
 }
 
@@ -235,7 +265,7 @@
 
 .price-features li::before {
   content: '✓';
-  color: var(--teal);
+  color: var(--teal-dark);
   font-weight: 700;
 }
 
@@ -254,7 +284,7 @@
 
 .price-card.active .price-btn {
   background: var(--amber);
-  color: var(--teal-dark);
+  color: var(--white);
 }
 
 .price-card.active .price-btn:hover {
@@ -275,12 +305,18 @@
   border-left: 4px solid var(--amber);
   margin-bottom: 24px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal-dark) 100%);
+  /* Mockup-Look: helle Karte statt Dark-Panel; überschreibt .background-dark gezielt nur hier */
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
 }
 
 .FAQ-item:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-card-hover);
+}
+
+.FAQ-item .title-light {
+  color: var(--ink);
 }
 
 .FAQ-question {
@@ -306,7 +342,7 @@
   width: 24px;
   height: 24px;
   background: var(--amber);
-  color: var(--teal-dark);
+  color: var(--white);
   border-radius: 50%;
   font-weight: 700;
   font-size: 18px;
@@ -355,7 +391,7 @@
 
 /* Webinar Cards (Index-Seite) */
 .webinar-section {
-  background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal-dark) 100%);
+  background: linear-gradient(135deg, var(--ink-deep) 0%, var(--panel-end) 100%);
   padding: var(--space-18) 0;
 }
 
@@ -434,8 +470,8 @@
   display: inline-block;
   margin-top: 8px;
   padding: 12px 24px;
-  background: var(--amber, #E59560);
-  color: var(--teal-dark);
+  background: var(--amber);
+  color: var(--white);
   font-weight: 700;
   font-size: 15px;
   border-radius: var(--radius-pill);
@@ -445,6 +481,6 @@
 }
 
 .webinar-card-btn:hover {
-  background: #D9834A;
+  background: var(--amber-dark);
   transform: translateY(-2px);
 }

@@ -1,16 +1,26 @@
 :root {
-  --ink: #17301B;
-  --teal: #3FB4B4;
-  --teal-deep: #238080; /* Gradient-Start für Panels mit weißem Text (WCAG-AA-tauglich); --teal bleibt für Akzente/Marker hell */
-  --teal-dark: #1C5C5C;
-  --paper: #FAF8F4;
-  --paper-soft: #F0EBE2;
-  --amber: #E59560;
-  --amber-soft: #F7DCC5;
+  /* alternative_style: Token-Werte an new_mockup.html angeglichen; Variablennamen
+     bleiben stabil, damit alle bestehenden Referenzen unverändert funktionieren. */
+  --ink: #1E2321;
+  /* Dunkle Panels bewusst heller & neutraler als new_mockup.html (dort near-black,
+     wirkte auf Nutzer zu dunkel/grünlich) – eigene, von --ink entkoppelte Töne,
+     damit die Fließtextfarbe (--ink) davon unberührt bleibt. Deutlicherer Abstand
+     zwischen Start-/End-Ton + 135deg (statt 160deg), da der Verlauf bei den breiten,
+     eher flachen Panels sonst kaum wahrnehmbar war. */
+  --ink-deep: #2E2C2A;  /* Start-Ton dunkler Panel-Gradienten */
+  --panel-end: #6B6860; /* End-Ton dunkler Panel-Gradienten */
+  --teal: #5FD8CE;      /* entspricht Mockup --turquoise (helle Akzente/Ränder) */
+  --teal-dark: #1F8E85; /* entspricht Mockup --turquoise-deep (Akzenttext: Logo, Eyebrow, Preise) */
+  --paper: #FFFFFF;
+  --paper-soft: #F6F6F4; /* entspricht Mockup --grey-bg */
+  --amber: #FF7A45;      /* entspricht Mockup --orange (CTA/Buttons) */
+  --amber-dark: #E8632E; /* entspricht Mockup --orange-dark (Hover-Zustand) */
+  --amber-soft: rgba(255, 122, 69, 0.14);
   --coral: var(--amber);
-  --sage: #D8F0E0;
+  --sage: rgba(95, 216, 206, 0.14);
+  --line: #E6E2D8;
   --white: #FFFFFF;
-  --muted: #4E6664;
+  --muted: #5B615C; /* entspricht Mockup --ink-soft */
   --accent: var(--teal);
 
   /* Spacing-Skala (vertikaler Rhythmus & Abstände) */
@@ -28,18 +38,19 @@
   --space-20: 80px;
 
   /* Border-Radius (Pill vereinheitlicht 100px/999px) */
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 20px;
-  --radius-xl: 24px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 28px;
   --radius-pill: 999px;
 
-  /* Schatten (aus ~einem Dutzend Einzelwerten auf 4 Familien + Aktiv-Karte reduziert) */
-  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.08);          /* ruhende Karten */
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.15);          /* ruhende Buttons */
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.25);         /* Button-Hover / angehoben */
-  --shadow-card-hover: 0 12px 32px rgba(0, 0, 0, 0.12); /* Karten-Hover-Lift */
-  --shadow-active: 0 16px 40px rgba(63, 180, 180, 0.18);/* aktive Preis-Karte (teal-getönt) */
+  /* Schatten (Werte/Farbton an new_mockup.html angeglichen) */
+  --shadow-sm: 0 12px 30px -18px rgba(30, 35, 33, 0.18);   /* ruhende Karten (Mockup --shadow-card) */
+  --shadow-md: 0 14px 28px -12px rgba(255, 122, 69, 0.45); /* ruhende CTA-Buttons (orange getönt) */
+  --shadow-lg: 0 20px 50px -25px rgba(30, 35, 33, 0.25);   /* große Panels/Karten (Mockup --shadow-soft) */
+  --shadow-btn-hover: 0 18px 32px -12px rgba(255, 122, 69, 0.55); /* CTA-Button-Hover */
+  --shadow-card-hover: 0 18px 40px -18px rgba(30, 35, 33, 0.22);  /* Karten-Hover-Lift */
+  --shadow-active: 0 24px 50px -22px rgba(255, 122, 69, 0.35);    /* hervorgehobene Preis-Karte (orange getönt) */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -70,7 +81,8 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
   background: var(--paper);
   overflow-x: hidden;
   max-width: 1920px;
@@ -79,7 +91,7 @@ body {
 
 a {
   text-decoration: none;
-  color: black;
+  color: inherit;
 }
 
 a:focus-visible,
@@ -93,7 +105,7 @@ button:focus-visible {
    style.css wird von allen Seiten und nach shared-components.css geladen. */
 .generic-p {
   font-size: 18px;
-  color: #333;
+  color: var(--ink);
   text-align: center;
 }
 
@@ -102,19 +114,21 @@ button:focus-visible {
 }
 
 .generic-h2 {
+  font-family: 'Outfit', sans-serif;
   text-align: center;
   font-size: clamp(32px, 5vw, 48px);
   font-weight: 700;
-  letter-spacing: -0.5px;
-  line-height: 1.2;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
   margin-bottom: 40px;
 }
 
 .generic-h3 {
+  font-family: 'Outfit', sans-serif;
   text-align: center;
   font-size: clamp(20px, 3vw, 28px);
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.2;
   margin-bottom: 16px;
 }
 
@@ -123,7 +137,7 @@ button:focus-visible {
 }
 
 .title-light.generic-p {
-  /* Volles Weiß statt 90% – hält AA (4,5:1) auch am hellsten Gradient-Start (--teal-deep) */
+  /* Volles Weiß statt 90% – hält AA (4,5:1) auch am hellsten Punkt des Dark-Panel-Gradienten (--panel-end) */
   color: #fff;
 }
 

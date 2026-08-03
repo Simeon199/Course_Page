@@ -9,10 +9,10 @@
 .hero {
   position: relative;
   min-height: 100dvh;
-  /* Test: exakter Hero-Gradient aus der Homepage_Design-Vorlage */
+  /* Radialer Glow-Hintergrund aus new_mockup.html: Turquoise oben rechts, Orange unten links */
   background:
-    radial-gradient(circle at 82% 18%, var(--amber-soft) 0%, transparent 45%),
-    radial-gradient(circle at 6% 90%, var(--sage) 0%, transparent 40%);
+    radial-gradient(900px 500px at 85% -10%, var(--sage) 0%, transparent 60%),
+    radial-gradient(700px 500px at 5% 10%, var(--amber-soft) 0%, transparent 60%);
   display: flex;
   justify-content: center;
   padding-top: 200px;
@@ -47,16 +47,47 @@
   width: 100%;
   max-width: 700px;
   border-radius: var(--radius-xl);
-  border: 3px solid rgba(229, 149, 96, 0.45);
+  box-shadow: var(--shadow-lg);
   display: block;
 }
 
 .carousel {
+  position: relative;
   flex: 0.9;
   height: 100%;
 }
 
+/* Dekorative Farbkreise hinter dem Hero-Foto (Mockup-Look: .hero-blob) */
+.carousel::before,
+.carousel::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(4px);
+  z-index: 0;
+}
+
+.carousel::before {
+  width: 180px;
+  height: 180px;
+  top: -40px;
+  right: -20px;
+  background: var(--teal);
+  opacity: 0.18;
+}
+
+.carousel::after {
+  width: 140px;
+  height: 140px;
+  bottom: -30px;
+  left: -20px;
+  background: var(--amber);
+  opacity: 0.15;
+}
+
 .carousel-content-wrapper {
+  position: relative;
+  z-index: 1;
   height: 100%;
   display: grid;
   align-content: center;
@@ -76,7 +107,7 @@
 
 .carousel-image {
   border-radius: var(--radius-xl);
-  border: 3px solid rgba(229, 149, 96, 0.45);
+  box-shadow: var(--shadow-lg);
   display: block;
 }
 
@@ -100,15 +131,18 @@
 
 .hero-title {
   /* Base size for large screens (>1350px); stepped down via media_queries.css */
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
   font-size: 72px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
   text-align: left;
   padding-top: 16px;
 }
 
 .hero-title span {
   display: block;
-  color: var(--teal-dark);
-  letter-spacing: 2.6px;
+  color: var(--ink);
 }
 
 .hero-desc {
@@ -127,16 +161,16 @@
   font-size: 18px;
   font-weight: 600;
   background: none;
-  border: 1.5px solid rgba(23, 48, 27, 0.25);
-  color: var(--teal-dark);
+  border: 1.5px solid var(--line);
+  color: var(--ink);
   cursor: pointer;
   display: inline-block;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .btn-secondary:hover {
   transform: translateY(-2px);
-  border-color: var(--teal-dark);
+  background: var(--paper-soft);
 }
 
 /* About Me Section (Card-Duo mit Kennzahlen) */
@@ -160,7 +194,7 @@
 
 .about-me-photo-card {
   background: var(--white);
-  border: 1px solid rgba(23, 48, 27, 0.08);
+  box-shadow: var(--shadow-sm);
   border-radius: 50%;
 }
 
@@ -297,12 +331,28 @@
 }
 
 .contact-card {
+  position: relative;
   max-width: 680px;
   margin: 0 auto;
   padding: 56px 44px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal-dark) 100%);
+  background: linear-gradient(135deg, var(--ink-deep) 0%, var(--panel-end) 100%);
   box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+/* Dekorativer Glow-Verlauf hinter dem Kontakt-Inhalt (Mockup-Look: .contact-box::before) */
+.contact-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(500px 260px at 15% 0%, rgba(255, 122, 69, 0.3), transparent 60%),
+    radial-gradient(500px 260px at 85% 100%, rgba(95, 216, 206, 0.28), transparent 60%);
+}
+
+.contact-card > * {
+  position: relative;
 }
 
 .contact-form {

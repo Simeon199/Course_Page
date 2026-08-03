@@ -1,7 +1,7 @@
 /* === SHARED UTILITY CLASSES === */
 
 * {
-  font-family: 'DM Sans';
+  font-family: 'Inter', sans-serif;
 }
 
 /* Geteilte Typografie (.generic-p/.generic-h2/.generic-h3) lebt jetzt zentral in
@@ -17,12 +17,14 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--white);
-  border: 1px solid rgba(23, 48, 27, 0.1);
-  padding: 6px 14px;
+  background: rgba(95, 216, 206, 0.12);
+  border: none;
+  padding: 8px 16px;
   border-radius: var(--radius-pill);
   font-size: 0.82rem;
   font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--teal-dark);
   margin-bottom: 16px;
 }
@@ -35,9 +37,8 @@
 }
 
 .eyebrow--on-dark {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.28);
-  color: var(--white);
+  background: rgba(95, 216, 206, 0.16);
+  color: var(--teal);
 }
 
 /* === SHARED ANIMATIONS === */

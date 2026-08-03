@@ -123,9 +123,9 @@
     align-items: center;
     gap: 24px;
     padding: 32px 0;
-    background: rgba(250, 248, 244, 0.97);
+    background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(23, 48, 27, 0.08);
+    border-bottom: 1px solid var(--line);
   }
 
   .nav-links.open {
@@ -203,7 +203,7 @@
     top: 80px;
     left: 0;
     right: 0;
-    background: rgba(250, 248, 244, 0.95);
+    background: rgba(255, 255, 255, 0.95);
     padding: 20px;
     gap: 16px;
   }
@@ -241,10 +241,6 @@
 
   .hero-title {
     font-size: 40px;
-  }
-
-  .hero-title span {
-    letter-spacing: 1.6px;
   }
 
   .hero-desc {
