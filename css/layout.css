@@ -102,6 +102,7 @@
      staying in flow — this lets the container derive its height from the image
      (an absolutely positioned slide would contribute 0 height and get clipped). */
   grid-area: 1 / 1;
+  position: relative;
 }
 
 .image-wrapper img {
@@ -112,6 +113,22 @@
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
   display: block;
+}
+
+/* KI-Kennzeichnung: dezentes Pill-Badge, überlagert auf KI-generierten/-bearbeiteten Bildern */
+.ai-image-badge {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  z-index: 2;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(30, 35, 33, 0.65);
+  backdrop-filter: blur(2px);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .fade {
@@ -196,6 +213,7 @@
 }
 
 .about-me-photo-card {
+  position: relative;
   background: var(--white);
   /* Mehrschichtiger Schatten für Tiefe: enger Kontaktschatten (Karte "sitzt"
      auf der Fläche), weicher Umgebungsschatten für Volumen und ein dezent
