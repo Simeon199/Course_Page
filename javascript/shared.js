@@ -114,9 +114,14 @@ function createScrollObserver() {
  * Initializes scroll animations for all elements on the page.
  * Assigns animation classes and observes elements with IntersectionObserver.
  * Triggers animations for elements that are already visible on initial page load.
+ * No-ops on pages without a `.hero` section (e.g. the legal pages), since
+ * those should render without scroll-reveal animations.
  */
 
 function initScrollAnimations() {
+  if (!document.querySelector('.hero')) {
+    return;
+  }
   assignRevealClasses();
   let observer = createScrollObserver();
   document.querySelectorAll('.reveal-left, .reveal-right').forEach(el => {
